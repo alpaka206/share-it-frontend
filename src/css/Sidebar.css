@@ -1,0 +1,24 @@
+/* Sidebar.css */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -300px; /* 왼쪽에서 숨김 */
+  width: 300px; /* 너비 */
+  height: 100%; /* 전체 높이 */
+  background-color: #df1313; /* 배경색 */
+  transition: left 0.3s ease; /* 왼쪽으로 나타나고 사라지는 트랜지션 */
+}
+
+.sidebar.open {
+  left: 0; /* 왼쪽에서 나타남 */
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}

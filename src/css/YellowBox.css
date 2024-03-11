@@ -1,0 +1,27 @@
+/* src/components/YellowBox.css */
+.yellow-box {
+    background-color: yellow;
+    width: 697px;
+    height: 335px;
+    border-radius: 20px;
+    padding: 0px;
+    /*position: relative;*/
+}
+
+.greeting,
+.prompt {
+    /* 공통 CSS */
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.item-count {
+    /* 다른 CSS */
+    font-size: 16px;
+}
+
+.count {
+    /* 다른 CSS */
+    font-size: 24px;
+    color: red; /* 예시로 색상 추가 */
+}
