@@ -12,8 +12,8 @@ function Topnav() {
   };
 
   return (
-    <div className="container">
-      <div className="header">
+    <div className="header">
+      <div className="left-header">
         <img
           src="../assets/menu.svg"
           onClick={toggleMenu}
@@ -29,6 +29,11 @@ function Topnav() {
         </div>
       </div>
       <Sidebar isOpen={isMenuOpen} onClose={toggleMenu} />
+      <div className="right-header">
+        <div>hello</div>
+        <div>hello</div>
+        <div>hello</div>
+      </div>
     </div>
   );
 }
