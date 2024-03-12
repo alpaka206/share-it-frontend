@@ -1,12 +1,17 @@
 /* Topnav.css */
 
-.header {
+.nav_top {
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
+.nav_bottom {
+  margin-top: 10px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
 .left-header {
   display: flex;
   justify-content: space-between;
@@ -30,20 +35,4 @@
 
 .logo {
   max-width: 100%; /* 로고 이미지가 컨테이너를 넘어서지 않도록 함 */
-}
-
-/* Sidebar.css */
-
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: -300px; /* 왼쪽에서 숨김 */
-  width: 300px; /* 너비 */
-  height: 100%; /* 전체 높이 */
-  background-color: #f0f0f0; /* 배경색 */
-  transition: left 0.3s ease; /* 왼쪽으로 나타나고 사라지는 트랜지션 */
-}
-
-.sidebar.open {
-  left: 0; /* 왼쪽에서 나타남 */
 }

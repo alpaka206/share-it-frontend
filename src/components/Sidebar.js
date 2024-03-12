@@ -2,6 +2,7 @@
 
 import React from "react";
 import "../css/Sidebar.css";
+import PublicSideMenu from "./PublicSideMenu";
 
 function Sidebar({ isOpen, onClose }) {
   return (
@@ -9,7 +10,26 @@ function Sidebar({ isOpen, onClose }) {
       <button className="close-btn" onClick={onClose}>
         X
       </button>
-      {/* sidebar 내용 */}
+      <PublicSideMenu
+        Menu_Text="알림"
+        Menu_Image={`assets/alert.svg`}
+      ></PublicSideMenu>
+      <PublicSideMenu
+        Menu_Text="알림"
+        Menu_Image={`assets/alert.svg`}
+      ></PublicSideMenu>
+      <PublicSideMenu
+        Menu_Text="알림"
+        Menu_Image={`assets/alert.svg`}
+      ></PublicSideMenu>
+      <PublicSideMenu
+        Menu_Text="알림"
+        Menu_Image={`assets/alert.svg`}
+      ></PublicSideMenu>
+      <PublicSideMenu
+        Menu_Text="알림"
+        Menu_Image={`assets/alert.svg`}
+      ></PublicSideMenu>
     </div>
   );
 }
