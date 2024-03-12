@@ -1,0 +1,66 @@
+.product-box {
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 335px;
+    height: 335px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-right: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 150px;
+    border-radius: 10px;
+}
+
+.product-details {
+    display: flex;
+    flex-direction: column;
+    margin-top: 180px;
+    justify-content: space-between;
+}
+
+.product-info {
+    width: 335px;
+    display: flex;
+    align-items: center;
+}
+
+.product {
+    text-align: left;
+}
+
+.price,
+.rental-days {
+    margin-right: 5px;
+}
+
+.heart-red {
+    color: red;
+    cursor: pointer;
+}
+
+.heart-gray {
+    color: gray;
+    cursor: pointer;
+}
+
+.heart-container {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.heart-container span {
+    margin-left: 5px;
+}
