@@ -2,6 +2,16 @@
   height: 40px;
   position: relative;
   display: flex;
-  justify-content: space-between;
-  align-items: left;
+  align-items: center;
+  padding: 12px 16px;
+  border-radius: 100px;
+  border: none;
+  /* margin-left: 20px; */
+}
+.PublicButton img {
+  margin-right: 2px;
+}
+
+.PublicButton div {
+  margin-left: 2px;
 }
