@@ -1,12 +1,16 @@
 .search-container {
+  position: relative; /* 상대적인 위치 설정 */
   height: 40px;
   width: 230px;
-  position: relative;
   display: flex;
   align-items: center;
   padding: 0px 20px;
   border-radius: 100px;
   background-color: rgba(221, 221, 221, 0.4);
+}
+.search-content {
+  position: relative;
+  margin-bottom: 10px;
 }
 
 .search-input {
@@ -14,11 +18,13 @@
   border: none;
   font-size: 14px;
   padding: 0;
-  margin: 0;
   background-color: transparent;
   outline: none;
 }
-
 .search-icon {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
   cursor: pointer;
 }
