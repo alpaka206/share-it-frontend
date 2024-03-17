@@ -1,5 +1,6 @@
 // Autoword.js
 import React, { useState, useEffect } from "react";
+import "../css/Autoword.css";
 
 const Autoword = ({ keyword }) => {
   const [keyItems, setKeyItems] = useState([]);
@@ -28,11 +29,13 @@ const Autoword = ({ keyword }) => {
   }, [keyword]);
 
   return (
-    <div className="auto-complete" style={{ width: "230px" }}>
+    <div className="auto-complete-container">
       {keyItems.length > 0 && (
         <div className="auto-complete">
           {keyItems.map((item) => (
-            <div key={item.city}>{item.city}</div>
+            <div key={item.city} className="auto-complete-item">
+              {item.city}
+            </div>
           ))}
         </div>
       )}
