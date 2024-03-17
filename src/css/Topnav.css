@@ -1,19 +1,30 @@
+/* Topnav.css */
+
 .header {
+  margin-top: 50px;
   padding-bottom: 20px;
 }
+
 .nav_top {
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-left: 18px;
+  margin-right: 18px;
 }
+
 .nav_bottom {
   margin-top: 10px;
   position: relative;
   display: flex;
   align-items: center;
+  margin-left: 18px;
+  margin-right: 18px;
 }
+
 .left-header {
+  margin-left: 10px;
   display: flex;
   justify-content: space-between;
   align-items: left;
@@ -25,15 +36,21 @@
   align-items: center;
 }
 
+.left-header > *:not(:last-child),
+.right-header > *:not(:last-child),
+.nav_bottom > *:not(:last-child) {
+  margin-right: 16px;
+}
+
 .menu-icon {
   cursor: pointer;
 }
 
 .logo-container {
-  flex-grow: 1; /* 로고 컨테이너가 헤더의 남은 공간을 모두 차지하도록 함 */
-  text-align: right; /* 로고를 오른쪽 정렬 */
+  flex-grow: 1;
+  text-align: right;
 }
 
 .logo {
-  max-width: 100%; /* 로고 이미지가 컨테이너를 넘어서지 않도록 함 */
+  max-width: 100%;
 }
