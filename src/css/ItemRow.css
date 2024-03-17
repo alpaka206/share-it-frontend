@@ -1,11 +1,11 @@
 .item-row-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .product-card-wrapper {
-    flex: 1;
-    max-width: 30%;
+  flex: 1;
+  max-width: 30%;
 }

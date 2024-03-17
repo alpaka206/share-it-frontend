@@ -1,10 +1,8 @@
-// Topnav.js
-
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Sidebar from "./Sidebar";
 import "../css/Topnav.css";
 import PublicButton from "./PublicButton";
-
+import SearchContainer from "./SearchContainer";
 function Topnav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -32,6 +30,7 @@ function Topnav() {
         </div>
         <Sidebar isOpen={isMenuOpen} onClose={toggleMenu} />
         <div className="right-header">
+          <SearchContainer />
           <PublicButton
             Button_Text="알림"
             Button_Image={`assets/alert.svg`}
@@ -46,6 +45,10 @@ function Topnav() {
         <PublicButton
           Button_Text="홈"
           Button_Image={`assets/home.svg`}
+        ></PublicButton>
+        <PublicButton
+          Button_Text="통합검색"
+          Button_Image={`assets/Search.svg`}
         ></PublicButton>
         <PublicButton
           Button_Text="빌리기"

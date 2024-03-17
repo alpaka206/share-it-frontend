@@ -6,6 +6,7 @@
   padding: 12px 16px;
   border-radius: 100px;
   border: none;
+  background-color: rgba(221, 221, 221, 0.4);
   /* margin-left: 20px; */
 }
 .PublicButton img {
