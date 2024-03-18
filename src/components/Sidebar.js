@@ -30,7 +30,7 @@ function Sidebar({ isOpen, onClose }) {
           className="logo"
         />{" "}
         <button className="close-btn" onClick={onClose}>
-          <img src={process.env.PUBLIC_URL + "/assets/x.svg"} alt="Close" />
+          <img src={process.env.PUBLIC_URL + "/assets/close.svg"} alt="Close" />
         </button>
       </div>
       <div className="home-group">
@@ -44,7 +44,7 @@ function Sidebar({ isOpen, onClose }) {
         <PublicSideMenu
           Menu_Text="통합 검색"
           Menu_Link="/search"
-          Menu_Image={`assets/Search.svg`}
+          Menu_Image={`assets/search.svg`}
           isActive={activeMenuLink === "/search"}
           onClick={() => handleMenuClick("/search")}
         />
@@ -61,14 +61,14 @@ function Sidebar({ isOpen, onClose }) {
         <PublicSideMenu
           Menu_Text="빌려주기"
           Menu_Link="/lend"
-          Menu_Image={`assets/borrow.svg`}
+          Menu_Image={`assets/lend.svg`}
           isActive={activeMenuLink === "/lend"}
           onClick={() => handleMenuClick("/lend")}
         />
         <PublicSideMenu
           Menu_Text="필요해요"
           Menu_Link="/need"
-          Menu_Image={`assets/lend.svg`}
+          Menu_Image={`assets/need.svg`}
           isActive={activeMenuLink === "/need"}
           onClick={() => handleMenuClick("/need")}
         />
@@ -78,9 +78,9 @@ function Sidebar({ isOpen, onClose }) {
         <PublicSideMenu
           Menu_Text="평가하기"
           Menu_Link="/evaluate"
-          Menu_Image={`assets/evaluate.svg`}
-          isActive={activeMenuLink === "/evaluate"}
-          onClick={() => handleMenuClick("/evaluate")}
+          Menu_Image={`assets/rate.svg`}
+          isActive={activeMenuLink === "/rate"}
+          onClick={() => handleMenuClick("/rate")}
         />
         <PublicSideMenu
           Menu_Text="마이페이지"

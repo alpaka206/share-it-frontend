@@ -60,7 +60,7 @@ function Topnav() {
           Button_Text="통합검색"
           Button_Image={`assets/Search.svg`}
         />
-        <PublicButton Button_Text="빌리기" Button_Image={`assets/borrow.svg`} />
+        <PublicButton Button_Text="빌리기" Button_Image={`assets/need.svg`} />
         <PublicButton Button_Text="필요해요" Button_Image={`assets/lend.svg`} />
       </div>
     </div>
