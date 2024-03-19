@@ -67,6 +67,7 @@
     right: 29px;
     color: #2a2a2a;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .circle {
@@ -118,4 +119,10 @@
 .item.active {
     background-color: #2a2a2a;
     color: white;
+}
+
+.footer-content img:hover {
+    content: url('../../public/assets/arrow_circle_hover.svg');
+    width: 20px;
+    height: 20px;
 }
