@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'; // Importing useNavigate from react-router-dom
 import '../../css/PurpleBox.css';
 
 const PurpleBox = () => {
     const [currentItemIndex, setCurrentItemIndex] = useState(0);
     const [isHovered, setIsHovered] = useState(false);
+    const navigate = useNavigate(); // Using useNavigate for programmatic navigation
 
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -22,6 +24,10 @@ const PurpleBox = () => {
 
     const handleItemLeave = () => {
         setIsHovered(false);
+    };
+
+    const handleNavigateToNeedPage = () => {
+        navigate('/need'); // Navigating to '/need' page when clicked on "필요한 물건 문의하러 가기"
     };
 
     return (
@@ -48,9 +54,9 @@ const PurpleBox = () => {
             </div>
 
             <div className="footer">
-                <div className="footer-content">
+                <div className="footer-content" onClick={handleNavigateToNeedPage}>
                     <span>필요한 물건 문의하러 가기 </span>
-                    <img src="/assets/arrow_circle.svg" alt="Footer Icon" />
+                    <img src="/assets/arrow_circle.svg" alt="Footer Icon" onMouseEnter={handleItemHover} width={20} />
                 </div>
             </div>
         </div>

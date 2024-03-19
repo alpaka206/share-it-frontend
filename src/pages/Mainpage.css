@@ -4,6 +4,7 @@
     text-align: center;
     margin: 0 auto;
     display: flex;
+    margin-bottom: 100px;
     flex-direction: column;
 }
 .semi_container {
@@ -24,6 +25,18 @@
     font-size: 32px;
 }
 
-.footer {
-    margin-top: auto;
+.lend-more {
+    margin-top: 15px;
+    margin-bottom: 26px;
+    font-size: 24px;
+    text-align: right;
+    font-weight: bold;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.lend-more img:hover {
+    content: url('../../public/assets/arrow_circle_hover.svg');
+    width: 26px;
+    height: 26px;
 }
