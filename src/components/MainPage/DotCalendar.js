@@ -5,27 +5,69 @@ import "../../css/DotCalendar.css";
 
 function DotCalendar() {
   const [value, onChange] = useState(new Date());
-  const [hoveredDate, setHoveredDate] = useState(null); // 호버된 날짜 상태 추가
+  const [hoveredDate, setHoveredDate] = useState(null);
 
-  const checkDayProducts = {
-    "2024-03-09": {
-      name: "상품명1",
-      imageUrl: "상품1 이미지 URL",
-      rentalDate: "2024-03-09",
-    },
-    "2024-03-02": {
-      name: "상품명2",
-      imageUrl: "상품2 이미지 URL",
-      rentalDate: "2024-03-02",
-    },
-    // 다른 날짜와 상품 정보 추가
-  };
-
-  const dateColors = {
-    "2024-03-09": "#13F287",
-    "2024-03-02": "#A191DE",
-    // 다른 날짜와 색상들 추가
-  };
+  // 날짜와 상품 정보를 매핑한 Map
+  const checkDayProducts = new Map([
+    [
+      "2024-03-01",
+      [
+        {
+          id: 1,
+          name: "상품명1",
+          imageUrl: "상품1 이미지 URL",
+          rentalDate: "2024-03-01",
+          type: "start", // 시작일
+        },
+        {
+          id: 2,
+          name: "상품명2",
+          imageUrl: "상품2 이미지 URL",
+          rentalDate: "2024-03-01",
+          type: "end", // 종료일
+        },
+        {
+          id: 8,
+          name: "상품명5",
+          imageUrl: "상품5 이미지 URL",
+          rentalDate: "2024-03-01",
+          type: "start", // 시작일
+        },
+      ],
+    ],
+    [
+      "2024-03-06",
+      [
+        {
+          id: 3,
+          name: "상품명1",
+          imageUrl: "상품4 이미지 URL",
+          rentalDate: "2024-03-06",
+          type: "start", // 시작일
+        },
+      ],
+    ],
+    [
+      "2024-03-09",
+      [
+        {
+          id: 4,
+          name: "상품명2",
+          imageUrl: "상품5 이미지 URL",
+          rentalDate: "2024-03-09",
+          type: "end", // 종료일
+        },
+        {
+          id: 5,
+          name: "상품명3",
+          imageUrl: "상품6 이미지 URL",
+          rentalDate: "2024-03-09",
+          type: "start", // 시작일
+        },
+      ],
+    ],
+    // 다른 상품 정보 추가
+  ]);
 
   return (
     <div>
@@ -43,40 +85,42 @@ function DotCalendar() {
         prev2Label={null}
         tileClassName={({ date }) => {
           const dateString = moment(date).format("YYYY-MM-DD");
-          const isCheckDay = dateString in checkDayProducts;
-          return isCheckDay ? "checkDayTile" : "";
-        }}
-        onMouseOver={({ date }) => {
-          const dateString = moment(date).format("YYYY-MM-DD");
-          setHoveredDate(dateString);
-        }}
-        onMouseOut={() => {
-          setHoveredDate(null);
+          return checkDayProducts.has(dateString) ? "checkDayTile" : "";
         }}
         tileContent={({ date }) => {
           const dateString = moment(date).format("YYYY-MM-DD");
-          const dotColor = dateColors[dateString];
-          const isCheckDay = dateString in checkDayProducts;
-          return isCheckDay ? (
-            <div
-              className="Checkdayhover"
-              onMouseEnter={() => setHoveredDate(dateString)} // 호버 이벤트 핸들러 추가
-              onMouseLeave={() => setHoveredDate(null)} // 호버 떠남 이벤트 핸들러 추가
-            >
-              <div className="dot" style={{ backgroundColor: dotColor }} />
-            </div>
-          ) : null;
+          const products = checkDayProducts.get(dateString);
+          if (products && products.length > 0) {
+            return products.map((product, index) => (
+              <div
+                key={`${dateString}-${product.id}`}
+                className="Checkdayhover"
+                onMouseEnter={() => setHoveredDate(dateString)}
+                onMouseLeave={() => setHoveredDate(null)}
+              >
+                <div
+                  className={`Checkdayhover dot ${product.type}`}
+                  style={{
+                    backgroundColor:
+                      product.type === "start" ? "#13F287" : "#FF5733",
+                  }}
+                />
+              </div>
+            ));
+          }
+          return null;
         }}
       />
-      {/* 호버된 날짜가 존재하고 해당 날짜의 상품 정보가 있을 경우에만 안내 메시지 표시 */}
-      {hoveredDate && checkDayProducts[hoveredDate] && (
+
+      {hoveredDate && (
         <div className="hover-content">
-          <div>{checkDayProducts[hoveredDate].name}</div>
-          <div>{checkDayProducts[hoveredDate].rentalDate}</div>
-          <img
-            src={checkDayProducts[hoveredDate].imageUrl}
-            alt={checkDayProducts[hoveredDate].name}
-          />
+          {checkDayProducts.get(hoveredDate).map((product, index) => (
+            <div key={`${hoveredDate}-${product.id}`}>
+              <div>{product.name}</div>
+              <div>{product.rentalDate}</div>
+              <img src={product.imageUrl} alt={product.name} />
+            </div>
+          ))}
         </div>
       )}
     </div>
