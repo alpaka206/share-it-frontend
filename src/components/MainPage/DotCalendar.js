@@ -15,7 +15,7 @@ function DotCalendar() {
         {
           id: 1,
           name: "상품명1",
-          imageUrl: "상품1 이미지 URL",
+          imageUrl: "./assets/example.png",
           rentalDate: "2024-03-01",
           type: "start", // 시작일
         },
@@ -74,7 +74,7 @@ function DotCalendar() {
       <Calendar
         onChange={onChange}
         value={value}
-        calendarType="US"
+        calendarType="gregory"
         minDetail="month"
         maxDetail="month"
         showNeighboringMonth={false}
