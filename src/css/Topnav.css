@@ -2,6 +2,8 @@
 
 .header {
   margin-top: 50px;
+  display: flex;
+  flex-direction: column;
   padding-bottom: 20px;
 }
 
@@ -53,4 +55,10 @@
 
 .logo {
   max-width: 100%;
+}
+.login-register {
+  position: absolute;
+  top: 12%;
+  right: 16%;
+  z-index: 1;
 }

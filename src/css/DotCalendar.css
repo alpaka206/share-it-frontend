@@ -16,7 +16,7 @@
   transform: translate(-50%, -50%); /* 중앙 정렬 */
   width: 40px; /* 날짜의 크기와 동일하게 설정 */
   height: 40px; /* 날짜의 크기와 동일하게 설정 */
-  z-index: 1; /* 다른 요소에 가려지지 않도록 설정 */
+  /* 다른 요소에 가려지지 않도록 설정 */
 }
 .react-calendar,
 .react-calendar *,
@@ -111,6 +111,15 @@
   top: 70%;
   left: 50%;
   transform: translateX(-50%);
+}
+.dot.start {
+  background-color: #13f287; /* 시작일은 초록색 */
+  left: 40%; /* 시작일의 점을 왼쪽으로 이동 */
+}
+
+.dot.end {
+  background-color: #ff5733; /* 종료일은 주황색 */
+  left: 60%; /* 종료일의 점을 오른쪽으로 이동 */
 }
 
 .hover-content {

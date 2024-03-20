@@ -38,7 +38,7 @@ function SearchContainer() {
         }}
       />
       <img
-        src="../assets/Search.svg"
+        src={process.env.PUBLIC_URL + `/assets/Search.svg`}
         alt="search"
         className="search-icon"
         onClick={handleSearch}
