@@ -27,7 +27,7 @@
   margin-top: 16px;
 }
 
-input {
+.id-input-row input {
   width: 300px; /* 입력창의 너비를 조정하세요. */
   height: 40px;
   padding: 8px;
@@ -35,7 +35,14 @@ input {
   border-radius: 8px;
   font-size: 16px;
 }
-
+.pw-input-row input {
+  width: 300px; /* 입력창의 너비를 조정하세요. */
+  height: 40px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
 .bottom-row {
   margin-top: 16px;
   display: flex;
