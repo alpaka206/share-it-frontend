@@ -4,12 +4,13 @@ import "../css/Topnav.css";
 import PublicButton from "./PublicButton";
 import SearchContainer from "./SearchContainer";
 import LoginRegisterPrev from "./LoginRegisterPrev";
+import { useNavigate } from "react-router-dom";
 
 function Topnav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showLoginRegister, setShowLoginRegister] = useState(false);
-
+  const navigate = useNavigate();
   const loginRegisterRef = useRef(null); // Ref for login-register element
 
   const toggleMenu = () => {
@@ -35,6 +36,9 @@ function Topnav() {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+  const handleButtonClick = (menuLink) => {
+    navigate(menuLink);
+  };
 
   return (
     <div className="header">
@@ -57,7 +61,11 @@ function Topnav() {
         <Sidebar isOpen={isMenuOpen} onClose={toggleMenu} />
         <div className="right-header">
           <SearchContainer />
-          <PublicButton Button_Text="알림" Button_Image={`assets/alert.svg`} />
+          <PublicButton
+            Button_Text="채팅"
+            Button_Image={`assets/chat.svg`}
+            onClick={() => handleButtonClick("/Chat")}
+          />
           {isLoggedIn ? (
             <PublicButton
               Button_Text="마이페이지"
