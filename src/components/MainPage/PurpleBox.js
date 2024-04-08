@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'; // Importing useNavigate from react-router-dom
+import { useNavigate } from 'react-router-dom';
 import '../../css/PurpleBox.css';
 
 const PurpleBox = () => {
     const [currentItemIndex, setCurrentItemIndex] = useState(0);
     const [isHovered, setIsHovered] = useState(false);
-    const navigate = useNavigate(); // Using useNavigate for programmatic navigation
+    const navigate = useNavigate();
 
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -26,8 +26,9 @@ const PurpleBox = () => {
         setIsHovered(false);
     };
 
-    const handleNavigateToNeedPage = () => {
-        navigate('/need'); // Navigating to '/need' page when clicked on "필요한 물건 문의하러 가기"
+    const handleButtonClick = () => {
+        navigate('/needlist');
+        window.scrollTo(0, 0);
     };
 
     return (
@@ -53,10 +54,10 @@ const PurpleBox = () => {
                 ))}
             </div>
 
-            <div className="footer">
-                <div className="footer-content" onClick={handleNavigateToNeedPage}>
-                    <span>필요한 물건 문의하러 가기 </span>
-                    <img src="/assets/arrow_circle.svg" alt="Footer Icon" onMouseEnter={handleItemHover} width={20} />
+            <div className="move">
+                <div className="page-move" onClick={handleButtonClick}>
+                    <span>필요해요 게시판 바로가기 </span>
+                    <img src="/assets/arrow_circle.svg" alt="Footer Icon" width={20} />
                 </div>
             </div>
         </div>

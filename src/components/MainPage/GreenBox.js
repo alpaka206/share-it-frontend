@@ -1,28 +1,27 @@
-import React from "react";
-import "../../css/GreenBox.css";
-import { CircularProgressBar } from "@tomik23/react-circular-progress-bar";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import '../../css/GreenBox.css';
 
 const GreenBox = () => {
-  return (
-    <div className="green-box">
-      <span className="level">Lv. 5</span>
-      <span className="description">거래 온도가 매우 높아요.</span>
-      <span className="sub-description">따뜻한 giver시네요!</span>
-      <div className="circular-progress-bar-container">
-        <CircularProgressBar
-          percent={80}
-          colorCircle="white"
-          colorSlice="black"
-          stroke={10}
-          strokeBottom={10}
-          round={false}
-          cut={60}
-          rotation={200}
-          fontSize="0"
-        ></CircularProgressBar>
-      </div>
-    </div>
-  );
+    const navigate = useNavigate();
+
+    const handleButtonClick = () => {
+        navigate('/need');
+        window.scrollTo(0, 0);
+    };
+
+    return (
+        <div className="green-box">
+            <span className="description">찾으시는 물건이</span>
+            <span className="sub-description">없나요?</span>
+            <div className="move">
+                <div className="page-move" onClick={handleButtonClick}>
+                    <span>물건 요청하러 가기 </span>
+                    <img src="/assets/arrow_circle.svg" alt="Footer Icon" width={20} />
+                </div>
+            </div>
+        </div>
+    );
 };
 
 export default GreenBox;

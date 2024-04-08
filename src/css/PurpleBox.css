@@ -61,15 +61,6 @@
     color: #2a2a2a;
 }
 
-.footer {
-    position: absolute;
-    bottom: 21px;
-    right: 29px;
-    color: #2a2a2a;
-    font-weight: bold;
-    cursor: pointer;
-}
-
 .circle {
     display: flex;
     justify-content: center;
@@ -96,17 +87,6 @@
     flex-shrink: 0;
 }
 
-.footer-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.footer-content img {
-    width: 20px;
-    height: 20px;
-    margin-left: 5px;
-}
 .item.active .circle {
     background-color: white;
     color: #2a2a2a;
@@ -119,10 +99,4 @@
 .item.active {
     background-color: #2a2a2a;
     color: white;
-}
-
-.footer-content img:hover {
-    content: url('../../public/assets/arrow_circle_hover.svg');
-    width: 20px;
-    height: 20px;
 }

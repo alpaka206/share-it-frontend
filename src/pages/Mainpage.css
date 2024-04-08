@@ -40,3 +40,14 @@
     width: 26px;
     height: 26px;
 }
+
+.preview {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2.7vw;
+    padding-bottom: 2vh;
+    margin: 0 auto;
+}
