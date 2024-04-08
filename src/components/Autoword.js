@@ -1,5 +1,7 @@
 // Autoword.js
 import React, { useState, useEffect } from "react";
+import axios from "axios";
+import wordData from "../data/wordData";
 import "../css/Autoword.css";
 
 const Autoword = ({ keyword }) => {
@@ -7,34 +9,26 @@ const Autoword = ({ keyword }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const res = await fetch(
-          `https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json`
-        );
-        const data = await res.json();
-        const filteredData = data
-          .filter((list) => list.city.includes(keyword))
+      if (keyword.trim() !== "") {
+        const filteredData = wordData
+          .filter((item) => item.includes(keyword))
           .slice(0, 10);
         setKeyItems(filteredData);
-      } catch (error) {
-        console.error("에러 발생:", error);
+      } else {
+        setKeyItems([]); // 검색어가 비어있을 경우 목록 초기화
       }
     };
 
-    if (keyword.trim() !== "") {
-      fetchData();
-    } else {
-      setKeyItems([]); // 검색어가 비어있을 경우 목록 초기화
-    }
+    fetchData();
   }, [keyword]);
 
   return (
     <div className="auto-complete-container">
       {keyItems.length > 0 && (
         <div className="auto-complete">
-          {keyItems.map((item) => (
-            <div key={item.city} className="auto-complete-item">
-              {item.city}
+          {keyItems.map((item, index) => (
+            <div key={index} className="auto-complete-item">
+              {item}
             </div>
           ))}
         </div>

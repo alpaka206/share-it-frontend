@@ -24,10 +24,11 @@ function SearchContainer() {
   const handleSearch = async () => {
     try {
       if (searchTerm.trim() !== "") {
-        const response = await axios.get("https://example.com/api/search");
-        console.log("검색어:", searchTerm);
-        // 검색 결과 처리 로직
-        updateRecentSearches(searchTerm); // 최근 검색어 업데이트
+        // POST 요청을 보냄
+        // await axios.post("https://example.com/api/shareit", { searchTerm });
+
+        // 최근 검색어 업데이트
+        updateRecentSearches(searchTerm);
       }
     } catch (error) {
       console.error("에러 발생:", error);
@@ -40,7 +41,11 @@ function SearchContainer() {
     setRecentSearches(updatedSearches);
     localStorage.setItem("recentSearches", JSON.stringify(updatedSearches));
   };
-
+  const handleDelete = (index) => {
+    const updatedSearches = recentSearches.filter((_, i) => i !== index);
+    setRecentSearches(updatedSearches);
+    localStorage.setItem("recentSearches", JSON.stringify(updatedSearches));
+  };
   return (
     <div className="search-container">
       <input
@@ -62,7 +67,8 @@ function SearchContainer() {
         onClick={handleSearch}
       />
       <Autoword keyword={searchTerm} />
-      <SearchHistory searches={recentSearches} /> {/* 최근 검색어 표시 */}
+      <SearchHistory searches={recentSearches} onDelete={handleDelete} />{" "}
+      {/* 최근 검색어 표시 */}
     </div>
   );
 }
