@@ -23,11 +23,7 @@ const ProductCard = ({ productData }) => {
     };
 
     const formatRentalDays = (rentalDays) => {
-        if (rentalDays.nights === 0) {
-            return `${rentalDays.days}일`;
-        } else {
-            return `${rentalDays.nights}박 ${rentalDays.days}일`;
-        }
+        return `${rentalDays.days}일`;
     };
 
     const handleHeartClick = () => {
@@ -46,9 +42,7 @@ const ProductCard = ({ productData }) => {
             </div>
             <div className="product-details">
                 <h3 className="product">{productData.name}</h3>
-                <p className="product">
-                    {productData.location} · {calculateTimeDiff(productData.createdAt, new Date())}
-                </p>
+                <p className="product">{calculateTimeDiff(productData.createdAt, new Date())}</p>
                 <div className="product-info">
                     <span className="price">{`${productData.price.toLocaleString()}원 /`}</span>
                     <span className="rental-days">{formatRentalDays(productData.rentalDays)}</span>
