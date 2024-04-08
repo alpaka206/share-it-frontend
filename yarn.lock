@@ -2440,13 +2440,6 @@
   dependencies:
     "@babel/runtime" "^7.12.5"
 
-"@tomik23/react-circular-progress-bar@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.npmjs.org/@tomik23/react-circular-progress-bar/-/react-circular-progress-bar-1.1.1.tgz"
-  integrity sha512-eZZfjdk7tJGNA/eZydBxMO5VPy36daJU4XqAJJeYNQ6LkHfp2e/1cbGV3bC1YTF/gN4Fnl+tmZ3O7jzAzVvYdw==
-  dependencies:
-    prop-types "^15.7.2"
-
 "@tootallnate/once@1":
   version "1.1.2"
   resolved "https://registry.npmjs.org/@tootallnate/once/-/once-1.1.2.tgz"
@@ -9472,7 +9465,7 @@ prop-types-extra@^1.1.0:
     react-is "^16.3.2"
     warning "^4.0.0"
 
-prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2, prop-types@^15.8.1:
+prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==

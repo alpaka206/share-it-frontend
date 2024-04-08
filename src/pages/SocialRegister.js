@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import '../css/Register.css';
+import '../css/SocialRegister.css';
 
 const Register = () => {
     const navigate = useNavigate();
@@ -158,54 +158,7 @@ const Register = () => {
                     <button onClick={(e) => handleNext(e, secondDivRef)}>시작하기</button>
                     <p className="hello">hello</p>
                 </div>
-                <div ref={secondDivRef}>
-                    <p>먼저, 아이디를 알려주세요.</p>
-                    <input
-                        type="text"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                        placeholder="아이디 입력..."
-                    />
-                    <img src="/assets/delete_red.svg" alt="reset" onClick={() => handleReset(setUsername)} />
-                    <p>{usernameError}</p>
-                    <p>아이디는 8-15자, 소문자 영어, 숫자만 사용할 수 있어요.</p>
-                    <button onClick={(e) => handleNext(e, thirdDivRef)}>다음으로</button>
-                    <p className="hello">hello</p>
-                </div>
-                <div ref={thirdDivRef}>
-                    <p>비밀번호를 작성해주세요.</p>
-                    <input
-                        type={showPassword ? 'text' : 'password'}
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        placeholder="비밀번호 입력..."
-                    />
-                    <img src="/assets/delete_red.svg" alt="reset" onClick={() => handleReset(setPassword)} />
-                    <img
-                        src="/assets/show_password.svg"
-                        alt="show password"
-                        onMouseEnter={() => setShowPassword(true)}
-                        onMouseLeave={() => setShowPassword(false)}
-                    />
 
-                    <p>비밀번호를 재확인해주세요.</p>
-                    <input
-                        type={showConfirmPassword ? 'text' : 'password'}
-                        value={confirmPassword}
-                        onChange={handleConfirmPassword}
-                        placeholder="비밀번호 재확인"
-                    />
-                    <img src="/assets/delete_red.svg" alt="reset" onClick={() => handleReset(setConfirmPassword)} />
-                    <img
-                        src="/assets/show_password.svg"
-                        alt="show password"
-                        onMouseEnter={() => setShowConfirmPassword(true)}
-                        onMouseLeave={() => setShowConfirmPassword(false)}
-                    />
-                    <p>{validatePassword()}</p>
-                    <button onClick={(e) => handleNext(e, fourthDivRef)}>다음으로</button>
-                    <p className="hello">hello</p>
-                </div>
                 <div ref={fourthDivRef}>
                     <p>
                         거의 다 왔어요!

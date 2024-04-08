@@ -1,20 +1,31 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Mainpage.css';
 import Topnav from '../components/Topnav';
 import YellowBox from '../components/MainPage/YellowBox';
-import GreenBox from '../components/MainPage/GreenBox';
 import DotCalendar from '../components/MainPage/DotCalendar';
+import GreenBox from '../components/MainPage/GreenBox';
 import PurpleBox from '../components/MainPage/PurpleBox';
 import Footer from '../components/Footer';
 import ItemRow from '../components/MainPage/ItemRow';
+import RecentTrade from '../components/MainPage/RecentTrade';
+import GradePreview from '../components/MainPage/GradePreview';
 
 function Mainpage() {
     const navigate = useNavigate(); // Initialize useNavigate hook
+    const [isHovered, setIsHovered] = useState(false);
 
-    // Function to handle click event on "더보기" link
     const handleMoreClick = () => {
-        navigate('/register'); // Redirect to register page
+        navigate('/lend');
+        window.scrollTo(0, 0);
+    };
+
+    const handleMouseEnter = () => {
+        setIsHovered(true);
+    };
+
+    const handleMouseLeave = () => {
+        setIsHovered(false);
     };
 
     return (
@@ -34,9 +45,23 @@ function Mainpage() {
                 <ItemRow />
             </div>
 
-            <div className="lend-more" onClick={handleMoreClick}>
+            <div
+                className="lend-more"
+                onClick={handleMoreClick}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+            >
                 <span style={{ verticalAlign: 'middle' }}>더보기 </span>
-                <img src="/assets/arrow_circle.svg" alt="Lend More" width={26} style={{ verticalAlign: 'middle' }} />
+                <img
+                    src={isHovered ? '/assets/arrow_circle_hover.svg' : '/assets/arrow_circle.svg'}
+                    alt="Lend More"
+                    width={26}
+                    style={{ verticalAlign: 'middle' }}
+                />
+            </div>
+            <div className="preview">
+                <GradePreview className="GradePreview" />
+                <RecentTrade className="RecentTrade" />
             </div>
 
             <Footer />

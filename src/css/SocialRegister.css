@@ -1,0 +1,12 @@
+.register-container {
+    width: 70vw;
+    height: 100vh;
+    text-align: center;
+    margin: 0 auto;
+    display: flex;
+    margin-bottom: 100px;
+    flex-direction: column;
+}
+.hello {
+    height: 1000px;
+}

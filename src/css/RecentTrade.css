@@ -1,5 +1,5 @@
-.green-box {
-    background-color: #13f287;
+.recent-trade {
+    background-color: #d3fe45;
     width: 335px;
     height: 335px;
     border-radius: 25px;
@@ -8,6 +8,7 @@
     position: relative;
     align-items: flex-start;
     padding: 0px;
+    overflow: hidden;
 }
 
 .description {
@@ -49,4 +50,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.star-container {
+    display: flex;
+    align-items: center;
+    margin-left: 45px;
+}
+
+.star-image {
+    width: 120px;
+    height: 114px;
+    margin-right: 5px;
 }
