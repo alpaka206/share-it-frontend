@@ -1,18 +1,22 @@
 import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import '../css/Register.css';
+import '../css/SocialRegister.css';
 
-const Register = () => {
+const SocialRegister = () => {
     const navigate = useNavigate();
+    const [confirmPassword, setConfirmPassword] = useState('');
     const [email, setEmail] = useState('');
     const [confirmEmail, setConfirmEmail] = useState('');
     const [agreeChecked, setAgreeChecked] = useState(false);
     const [nickname, setNickname] = useState('');
+    const [usernameError, setUsernameError] = useState('');
     const [emailError, setEmailError] = useState('');
     const [nicknameError, setNicknameError] = useState('');
     const [emailCheck, setEmailCheck] = useState(false);
 
+    const secondDivRef = useRef(null);
+    const thirdDivRef = useRef(null);
     const fourthDivRef = useRef(null);
     const fifthDivRef = useRef(null);
     const sixDivRef = useRef(null);
@@ -26,17 +30,10 @@ const Register = () => {
 
     const handleNext = async (e, ref) => {
         e.preventDefault();
-        if (ref === fourthDivRef) {
-            if (
-                password === '' ||
-                confirmPassword === '' ||
-                password.length < 6 ||
-                !/[A-Z]/.test(password) ||
-                !/[a-z]/.test(password) ||
-                !/[!@#$%^&*(),.?":{}|<>]/.test(password)
-            )
-                return;
+        if (ref === secondDivRef) {
+            if (!agreeChecked) return;
         }
+
         if (ref === fifthDivRef) {
             if (!/\S+@\S+\.\S+/.test(email)) return;
             try {
@@ -56,7 +53,7 @@ const Register = () => {
             if (email !== confirmEmail) return;
         }
 
-        if (!emailError) {
+        if (!usernameError && !emailError) {
             if (ref.current) {
                 ref.current.scrollIntoView({ behavior: 'smooth' });
             }
@@ -84,9 +81,12 @@ const Register = () => {
 
     const handleRegisterButtonClicked = async () => {
         const errors = [];
+        if (!agreeChecked) {
+            errors.push('개인정보 수집 및 이용에 동의해야 합니다.');
+        }
 
         if (!emailCheck) {
-            errors.push('중복된 이메일입니다.');
+            errors.push(setEmailError);
         }
 
         if (nicknameError !== '') {
@@ -105,10 +105,6 @@ const Register = () => {
             errors.push('이메일이 일치하지 않습니다.');
         }
 
-        if (!agreeChecked) {
-            errors.push('개인정보 수집 및 이용에 동의해야 합니다.');
-        }
-
         if (errors.length > 0) {
             alert(errors.join('\n'));
             return;
@@ -116,7 +112,7 @@ const Register = () => {
 
         try {
             const response = await axios.post('https://jsonplaceholder.typicode.com/users', {
-                title: '회원가입',
+                title: '소셜 회원가입',
                 body: `이메일: ${email}, 닉네임: ${nickname}`,
             });
             console.log('회원가입 완료:', response.data);
@@ -131,7 +127,11 @@ const Register = () => {
     return (
         <div className="register-container">
             <div>
-                <button onClick={() => navigate('/')}>처음으로</button>
+                <div className="zeroDivRef">
+                    <button className="first-button" onClick={() => navigate('/')}>
+                        처음으로
+                    </button>
+                </div>
 
                 <div className="firstDivRef">
                     <p>
@@ -144,55 +144,72 @@ const Register = () => {
                         checked={agreeChecked}
                         onChange={() => setAgreeChecked(!agreeChecked)}
                     />
-                    <label htmlFor="agree">개인정보 수집 및 이용에 동의합니다.</label>
-                    <button onClick={(e) => handleNext(e, secondDivRef)}>시작하기</button>
-                    <p className="hello">hello</p>
+                    <label htmlFor="agree" className="label-agree">
+                        개인정보 수집 및 이용에 동의합니다.
+                    </label>
+                    <button onClick={(e) => handleNext(e, secondDivRef)} className="second-button">
+                        시작하기
+                    </button>
                 </div>
 
-                <div ref={fourthDivRef}>
-                    <p>
+                <div className="fourthDivRef" ref={fourthDivRef}>
+                    <p className="fourthDivRef-firsttext">
                         거의 다 왔어요!
                         <br />
                         학교 이메일을 입력해주세요.
                     </p>
-                    <input
-                        type="email"
-                        value={email}
-                        onChange={handleEmailChange}
-                        placeholder="example@catholic.ac.kr"
-                    />
-                    <img src="/assets/delete_red.svg" alt="reset" onClick={() => handleReset(setEmail)} />
-                    <p>{emailError || '보다 신뢰할 수 있는 거래를 위해 필요해요.'}</p>
-                    <button onClick={(e) => handleNext(e, fifthDivRef)}>인증하기</button>
-                    <p className="hello">hello</p>
+                    <div className="fourthDivRef-input">
+                        <input
+                            type="email"
+                            value={email}
+                            onChange={handleEmailChange}
+                            placeholder="example@catholic.ac.kr"
+                        />
+                        <img src="/assets/delete_red.svg" alt="reset" onClick={() => handleReset(setEmail)} />
+                    </div>
+                    <div className="fourthDivRef-second">
+                        <p className="fourthDivRef-secondtext">
+                            {emailError || '보다 신뢰할 수 있는 거래를 위해 필요해요.'}
+                        </p>
+                        <button onClick={(e) => handleNext(e, fifthDivRef)}>인증하기</button>
+                    </div>
                 </div>
-                <div ref={fifthDivRef}>
-                    <p>작성하신 주소로 이메일을 보냈어요</p>
-                    <input
-                        type="email"
-                        value={confirmEmail}
-                        onChange={(e) => setConfirmEmail(e.target.value)}
-                        placeholder="4자리 코드 입력"
-                    />
-                    <img src="/assets/delete_red.svg" alt="reset" onClick={() => handleReset(setConfirmEmail)} />
-                    <p>메일함을 확인해 주세요.</p>
-                    <p>메일이 도착하지 않았나요?</p>
-                    <button onClick={(e) => handleNext(e, sixDivRef)}>다음으로</button>
-                    <p className="hello">hello</p>
+                <div className="fifthDivRef" ref={fifthDivRef}>
+                    <p className="fifthDivRef-firsttext">작성하신 주소로 이메일을 보냈어요</p>
+                    <div className="fifthDivRef-input">
+                        <input
+                            type="email"
+                            value={confirmEmail}
+                            onChange={(e) => setConfirmEmail(e.target.value)}
+                            placeholder="4자리 코드 입력"
+                        />
+                        <img src="/assets/delete_red.svg" alt="reset" onClick={() => handleReset(setConfirmEmail)} />
+                    </div>
+                    <p className="fifthDivRef-secondtext">메일함을 확인해 주세요.</p>
+                    <div className="fifthDivRef-second">
+                        <button className="fifthDivRef-thirdtext">메일이 도착하지 않았나요?</button>
+                        <button className="fifthDivRef-secondbutton" onClick={(e) => handleNext(e, sixDivRef)}>
+                            다음으로
+                        </button>
+                    </div>
                 </div>
-                <div ref={sixDivRef}>
-                    <p>환영해요! 이제부터 저를,,</p>
-                    <input type="text" value={nickname} onChange={handleNicknameChange} placeholder="username" />
+                <div className="sixDivRef" ref={sixDivRef}>
+                    <p className="sixDivRef-firsttext">환영해요! 이제부터 저를,,</p>
+                    <div className="sixDivRef-input">
+                        <input type="text" value={nickname} onChange={handleNicknameChange} placeholder="username" />
+                        <p className="sixDivRef-secondtext">님</p>
+                        <img src="/assets/delete_red.svg" alt="reset" onClick={() => handleReset(setNickname)} />
+                    </div>
+                    <p>{nicknameError || '닉네임은 15자 이내로, 영어, 한글, 숫자만 사용 가능합니다.'}</p>
+                    <p className="sixDivRef-thirdtext">으로 불러주세요!</p>
 
-                    <p>{nicknameError}</p>
-                    <p>닉네임은 15자 이내로, 영어, 한글, 숫자만 사용 가능합니다.</p>
-                    <img src="/assets/delete_red.svg" alt="reset" onClick={() => handleReset(setNickname)} />
-                    <p>으로 불러주세요!</p>
-                    <button onClick={handleRegisterButtonClicked}>공유경제 시작하기</button>
+                    <button className="last-button" onClick={handleRegisterButtonClicked}>
+                        공유경제 시작하기 <span>&gt;</span>
+                    </button>
                 </div>
             </div>
         </div>
     );
 };
 
-export default Register;
+export default SocialRegister;
