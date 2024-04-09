@@ -208,7 +208,11 @@ const Register = () => {
     return (
         <div className="register-container">
             <div>
-                <button onClick={() => navigate('/')}>처음으로</button>
+                <div className="zeroDivRef">
+                    <button className="first-button" onClick={() => navigate('/')}>
+                        처음으로
+                    </button>
+                </div>
 
                 <div className="firstDivRef">
                     <p>
@@ -221,92 +225,121 @@ const Register = () => {
                         checked={agreeChecked}
                         onChange={() => setAgreeChecked(!agreeChecked)}
                     />
-                    <label htmlFor="agree">개인정보 수집 및 이용에 동의합니다.</label>
-                    <button onClick={(e) => handleNext(e, secondDivRef)}>시작하기</button>
-                    <p className="hello">hello</p>
+                    <label htmlFor="agree" className="label-agree">
+                        개인정보 수집 및 이용에 동의합니다.
+                    </label>
+                    <button onClick={(e) => handleNext(e, secondDivRef)} className="second-button">
+                        시작하기
+                    </button>
                 </div>
-                <div ref={secondDivRef}>
-                    <p>먼저, 아이디를 알려주세요.</p>
-                    <input type="text" value={username} onChange={handleUsernameChange} placeholder="아이디 입력..." />
-                    <img src="/assets/delete_red.svg" alt="reset" onClick={() => handleReset(setUsername)} />
-                    <p>{usernameError || '아이디는 8-15자, 소문자 영어, 숫자만 사용할 수 있어요.'}</p>
-                    <button onClick={(e) => handleNext(e, thirdDivRef)}>다음으로</button>
-                    <p className="hello">hello</p>
-                </div>
-                <div ref={thirdDivRef}>
-                    <p>비밀번호를 작성해주세요.</p>
-                    <input
-                        type={showPassword ? 'text' : 'password'}
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        placeholder="비밀번호 입력..."
-                    />
-                    <img src="/assets/delete_red.svg" alt="reset" onClick={() => handleReset(setPassword)} />
-                    <img
-                        src="/assets/show_password.svg"
-                        alt="show password"
-                        onMouseEnter={() => setShowPassword(true)}
-                        onMouseLeave={() => setShowPassword(false)}
-                    />
+                <div className="secondDivRef" ref={secondDivRef}>
+                    <p className="secondDivRef-firsttext">먼저, 아이디를 알려주세요.</p>
+                    <div className="secondDivRef-input">
+                        <input
+                            type="text"
+                            value={username}
+                            onChange={handleUsernameChange}
+                            placeholder="아이디 입력..."
+                        />
+                        <img src="/assets/delete_red.svg" alt="reset" onClick={() => handleReset(setUsername)} />
+                    </div>
 
-                    <p>비밀번호를 재확인해주세요.</p>
-                    <input
-                        type={showConfirmPassword ? 'text' : 'password'}
-                        value={confirmPassword}
-                        onChange={handleConfirmPassword}
-                        placeholder="비밀번호 재확인"
-                    />
-                    <img src="/assets/delete_red.svg" alt="reset" onClick={() => handleReset(setConfirmPassword)} />
-                    <img
-                        src="/assets/show_password.svg"
-                        alt="show password"
-                        onMouseEnter={() => setShowConfirmPassword(true)}
-                        onMouseLeave={() => setShowConfirmPassword(false)}
-                    />
-                    <p>{validatePassword()}</p>
-                    <button onClick={(e) => handleNext(e, fourthDivRef)}>다음으로</button>
-                    <p className="hello">hello</p>
+                    <p className="secondDivRef-secondtext">
+                        {usernameError || '아이디는 8-15자, 소문자 영어, 숫자만 사용할 수 있어요.'}
+                    </p>
+                    <button onClick={(e) => handleNext(e, thirdDivRef)}>다음으로</button>
                 </div>
-                <div ref={fourthDivRef}>
-                    <p>
+                <div className="thirdDivRef" ref={thirdDivRef}>
+                    <p className="thirdDivRef-firsttext">비밀번호를 작성해 주세요.</p>
+                    <div className="thirdDivRef-firstinput">
+                        <input
+                            type={showPassword ? 'text' : 'password'}
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            placeholder="비밀번호 입력..."
+                        />
+                        <img src="/assets/delete_red.svg" alt="reset" onClick={() => handleReset(setPassword)} />
+                        <img
+                            src="/assets/show_password.svg"
+                            alt="show password"
+                            onMouseEnter={() => setShowPassword(true)}
+                            onMouseLeave={() => setShowPassword(false)}
+                        />
+                    </div>
+                    <div className="thirdDivRef-secondinput">
+                        <input
+                            type={showConfirmPassword ? 'text' : 'password'}
+                            value={confirmPassword}
+                            onChange={handleConfirmPassword}
+                            placeholder="비밀번호 재확인"
+                        />
+                        <img src="/assets/delete_red.svg" alt="reset" onClick={() => handleReset(setConfirmPassword)} />
+                        <img
+                            src="/assets/show_password.svg"
+                            alt="show password"
+                            onMouseEnter={() => setShowConfirmPassword(true)}
+                            onMouseLeave={() => setShowConfirmPassword(false)}
+                        />
+                    </div>
+                    <div className="thirdDivRef-second">
+                        <p className="thirdDivRef-secondtext">{validatePassword()}</p>
+                        <button onClick={(e) => handleNext(e, fourthDivRef)}>다음으로</button>
+                    </div>
+                </div>
+                <div className="fourthDivRef" ref={fourthDivRef}>
+                    <p className="fourthDivRef-firsttext">
                         거의 다 왔어요!
                         <br />
                         학교 이메일을 입력해주세요.
                     </p>
-                    <input
-                        type="email"
-                        value={email}
-                        onChange={handleEmailChange}
-                        placeholder="example@catholic.ac.kr"
-                    />
-                    <img src="/assets/delete_red.svg" alt="reset" onClick={() => handleReset(setEmail)} />
-                    <p>{emailError || '보다 신뢰할 수 있는 거래를 위해 필요해요.'}</p>
-                    <button onClick={(e) => handleNext(e, fifthDivRef)}>인증하기</button>
-                    <p className="hello">hello</p>
+                    <div className="fourthDivRef-input">
+                        <input
+                            type="email"
+                            value={email}
+                            onChange={handleEmailChange}
+                            placeholder="example@catholic.ac.kr"
+                        />
+                        <img src="/assets/delete_red.svg" alt="reset" onClick={() => handleReset(setEmail)} />
+                    </div>
+                    <div className="fourthDivRef-second">
+                        <p className="fourthDivRef-secondtext">
+                            {emailError || '보다 신뢰할 수 있는 거래를 위해 필요해요.'}
+                        </p>
+                        <button onClick={(e) => handleNext(e, fifthDivRef)}>인증하기</button>
+                    </div>
                 </div>
-                <div ref={fifthDivRef}>
-                    <p>작성하신 주소로 이메일을 보냈어요</p>
-                    <input
-                        type="email"
-                        value={confirmEmail}
-                        onChange={(e) => setConfirmEmail(e.target.value)}
-                        placeholder="4자리 코드 입력"
-                    />
-                    <img src="/assets/delete_red.svg" alt="reset" onClick={() => handleReset(setConfirmEmail)} />
-                    <p>메일함을 확인해 주세요.</p>
-                    <p>메일이 도착하지 않았나요?</p>
-                    <button onClick={(e) => handleNext(e, sixDivRef)}>다음으로</button>
-                    <p className="hello">hello</p>
+                <div className="fifthDivRef" ref={fifthDivRef}>
+                    <p className="fifthDivRef-firsttext">작성하신 주소로 이메일을 보냈어요</p>
+                    <div className="fifthDivRef-input">
+                        <input
+                            type="email"
+                            value={confirmEmail}
+                            onChange={(e) => setConfirmEmail(e.target.value)}
+                            placeholder="4자리 코드 입력"
+                        />
+                        <img src="/assets/delete_red.svg" alt="reset" onClick={() => handleReset(setConfirmEmail)} />
+                    </div>
+                    <p className="fifthDivRef-secondtext">메일함을 확인해 주세요.</p>
+                    <div className="fifthDivRef-second">
+                        <button className="fifthDivRef-thirdtext">메일이 도착하지 않았나요?</button>
+                        <button className="fifthDivRef-secondbutton" onClick={(e) => handleNext(e, sixDivRef)}>
+                            다음으로
+                        </button>
+                    </div>
                 </div>
-                <div ref={sixDivRef}>
-                    <p>환영해요! 이제부터 저를,,</p>
-                    <input type="text" value={nickname} onChange={handleNicknameChange} placeholder="username" />
+                <div className="sixDivRef" ref={sixDivRef}>
+                    <p className="sixDivRef-firsttext">환영해요! 이제부터 저를,,</p>
+                    <div className="sixDivRef-input">
+                        <input type="text" value={nickname} onChange={handleNicknameChange} placeholder="username" />
+                        <p className="sixDivRef-secondtext">님</p>
+                        <img src="/assets/delete_red.svg" alt="reset" onClick={() => handleReset(setNickname)} />
+                    </div>
+                    <p>{nicknameError || '닉네임은 15자 이내로, 영어, 한글, 숫자만 사용 가능합니다.'}</p>
+                    <p className="sixDivRef-thirdtext">으로 불러주세요!</p>
 
-                    <p>{nicknameError}</p>
-                    <p>닉네임은 15자 이내로, 영어, 한글, 숫자만 사용 가능합니다.</p>
-                    <img src="/assets/delete_red.svg" alt="reset" onClick={() => handleReset(setNickname)} />
-                    <p>으로 불러주세요!</p>
-                    <button onClick={handleRegisterButtonClicked}>공유경제 시작하기</button>
+                    <button className="last-button" onClick={handleRegisterButtonClicked}>
+                        공유경제 시작하기 <span>&gt;</span>
+                    </button>
                 </div>
             </div>
         </div>
