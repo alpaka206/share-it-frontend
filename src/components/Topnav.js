@@ -55,6 +55,7 @@ function Topnav() {
               src={process.env.PUBLIC_URL + `assets/logo.svg`}
               alt="logo"
               className="logo"
+              onClick={() => handleButtonClick("/")}
             />
           </div>
         </div>
@@ -84,10 +85,20 @@ function Topnav() {
         {showLoginRegister && <LoginRegisterPrev />}
       </div>
       <div className="nav_bottom">
-        <PublicButton Button_Text="홈" Button_Image={`assets/home.svg`} />
         <PublicButton
-          Button_Text="통합검색"
+          Button_Text="홈"
+          Button_Image={`assets/home.svg`}
+          onClick={() => handleButtonClick("/")}
+        />
+        <PublicButton
+          Button_Text="빌릴물건"
           Button_Image={`assets/Search.svg`}
+          onClick={() => handleButtonClick("/lend")}
+        />
+        <PublicButton
+          Button_Text="필요물건"
+          Button_Image={`assets/Search.svg`}
+          onClick={() => handleButtonClick("/lend")}
         />
         <PublicButton Button_Text="빌리기" Button_Image={`assets/need.svg`} />
         <PublicButton Button_Text="필요해요" Button_Image={`assets/lend.svg`} />
