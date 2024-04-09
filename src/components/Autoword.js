@@ -4,7 +4,8 @@ import axios from "axios";
 import wordData from "../data/wordData";
 import "../css/Autoword.css";
 
-const Autoword = ({ keyword }) => {
+const Autoword = ({ keyword, onSearch }) => {
+  // onSearch 함수 추가
   const [keyItems, setKeyItems] = useState([]);
 
   useEffect(() => {
@@ -22,12 +23,21 @@ const Autoword = ({ keyword }) => {
     fetchData();
   }, [keyword]);
 
+  // 클릭된 단어를 검색어로 설정하고 검색 실행
+  const handleWordClick = (word) => {
+    onSearch(word);
+  };
+
   return (
     <div className="auto-complete-container">
       {keyItems.length > 0 && (
         <div className="auto-complete">
           {keyItems.map((item, index) => (
-            <div key={index} className="auto-complete-item">
+            <div
+              key={index}
+              className="auto-complete-item"
+              onClick={() => handleWordClick(item)}
+            >
               {item}
             </div>
           ))}

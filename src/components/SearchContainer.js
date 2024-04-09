@@ -1,16 +1,19 @@
-// SearchContainer.js
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import "../css/SearchContainer.css";
 import Autoword from "./Autoword";
-import SearchHistory from "./SearchHistory"; // SearchHistory 컴포넌트 추가
+import SearchHistory from "./SearchHistory";
 
 function SearchContainer() {
   const [searchTerm, setSearchTerm] = useState("");
   const [recentSearches, setRecentSearches] = useState([]);
+  const [isSearchActive, setIsSearchActive] = useState(false);
+  const [searchType, setSearchType] = useState("need");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const searchContainerRef = useRef(null);
 
   useEffect(() => {
-    // 로컬 스토리지에서 최근 검색어 불러오기
     const storedSearches = localStorage.getItem("recentSearches");
     if (storedSearches) {
       setRecentSearches(JSON.parse(storedSearches));
@@ -19,15 +22,12 @@ function SearchContainer() {
 
   const handleInputChange = (e) => {
     setSearchTerm(e.target.value);
+    setIsSearchActive(true);
   };
 
   const handleSearch = async () => {
     try {
       if (searchTerm.trim() !== "") {
-        // POST 요청을 보냄
-        // await axios.post("https://example.com/api/shareit", { searchTerm });
-
-        // 최근 검색어 업데이트
         updateRecentSearches(searchTerm);
       }
     } catch (error) {
@@ -36,21 +36,62 @@ function SearchContainer() {
   };
 
   const updateRecentSearches = (searchTerm) => {
-    // 최근 검색어 업데이트 및 로컬 스토리지에 저장
-    const updatedSearches = [searchTerm, ...recentSearches.slice(0, 4)];
+    const updatedSearches = [searchTerm, ...recentSearches];
     setRecentSearches(updatedSearches);
     localStorage.setItem("recentSearches", JSON.stringify(updatedSearches));
   };
+
   const handleDelete = (index) => {
     const updatedSearches = recentSearches.filter((_, i) => i !== index);
     setRecentSearches(updatedSearches);
     localStorage.setItem("recentSearches", JSON.stringify(updatedSearches));
   };
+
+  const handleSearchBoxClick = () => {
+    setIsSearchActive(true);
+  };
+
+  const handleClickOutside = (event) => {
+    if (
+      searchContainerRef.current &&
+      !searchContainerRef.current.contains(event.target)
+    ) {
+      setIsSearchActive(false);
+      setIsDropdownOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const handleRecentSearch = (search) => {
+    setSearchTerm(search);
+    setIsSearchActive(true);
+    // Additional code to trigger search with the selected term if needed
+  };
+
   return (
-    <div className="search-container">
+    <div ref={searchContainerRef} className="search-container">
+      <div className="search-toggle" onClick={toggleDropdown}>
+        <span>{searchType === "need" ? "▼ 필요해요 |" : "▼ 빌려주기 |"}</span>
+        {isDropdownOpen && (
+          <div className="dropdown-options">
+            <button onClick={() => setSearchType("need")}>필요해요</button>
+            <button onClick={() => setSearchType("lend")}>빌려주기</button>
+          </div>
+        )}
+      </div>
       <input
         type="text"
-        placeholder="검색어를 입력하세요"
+        placeholder={`검색어를 입력하세요`}
         className="search-input"
         value={searchTerm}
         onChange={handleInputChange}
@@ -59,6 +100,7 @@ function SearchContainer() {
             handleSearch();
           }
         }}
+        onClick={handleSearchBoxClick}
       />
       <img
         src={process.env.PUBLIC_URL + `/assets/Search.svg`}
@@ -66,9 +108,14 @@ function SearchContainer() {
         className="search-icon"
         onClick={handleSearch}
       />
-      <Autoword keyword={searchTerm} />
-      <SearchHistory searches={recentSearches} onDelete={handleDelete} />{" "}
-      {/* 최근 검색어 표시 */}
+      <Autoword keyword={searchTerm} onSearch={handleRecentSearch} />
+      {isSearchActive && (
+        <SearchHistory
+          searches={recentSearches}
+          onDelete={handleDelete}
+          onSearch={handleRecentSearch}
+        />
+      )}
     </div>
   );
 }
