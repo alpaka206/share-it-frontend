@@ -2,14 +2,16 @@
 
 import React from "react";
 import Topnav from "../components/Topnav";
-import ListRow from "../components/ListRow";
+import LendListRow from "../components/LendListRow";
+import TopTags from "../components/TopTags";
 
 function LendMain() {
   return (
     <div className="container">
       <Topnav></Topnav>
       <div>
-        <ListRow />
+        <LendListRow />
+        <TopTags />
       </div>
     </div>
   );

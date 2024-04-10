@@ -98,7 +98,7 @@ function Topnav() {
         <PublicButton
           Button_Text="필요물건"
           Button_Image={`assets/Search.svg`}
-          onClick={() => handleButtonClick("/lend")}
+          onClick={() => handleButtonClick("/need")}
         />
         <PublicButton Button_Text="빌리기" Button_Image={`assets/need.svg`} />
         <PublicButton Button_Text="필요해요" Button_Image={`assets/lend.svg`} />
