@@ -1,0 +1,10 @@
+.TopTags {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2.7vw;
+  padding-bottom: 20vh;
+  margin: 0 auto;
+}
