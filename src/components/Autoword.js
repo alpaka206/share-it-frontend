@@ -4,7 +4,7 @@ import axios from "axios";
 import wordData from "../data/wordData";
 import "../css/Autoword.css";
 
-const Autoword = ({ keyword, onSearch }) => {
+const Autoword = ({ keyword, onSearch, className }) => {
   // onSearch 함수 추가
   const [keyItems, setKeyItems] = useState([]);
 
@@ -31,7 +31,7 @@ const Autoword = ({ keyword, onSearch }) => {
   return (
     <div className="auto-complete-container">
       {keyItems.length > 0 && (
-        <div className="auto-complete">
+        <div className={className}>
           {keyItems.map((item, index) => (
             <div
               key={index}
