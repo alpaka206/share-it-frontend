@@ -36,10 +36,15 @@ const useDraggable = () => {
   };
 };
 
-const SearchHistory = ({ searches, onDelete, onSearch }) => {
+const SearchHistory = ({
+  searches,
+  onDelete,
+  onSearch,
+  isActive,
+  setIsActive,
+}) => {
   const scrollerRef = useRef(null);
   const { onMouseDown, onMouseMove, onMouseUp, onMouseLeave } = useDraggable();
-  const [isActive, setIsActive] = useState(true);
 
   useEffect(() => {
     const scroller = scrollerRef.current;

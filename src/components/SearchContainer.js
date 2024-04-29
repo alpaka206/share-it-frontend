@@ -3,13 +3,16 @@ import axios from "axios";
 import "../css/SearchContainer.css";
 import Autoword from "./Autoword";
 import SearchHistory from "./SearchHistory";
+import { useNavigate } from "react-router-dom";
 
 function SearchContainer() {
   const [searchTerm, setSearchTerm] = useState("");
   const [recentSearches, setRecentSearches] = useState([]);
   const [isSearchActive, setIsSearchActive] = useState(false);
+  const [isActive, setIsActive] = useState(true);
 
   const searchContainerRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const storedSearches = localStorage.getItem("recentSearches");
@@ -27,9 +30,14 @@ function SearchContainer() {
     try {
       if (searchTerm.trim() !== "") {
         updateRecentSearches(searchTerm);
+        if (isActive) {
+          navigate(`/lend?q=${encodeURIComponent(searchTerm)}`);
+        } else {
+          navigate(`/need?q=${encodeURIComponent(searchTerm)}`);
+        }
       }
     } catch (error) {
-      console.error("에러 발생:", error);
+      console.error("Error:", error);
     }
   };
 
@@ -99,8 +107,14 @@ function SearchContainer() {
             searches={recentSearches}
             onDelete={handleDelete}
             onSearch={handleRecentSearch}
+            isActive={isActive}
+            setIsActive={setIsActive}
           />
-          <Autoword keyword={searchTerm} onSearch={handleRecentSearch} />
+          <Autoword
+            keyword={searchTerm}
+            onSearch={handleRecentSearch}
+            className="search-autoword"
+          />
         </div>
       )}
     </div>
