@@ -252,40 +252,47 @@ const Register = () => {
                 <div className="thirdDivRef" ref={thirdDivRef}>
                     <p className="thirdDivRef-firsttext">비밀번호를 작성해 주세요.</p>
                     <div className="thirdDivRef-firstinput">
-                        <input
-                            type={showPassword ? 'text' : 'password'}
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            placeholder="비밀번호 입력..."
-                        />
+                        <div className="inputContainer">
+                            <input
+                                type={showPassword ? 'text' : 'password'}
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                placeholder="비밀번호 입력..."
+                            />
+                            <img
+                                className="showPasswordIcon"
+                                src="/assets/show_password.svg"
+                                alt="show password"
+                                onMouseEnter={() => setShowPassword(true)}
+                                onMouseLeave={() => setShowPassword(false)}
+                            />
+                        </div>
                         <img src="/assets/delete_red.svg" alt="reset" onClick={() => handleReset(setPassword)} />
-                        <img
-                            src="/assets/show_password.svg"
-                            alt="show password"
-                            onMouseEnter={() => setShowPassword(true)}
-                            onMouseLeave={() => setShowPassword(false)}
-                        />
                     </div>
                     <div className="thirdDivRef-secondinput">
-                        <input
-                            type={showConfirmPassword ? 'text' : 'password'}
-                            value={confirmPassword}
-                            onChange={handleConfirmPassword}
-                            placeholder="비밀번호 재확인"
-                        />
+                        <div className="inputContainer">
+                            <input
+                                type={showConfirmPassword ? 'text' : 'password'}
+                                value={confirmPassword}
+                                onChange={handleConfirmPassword}
+                                placeholder="비밀번호 재확인"
+                            />
+                            <img
+                                className="showConfirmPasswordIcon"
+                                src="/assets/show_password.svg"
+                                alt="show password"
+                                onMouseEnter={() => setShowConfirmPassword(true)}
+                                onMouseLeave={() => setShowConfirmPassword(false)}
+                            />
+                        </div>
                         <img src="/assets/delete_red.svg" alt="reset" onClick={() => handleReset(setConfirmPassword)} />
-                        <img
-                            src="/assets/show_password.svg"
-                            alt="show password"
-                            onMouseEnter={() => setShowConfirmPassword(true)}
-                            onMouseLeave={() => setShowConfirmPassword(false)}
-                        />
                     </div>
                     <div className="thirdDivRef-second">
                         <p className="thirdDivRef-secondtext">{validatePassword()}</p>
                         <button onClick={(e) => handleNext(e, fourthDivRef)}>다음으로</button>
                     </div>
                 </div>
+
                 <div className="fourthDivRef" ref={fourthDivRef}>
                     <p className="fourthDivRef-firsttext">
                         거의 다 왔어요!

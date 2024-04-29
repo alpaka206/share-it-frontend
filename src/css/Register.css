@@ -57,6 +57,163 @@
     cursor: pointer;
 }
 
+/*secondDivRef*/
+
+.secondDivRef,
+.thirdDivRef,
+.fourthDivRef,
+.fifthDivRef,
+.sixDivRef {
+    width: 960px;
+    height: 360px;
+    margin-left: 48px;
+    padding-top: 64px;
+}
+
+.secondDivRef-firsttext {
+    top: 200px;
+    font-size: 40px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.secondDivRef-secondtext {
+    font-size: 24px;
+    color: #606060;
+    margin-bottom: 0px;
+}
+
+.secondDivRef button {
+    width: 160px;
+    height: 48px;
+    color: #ffffff;
+    background-color: #181818;
+    border-radius: 15px;
+    font-size: 20px;
+    margin-left: 752px;
+    align-self: flex-end;
+    cursor: pointer;
+    display: inline-block;
+}
+.secondDivRef input[type='text'] {
+    border: 1px solid #d2d2d2;
+    width: 400px;
+    height: 56px;
+    border-radius: 13px;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 20px;
+    margin-right: 48px;
+}
+
+.secondDivRef img {
+    cursor: pointer;
+}
+
+.secondDivRef-input {
+    margin-top: 32px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+/*thirdDivRef*/
+.thirdDivRef-firsttext {
+    top: 200px;
+    font-size: 40px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.thirdDivRef-secondtext {
+    font-size: 24px;
+    color: #606060;
+    margin-bottom: 0px;
+}
+
+.thirdDivRef-firstinput input[type='password'],
+.thirdDivRef-secondinput input[type='password'] {
+    border: 1px solid #d2d2d2;
+    width: 400px;
+    height: 56px;
+    border-radius: 13px;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 20px;
+    margin-right: 48px;
+    color: #666;
+}
+
+.thirdDivRef-firstinput input[type='password']::placeholder,
+.thirdDivRef-secondinput input[type='password']::placeholder {
+    color: #666;
+}
+
+.thirdDivRef-firstinput input[type='password'],
+.thirdDivRef-secondinput input[type='password'],
+.thirdDivRef-firstinput input[type='text'],
+.thirdDivRef-secondinput input[type='text'] {
+    border: 1px solid #d2d2d2;
+    width: 400px;
+    height: 56px;
+    border-radius: 13px;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 20px;
+    margin-right: 48px;
+}
+
+.thirdDivRef-firstinput {
+    margin-bottom: 8px;
+    margin-top: 32px;
+    display: flex;
+    align-items: center;
+}
+
+.thirdDivRef-secondinput {
+    display: flex;
+    align-items: center;
+}
+
+.thirdDivRef-second {
+    display: flex;
+    align-items: center;
+}
+
+.thirdDivRef-second button {
+    width: 160px;
+    height: 48px;
+    color: #ffffff;
+    background-color: #181818;
+    border-radius: 15px;
+    font-size: 20px;
+    margin-left: 89px;
+    margin-top: 20px;
+    align-self: flex-end;
+    cursor: pointer;
+    display: inline-block;
+}
+.inputContainer {
+    position: relative;
+    display: inline-block;
+}
+
+.showPasswordIcon {
+    position: absolute;
+    top: 50%;
+    left: 346px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.showConfirmPasswordIcon {
+    position: absolute;
+    top: 50%;
+    left: 346px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
 /*fourthDivRef*/
 .fourthDivRef-firsttext {
     top: 200px;
