@@ -10,9 +10,10 @@ import Footer from '../components/Footer';
 import ItemRow from '../components/MainPage/ItemRow';
 import RecentTrade from '../components/MainPage/RecentTrade';
 import GradePreview from '../components/MainPage/GradePreview';
+import Calendar from '../components/Calendar';
 
 function Mainpage() {
-    const navigate = useNavigate(); // Initialize useNavigate hook
+    const navigate = useNavigate();
     const [isHovered, setIsHovered] = useState(false);
 
     const handleMoreClick = () => {
@@ -63,6 +64,7 @@ function Mainpage() {
                 <GradePreview className="GradePreview" />
                 <RecentTrade className="RecentTrade" />
             </div>
+            <Calendar />
 
             <Footer />
         </div>
