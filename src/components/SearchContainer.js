@@ -8,8 +8,6 @@ function SearchContainer() {
   const [searchTerm, setSearchTerm] = useState("");
   const [recentSearches, setRecentSearches] = useState([]);
   const [isSearchActive, setIsSearchActive] = useState(false);
-  const [searchType, setSearchType] = useState("need");
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const searchContainerRef = useRef(null);
 
@@ -57,7 +55,6 @@ function SearchContainer() {
       !searchContainerRef.current.contains(event.target)
     ) {
       setIsSearchActive(false);
-      setIsDropdownOpen(false);
     }
   };
 
@@ -68,10 +65,6 @@ function SearchContainer() {
     };
   }, []);
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
-
   const handleRecentSearch = (search) => {
     setSearchTerm(search);
     setIsSearchActive(true);
@@ -80,15 +73,6 @@ function SearchContainer() {
 
   return (
     <div ref={searchContainerRef} className="search-container">
-      <div className="search-toggle" onClick={toggleDropdown}>
-        <span>{searchType === "need" ? "▼ 필요해요 |" : "▼ 빌려주기 |"}</span>
-        {isDropdownOpen && (
-          <div className="dropdown-options">
-            <button onClick={() => setSearchType("need")}>필요해요</button>
-            <button onClick={() => setSearchType("lend")}>빌려주기</button>
-          </div>
-        )}
-      </div>
       <input
         type="text"
         placeholder={`검색어를 입력하세요`}
@@ -108,13 +92,16 @@ function SearchContainer() {
         className="search-icon"
         onClick={handleSearch}
       />
-      <Autoword keyword={searchTerm} onSearch={handleRecentSearch} />
+
       {isSearchActive && (
-        <SearchHistory
-          searches={recentSearches}
-          onDelete={handleDelete}
-          onSearch={handleRecentSearch}
-        />
+        <div>
+          <SearchHistory
+            searches={recentSearches}
+            onDelete={handleDelete}
+            onSearch={handleRecentSearch}
+          />
+          <Autoword keyword={searchTerm} onSearch={handleRecentSearch} />
+        </div>
       )}
     </div>
   );

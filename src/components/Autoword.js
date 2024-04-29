@@ -38,7 +38,7 @@ const Autoword = ({ keyword, onSearch }) => {
               className="auto-complete-item"
               onClick={() => handleWordClick(item)}
             >
-              {item}
+              # {item}
             </div>
           ))}
         </div>
