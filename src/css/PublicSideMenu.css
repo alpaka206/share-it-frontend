@@ -3,6 +3,9 @@
   align-items: left;
   margin-bottom: 10px;
   margin: 10px;
+  height: 50px;
+  width: 95%;
+  border-radius: 16px;
 }
 
 .menu-link {
@@ -10,6 +13,7 @@
   align-items: center;
   text-decoration: none;
   color: black;
+  margin: 0px 0px 0px 37px;
 }
 
 .menu-image {
@@ -30,6 +34,8 @@
 .PublicSideMenu.active {
   background-color: #ffffff;
   background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(100px);
+  box-shadow: inset 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
 
 .logout-space {
