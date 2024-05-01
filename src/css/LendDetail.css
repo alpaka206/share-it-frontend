@@ -1,0 +1,30 @@
+.slider-container {
+    position: relative;
+    width: 480px;
+    height: 480px;
+}
+
+.arrow-container {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.prev-arrow,
+.next-arrow {
+    background-color: transparent;
+    border: none;
+    color: gray;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 8px 16px;
+    transition: color 0.3s ease;
+}
+
+.prev-arrow:hover,
+.next-arrow:hover {
+    color: black;
+}
