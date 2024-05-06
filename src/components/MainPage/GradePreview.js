@@ -31,16 +31,16 @@ const GradePreview = () => {
       </div>
       <div className="grade-hashtag">
         <div className="grade-hashtag-top">
-          <div className="grade-hashtag-black">#저렴해요</div>
+          <div className="grade-hashtag-black">#응답이빨라요</div>
           <div className="grade-hashtag-purple">#친절해요</div>
           <div className="grade-hashtag-black">#시간약속을잘지켜요</div>
           <div className="grade-hashtag-purple">#저렴해요</div>
         </div>
         <div className="grade-hashtag-bottom">
-          <div className="grade-hashtag-black">#잘사용해요</div>
-          <div className="grade-hashtag-purple">#응답이빨라요</div>
-          <div className="grade-hashtag-black">#나는나눔왕</div>
-          <div className="grade-hashtag-purple">#설명이 친절해요</div>
+          <div className="grade-hashtag-black">#채팅답장이빨라요</div>
+          <div className="grade-hashtag-purple">#추천해요</div>
+          <div className="grade-hashtag-black">#설명이친절해요</div>
+          <div className="grade-hashtag-purple">#잘사용해요</div>
         </div>
       </div>
     </div>

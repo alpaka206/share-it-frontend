@@ -12,7 +12,7 @@ import RecentTrade from "../components/MainPage/RecentTrade";
 import GradePreview from "../components/MainPage/GradePreview";
 import Calendar from "../components/Calendar";
 
-function MyPage() {
+function Review() {
   const navigate = useNavigate();
   const [isHovered, setIsHovered] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -61,4 +61,4 @@ function MyPage() {
   );
 }
 
-export default MyPage;
+export default Review;

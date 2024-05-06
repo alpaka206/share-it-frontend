@@ -31,16 +31,44 @@
   font-size: 64px;
   font-weight: bold;
 }
+.grade-hashtag {
+  margin-top: 40px;
+  overflow: hidden;
+}
+.grade-hashtag-top {
+  display: flex;
+  overflow: hidden;
+  margin-left: -20px;
+}
+.grade-hashtag-bottom {
+  display: flex;
+  overflow: hidden;
+  margin-left: -40px;
+}
 .grade-hashtag-purple {
+  display: flex;
+  align-items: center;
   border-radius: 100px;
   border: 5px solid #1e1e1e;
   background-color: #9a5fec;
   color: #1e1e1e;
-  padding: 12px;
+  padding: 5px 18px;
+  width: auto;
+  height: auto;
+  margin: 5px 2px;
+  font-size: 24px;
+  white-space: nowrap;
 }
 .grade-hashtag-black {
+  display: flex;
+  align-items: center;
   border-radius: 100px;
   background-color: #1e1e1e;
   color: #9a5fec;
-  padding: 12px;
+  padding: 5px 18px;
+  width: auto;
+  height: auto;
+  margin: 5px 5px;
+  font-size: 24px;
+  white-space: nowrap;
 }
