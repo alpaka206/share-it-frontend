@@ -151,3 +151,66 @@
 .lend-detail-description-text p {
     margin: 5px 0;
 }
+
+/* LendDetail.css */
+.photo-indicator {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* 세로 방향 가운데 정렬 */
+    position: absolute;
+    top: 220px;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.photo-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    margin: 0 5px;
+}
+
+.photo-dot.active {
+    width: 12px;
+    height: 12px;
+    background-color: #ffffff;
+}
+
+/* LendDetail.css */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-check {
+    appearance: none;
+    background-color: rgba(210, 210, 210, 0.8);
+    border: none;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    position: relative;
+}
+
+.checkbox-check.checked .checkmark {
+    display: block;
+}
+
+.checkmark {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #000;
+}
+
+.text {
+    margin-left: 5.5px;
+    font-size: 24px;
+    color: #606060;
+    text-decoration: underline; /* 밑줄 추가 */
+    cursor: pointer;
+}

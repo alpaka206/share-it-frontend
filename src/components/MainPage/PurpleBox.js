@@ -43,7 +43,7 @@ const PurpleBox = () => {
                         onMouseLeave={handleItemLeave}
                     >
                         <span className="circle">{itemNumber}</span>
-                        <span className="text">
+                        <span className="purple-text">
                             {index === 0
                                 ? '길이 체크 a b c d e f g h i j k l m n o p q r s t u v w x y z'
                                 : index === 1

@@ -1,7 +1,4 @@
 import React, { useState, useRef } from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 import Topnav from '../components/Topnav';
 import '../css/LendDetail.css';
 import Footer from '../components/Footer';
@@ -10,42 +7,20 @@ import { useNavigate } from 'react-router-dom';
 function LendDetail() {
     const [photos, setPhotos] = useState([
         'https://via.placeholder.com/480',
+        'https://via.placeholder.com/360',
         'https://via.placeholder.com/480',
-        'https://via.placeholder.com/480',
-        'https://via.placeholder.com/480',
+        'https://via.placeholder.com/360',
         'https://via.placeholder.com/480',
     ]);
 
-    const sliderRef = useRef();
+    const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
+
     const navigate = useNavigate();
     const [heartCount, setHeartCount] = useState(15);
     const [isLiked, setIsLiked] = useState(false);
 
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        appendDots: (dots) => (
-            <div style={{ position: 'absolute', bottom: '10px', width: '100%', textAlign: 'center' }}>
-                <div style={{ display: 'inline-block' }}>
-                    <ul style={{ margin: '0', padding: '0', listStyle: 'none' }}> {dots} </ul>
-                </div>
-            </div>
-        ),
-    };
-
-    const goToPrevSlide = () => {
-        sliderRef.current.slickPrev();
-    };
-
-    const goToNextSlide = () => {
-        sliderRef.current.slickNext();
-    };
-
     const handleChatButtonClick = () => {
-        navigate('/chat'); // 채팅하기 버튼 클릭 시 /chat 페이지로 이동
+        navigate('/chat');
     };
 
     // 임시 데이터
@@ -106,31 +81,41 @@ function LendDetail() {
     const grayHeart = process.env.PUBLIC_URL + '/assets/gray_heart.svg';
     const redHeart = process.env.PUBLIC_URL + '/assets/heart.svg';
 
+    const goToPrevPhoto = () => {
+        setCurrentPhotoIndex((prevIndex) => (prevIndex === 0 ? photos.length - 1 : prevIndex - 1));
+    };
+
+    const goToNextPhoto = () => {
+        setCurrentPhotoIndex((prevIndex) => (prevIndex === photos.length - 1 ? 0 : prevIndex + 1));
+    };
+
     return (
         <div className="container">
             <Topnav />
             <div className="lend-detail-first-container">
                 <div className="slider-container">
-                    <Slider ref={sliderRef} {...settings}>
-                        {photos.map((photo, index) => (
-                            <div key={index}>
-                                <img src={photo} alt={`Photo ${index + 1}`} />
-                            </div>
-                        ))}
-                    </Slider>
+                    <img src={photos[currentPhotoIndex]} alt={`Photo ${currentPhotoIndex + 1}`} />
                     <div className="arrow-container">
                         <img
                             src="/assets/LendDetail_previous.svg"
                             alt="Previous"
                             className="prev-arrow"
-                            onClick={goToPrevSlide}
+                            onClick={goToPrevPhoto}
                         />
                         <img
                             src="/assets/LendDetail_next.svg"
                             alt="Next"
                             className="next-arrow"
-                            onClick={goToNextSlide}
+                            onClick={goToNextPhoto}
                         />
+                        <div className="photo-indicator">
+                            {photos.map((photo, index) => (
+                                <div
+                                    key={index}
+                                    className={`photo-dot ${index === currentPhotoIndex ? 'active' : ''}`}
+                                ></div>
+                            ))}
+                        </div>
                     </div>
                 </div>
                 <div className="lend-detail-product-info">
