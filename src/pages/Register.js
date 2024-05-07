@@ -145,11 +145,11 @@ const Register = () => {
         }
 
         if (!idCheck) {
-            errors.push(setUsernameError);
+            errors.push('아이디를 다시 확인해주세요');
         }
 
         if (!emailCheck) {
-            errors.push(setEmailError);
+            errors.push('이메일을 다시 확인해주세요');
         }
 
         if (nicknameError !== '') {
@@ -219,18 +219,25 @@ const Register = () => {
                         공유경제의 기쁨, <br /> 쉐어릿으로 시작해보세요.
                     </p>
                     <p>간단한 회원가입으로 시작할게요.</p>
-                    <input
-                        type="checkbox"
-                        id="agree"
-                        checked={agreeChecked}
-                        onChange={() => setAgreeChecked(!agreeChecked)}
-                    />
-                    <label htmlFor="agree" className="label-agree">
-                        개인정보 수집 및 이용에 동의합니다.
-                    </label>
-                    <button onClick={(e) => handleNext(e, secondDivRef)} className="second-button">
-                        시작하기
-                    </button>
+                    <div className="checkbox-container-first">
+                        <div className="checkbox-container">
+                            <button
+                                id="agree"
+                                className={`checkbox-check ${agreeChecked ? 'checked' : ''}`}
+                                onClick={() => setAgreeChecked(!agreeChecked)}
+                            >
+                                {agreeChecked && (
+                                    <img src="/assets/register_check.svg" alt="Checked" className="checkmark" />
+                                )}
+                            </button>
+                            <span className="agree-text" onClick={() => setAgreeChecked(!agreeChecked)}>
+                                개인정보 수집 및 이용에 동의합니다.
+                            </span>
+                        </div>
+                        <button onClick={(e) => handleNext(e, secondDivRef)} className="second-button">
+                            시작하기
+                        </button>
+                    </div>
                 </div>
                 <div className="secondDivRef" ref={secondDivRef}>
                     <p className="secondDivRef-firsttext">먼저, 아이디를 알려주세요.</p>
