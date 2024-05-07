@@ -12,6 +12,7 @@ import Chat from "./pages/Chat";
 import LendDetail from "./pages/LendDetail";
 import MyPage from "./pages/MyPage";
 import Review from "./pages/Review";
+import LoginPage from "./pages/LoginPage";
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
           <Route path="/lend_detail" element={<LendDetail />} />
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/Review" element={<Review />} />
+          <Route path="/LoginPage" element={<LoginPage />} />
         </Routes>
       </BrowserRouter>
     </RecoilRoot>

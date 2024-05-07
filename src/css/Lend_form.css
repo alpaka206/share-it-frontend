@@ -13,11 +13,10 @@
 .lend-form-product-name p {
   margin-top: 0px;
   text-align: left;
-  font-size: 32px;
   font-weight: bold;
 }
 .photo-container {
-  display: flex;
+  display: grid;
   align-items: center;
   top: 24px;
   margin-bottom: 0px;

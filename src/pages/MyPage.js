@@ -2,15 +2,10 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Mainpage.css";
 import Topnav from "../components/Topnav";
-import YellowBox from "../components/MainPage/YellowBox";
 import DotCalendar from "../components/MainPage/DotCalendar";
-import GreenBox from "../components/MainPage/GreenBox";
-import PurpleBox from "../components/MainPage/PurpleBox";
 import Footer from "../components/Footer";
 import ItemRow from "../components/MainPage/ItemRow";
-import RecentTrade from "../components/MainPage/RecentTrade";
-import GradePreview from "../components/MainPage/GradePreview";
-import Calendar from "../components/Calendar";
+import MypageUserInfo from "../components/MypageUserInfo";
 
 function MyPage() {
   const navigate = useNavigate();
@@ -34,7 +29,7 @@ function MyPage() {
     <div className="container">
       <Topnav />
       <div className="semi_container">
-        <YellowBox
+        <MypageUserInfo
           className="yellow_box"
           tradingItems={3}
           reviewCount={3}

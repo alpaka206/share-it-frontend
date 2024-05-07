@@ -6,6 +6,7 @@ const TagImageElement = ({
   Button_Text,
   gradientColor1,
   gradientColor2,
+  onClick,
 }) => {
   const customStyle = {
     "--gradient-color-1": gradientColor1,
@@ -13,11 +14,11 @@ const TagImageElement = ({
   };
 
   return (
-    <div className="TagImageElement">
+    <div className="TagImageElement" onClick={onClick}>
       <div style={customStyle} className="TagImageElementImage">
         <img src={process.env.PUBLIC_URL + Button_Image} alt="ButtonImage" />
       </div>
-      <div>{Button_Text}</div>
+      <div>#{Button_Text}</div>
     </div>
   );
 };
