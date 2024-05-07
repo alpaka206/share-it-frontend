@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useRecoilState } from "recoil";
 import ProductCard from "./MainPage/ItemPreview";
-import "../css/ItemRow.css";
+import "../css/LendListRow.css";
 import { LendDataState } from "../Atoms.js";
 
 const ITEMS_PER_PAGE = 3; // 한 번에 보여질 항목 수
@@ -38,7 +38,13 @@ const LendListRow = () => {
         ))}
       </div>
       {displayedProducts.length < testData.length && (
-        <button onClick={loadMore}>더 보기</button>
+        <button className="load-more-button" onClick={loadMore}>
+          상품 더보기{" "}
+          <img
+            src={process.env.PUBLIC_URL + `assets/loadmore.svg`}
+            alt="상품 더보기"
+          />
+        </button>
       )}
     </div>
   );
