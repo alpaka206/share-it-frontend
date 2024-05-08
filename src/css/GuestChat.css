@@ -1,0 +1,10 @@
+.GuestText {
+  background-color: rgba(221, 221, 221, 0.7);
+  width: fit-content;
+  max-width: calc(45% - 32px);
+  word-wrap: break-word;
+  text-align: left;
+  padding: 10px 16px;
+  border-radius: 16px;
+  margin: 0px auto 8px 10px;
+}
