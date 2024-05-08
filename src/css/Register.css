@@ -1,124 +1,97 @@
 .register-container {
-    width: 70vw;
-    height: 100vh;
+    width: 75%;
     margin: 0 auto;
     display: flex;
-    margin-bottom: 100px;
+    margin-bottom: 360px;
     flex-direction: column;
+}
+.zeroDivRef {
+    width: 100%;
+    height: 360px;
 }
 
 .first-button {
+    margin-top: 37px;
+    margin-left: 5%;
+    width: 125px;
+    height: 50px;
     background-color: #ffffff;
     border: none;
     border-radius: 35px;
-    width: 125px;
-    height: 50px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    margin-top: 36px;
 }
 
-.zeroDivRef,
 .firstDivRef {
-    width: 960px;
-    height: 360px;
-    margin-left: 48px;
+    width: 100%;
+    height: auto;
+    padding-top: 84px;
 }
 
-.firstDivRef p:first-child {
+.firstDivRef-first-text {
+    margin-left: 5%;
     font-size: 48px;
     font-weight: bold;
     text-align: left;
 }
 
-.firstDivRef p:nth-of-type(2) {
+.firstDivRef-second-text {
+    margin-top: 36px;
+    margin-left: 5%;
     font-size: 24px;
     color: #606060;
-    margin-bottom: 0px;
 }
-
+.checkbox-container-first {
+    margin-top: 8px;
+    margin-left: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+.checkbox-container {
+    margin-bottom: 52px;
+    width: auto;
+}
 .agree-text {
     margin-left: 8px;
     font-size: 24px;
     color: #606060;
     text-decoration: underline;
 }
-.checkbox-container-first {
-    display: flex; /* 부모 요소를 플렉스 컨테이너로 설정 */
-    align-items: center; /* 세로 가운데 정렬 */
-}
-.checkbox-container {
-    width: 70%;
+.second-button-container {
+    margin-right: 5%;
 }
 
 .second-button {
     width: 160px;
-    height: 48px;
+    height: 49px;
     color: #ffffff;
     background-color: #181818;
     border-radius: 15px;
     font-size: 20px;
-    margin-left: 81px;
     align-self: flex-end;
     cursor: pointer;
 }
 
 /*secondDivRef*/
-
 .secondDivRef,
 .thirdDivRef,
 .fourthDivRef,
 .fifthDivRef,
 .sixDivRef {
-    width: 960px;
-    height: 360px;
-    margin-left: 48px;
+    width: 100%;
+    height: auto;
     padding-top: 64px;
+    display: flex;
+    flex-direction: column;
 }
 
 .secondDivRef-firsttext {
-    top: 200px;
+    margin-left: 5%;
     font-size: 40px;
     font-weight: bold;
-    margin-right: 10px;
 }
-
-.secondDivRef-secondtext {
-    font-size: 24px;
-    color: #606060;
-    margin-bottom: 0px;
-    width: 70%;
-}
-
-.secondDivRef button {
-    width: 160px;
-    height: 48px;
-    color: #ffffff;
-    background-color: #181818;
-    border-radius: 15px;
-    font-size: 20px;
-    margin-left: 753px;
-    align-self: flex-end;
-    cursor: pointer;
-    display: inline-block;
-}
-.secondDivRef input[type='text'] {
-    border: 1px solid #d2d2d2;
-    width: 400px;
-    height: 56px;
-    border-radius: 13px;
-    padding: 10px;
-    box-sizing: border-box;
-    font-size: 20px;
-    margin-right: 48px;
-}
-
-.secondDivRef img {
-    cursor: pointer;
-}
-
 .secondDivRef-input {
     margin-top: 32px;
     display: flex;
@@ -126,198 +99,256 @@
     margin-bottom: 32px;
 }
 
-/*thirdDivRef*/
-.thirdDivRef-firsttext {
-    top: 200px;
-    font-size: 40px;
-    font-weight: bold;
-    margin-right: 10px;
+.secondDivRef-input-id {
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 30%;
+    height: 56px;
+    border: 1px solid rgba(210, 210, 210, 0.8);
+    border-radius: 13px;
+    padding: 1%;
+    box-sizing: border-box;
+    font-size: 20px;
+}
+.secondDivRef-input-id::placeholder {
+    color: #888888;
+}
+.secondDivRef-input-id:focus,
+.secondDivRef-input-id:active {
+    outline: none;
+    border: none;
 }
 
-.thirdDivRef-secondtext {
+.secondDivRef img {
+    cursor: pointer;
+}
+
+.secondDivRef-secondtext {
+    margin-left: 5%;
     font-size: 24px;
     color: #606060;
-    margin-bottom: 0px;
-    width: 70%;
+    width: auto;
+}
+.third-button {
+    align-self: flex-end;
+    margin-right: 5%;
 }
 
-.thirdDivRef-firstinput input[type='password'],
-.thirdDivRef-secondinput input[type='password'] {
-    border: 1px solid #d2d2d2;
-    width: 400px;
-    height: 56px;
-    border-radius: 13px;
-    padding: 10px;
-    box-sizing: border-box;
-    font-size: 20px;
-    margin-right: 48px;
-    color: #666;
-}
-
-.thirdDivRef-firstinput input[type='password']::placeholder,
-.thirdDivRef-secondinput input[type='password']::placeholder {
-    color: #666;
-}
-
-.thirdDivRef-firstinput input[type='password'],
-.thirdDivRef-secondinput input[type='password'],
-.thirdDivRef-firstinput input[type='text'],
-.thirdDivRef-secondinput input[type='text'] {
-    border: 1px solid #d2d2d2;
-    width: 400px;
-    height: 56px;
-    border-radius: 13px;
-    padding: 10px;
-    box-sizing: border-box;
-    font-size: 20px;
-    margin-right: 48px;
-}
-
-.thirdDivRef-firstinput {
-    margin-bottom: 8px;
-    margin-top: 32px;
-    display: flex;
-    align-items: center;
-}
-
-.thirdDivRef-secondinput {
-    display: flex;
-    align-items: center;
-}
-
-.thirdDivRef-second {
-    display: flex;
-    align-items: center;
-}
-
-.thirdDivRef-second button {
+.secondDivRef button {
+    margin-right: 5%;
+    margin-bottom: 51.59px;
     width: 160px;
-    height: 48px;
+    height: 49px;
     color: #ffffff;
     background-color: #181818;
     border-radius: 15px;
     font-size: 20px;
-    margin-left: 81px;
-    margin-top: 20px;
     align-self: flex-end;
     cursor: pointer;
-    display: inline-block;
-}
-.inputContainer {
-    position: relative;
-    display: inline-block;
 }
 
-.showPasswordIcon {
-    position: absolute;
-    top: 50%;
-    left: 346px;
-    transform: translateY(-50%);
+/*thirdDivRef*/
+.thirdDivRef-firsttext {
+    margin-left: 5%;
+    margin-bottom: 32px;
+    font-size: 40px;
+    font-weight: bold;
+}
+.thirdDivRef-input {
+    margin-top: 32px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 32px;
+}
+.thirdDivRef-first-input-container {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.thirdDivRef-second-input-container {
+    display: flex;
+    align-items: center;
+}
+.thirdDivRef-first-input-2,
+.thirdDivRef-second-input-2 {
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 30%;
+    height: 56px;
+}
+.thirdDivRef-first-input,
+.thirdDivRef-second-input {
+    width: 100%;
+    height: 56px;
+    border: 1px solid rgba(210, 210, 210, 0.8);
+    border-radius: 13px;
+    box-sizing: border-box;
+    padding: 4%;
+    font-size: 20px;
+}
+.thirdDivRef-first-input:focus,
+.thirdDivRef-first-input:active,
+.thirdDivRef-second-input:focus,
+.thirdDivRef-second-input:active {
+    outline: none;
+    border: none;
+}
+
+.thirdDivRef-first-input::placeholder,
+.thirdDivRef-second-input::placeholder {
+    color: #888888;
+}
+.thirdDivRef img {
     cursor: pointer;
 }
 
+.showPasswordIcon,
 .showConfirmPasswordIcon {
-    position: absolute;
-    top: 50%;
-    left: 346px;
-    transform: translateY(-50%);
+    transform: translateY(-160%);
+    margin-left: 85%;
+    cursor: pointer;
+    width: 30px;
+}
+.thirdDivRef-second {
+    display: flex;
+    justify-content: space-between;
+}
+.thirdDivRef-secondtext {
+    margin-top: 32px;
+    margin-left: 5%;
+    font-size: 24px;
+    color: #606060;
+    width: auto;
+}
+.fourth-button-container {
+    align-self: flex-end;
+    margin-right: 5%;
+}
+.fourth-button {
+    width: 160px;
+    height: 49px;
+    margin-top: 12px;
+    margin-bottom: 51.59px;
+    color: #ffffff;
+    background-color: #181818;
+    border-radius: 15px;
+    font-size: 20px;
+    align-self: flex-end;
     cursor: pointer;
 }
 
 /*fourthDivRef*/
 .fourthDivRef-firsttext {
-    top: 200px;
+    margin-left: 5%;
     font-size: 40px;
     font-weight: bold;
-    margin-right: 10px;
-    width: 70%;
 }
-
-.fourthDivRef-secondtext {
-    font-size: 24px;
-    color: #606060;
-    margin-bottom: 0px;
-    width: 70%;
+.fourthDivRef-input {
+    margin-top: 32px;
+    display: flex;
+    align-items: center;
 }
-.fourthDivRef input[type='email'] {
-    border: 1px solid #d2d2d2;
-    width: 400px;
+.fourthDivRef-input-email {
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 30%;
     height: 56px;
+    border: 1px solid rgba(210, 210, 210, 0.8);
     border-radius: 13px;
-    padding: 10px;
+    padding: 1%;
     box-sizing: border-box;
     font-size: 20px;
-    margin-right: 48px;
+}
+.fourthDivRef-input-email::placeholder {
+    color: #888888;
+}
+.fourthDivRef-input-email:focus,
+.fourthDivRef-input-email:active {
+    outline: none;
+    border: none;
 }
 
 .fourthDivRef img {
     cursor: pointer;
 }
 
-.fourthDivRef-input {
-    margin-top: 32px;
-    display: flex;
-    align-items: center;
-    margin-bottom: 3px;
-}
-
 .fourthDivRef-second {
     display: flex;
-    align-items: center;
+    justify-content: space-between;
 }
-
-.fourthDivRef-second button {
+.fourthDivRef-secondtext {
+    margin-top: 32px;
+    margin-left: 5%;
+    font-size: 24px;
+    color: #606060;
+    width: auto;
+}
+.fifth-button {
+    align-self: flex-end;
+    margin-right: 5%;
+}
+.fourthDivRef button {
     width: 160px;
-    height: 48px;
+    height: 49px;
+    margin-top: 12px;
+    margin-bottom: 51.59px;
     color: #ffffff;
     background-color: #181818;
     border-radius: 15px;
     font-size: 20px;
-    margin-top: 20px;
     align-self: flex-end;
     cursor: pointer;
-    display: inline-block;
-    margin-left: 81px;
 }
 
 /*fifthDivRef*/
 .fifthDivRef-firsttext {
-    top: 200px;
+    margin-left: 5%;
     font-size: 40px;
     font-weight: bold;
-    margin-right: 10px;
 }
-
-.fifthDivRef-secondtext {
-    font-size: 24px;
-    color: #606060;
-    margin-bottom: 0;
-}
-.fifthDivRef input[type='email'] {
-    border: 1px solid #d2d2d2;
-    width: 400px;
-    height: 56px;
-    border-radius: 13px;
-    padding: 10px;
-    box-sizing: border-box;
-    font-size: 20px;
-    margin-right: 48px;
-}
-
-.fifthDivRef img {
-    cursor: pointer;
-}
-
 .fifthDivRef-input {
     margin-top: 32px;
     display: flex;
     align-items: center;
     margin-bottom: 3px;
 }
+.fifthDivRef-input-email {
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 30%;
+    height: 56px;
+    border: 1px solid rgba(210, 210, 210, 0.8);
+    border-radius: 13px;
+    padding: 1%;
+    box-sizing: border-box;
+    font-size: 20px;
+}
+.fifthDivRef-input-email::placeholder {
+    color: #888888;
+}
+.fifthDivRef-input-email:focus,
+.fifthDivRef-input-email:active {
+    outline: none;
+    border: none;
+}
 
+.fifthDivRef img {
+    cursor: pointer;
+}
+
+.fifthDivRef-secondtext {
+    margin-top: 36px;
+    margin-left: 5%;
+    font-size: 24px;
+    color: #606060;
+    width: auto;
+}
 .fifthDivRef-second {
+    margin-left: 5%;
     display: flex;
-    align-items: flex-start;
+    width: auto;
+    justify-content: space-between;
 }
 .fifthDivRef-thirdtext {
     border: none;
@@ -328,29 +359,32 @@
     outline: none;
     color: #606060;
     font-size: 24px;
-    margin-top: 8px;
     padding: 0;
-    width: 70%;
+    width: auto;
+}
+.six-button-container {
+    align-self: flex-end;
+    margin-right: 5%;
 }
 .fifthDivRef-secondbutton {
+    margin-right: 5%;
+    margin-bottom: 51.59px;
     width: 160px;
-    height: 48px;
+    height: 49px;
     color: #ffffff;
     background-color: #181818;
     border-radius: 15px;
     font-size: 20px;
-    margin-left: 81px;
+    align-self: flex-end;
     cursor: pointer;
-    display: inline-block;
 }
 
 /*sixDivRef*/
 .sixDivRef-firsttext {
-    top: 200px;
+    margin-left: 5%;
     font-size: 40px;
     font-weight: bold;
-    margin-right: 10px;
-    margin-bottom: 0px;
+    margin-bottom: 16px;
 }
 
 .sixDivRef-secondtext {
@@ -358,18 +392,17 @@
     font-weight: bold;
     margin-left: 25px;
     margin-right: 25px;
-    margin-bottom: 0;
-    margin-top: 0;
+    align-self: flex-end;
 }
 
 .sixDivRef-thirdtext {
+    margin-left: 5%;
     font-size: 40px;
     font-weight: bold;
-    margin-bottom: 0;
-    margin-top: 0;
 }
 
-.sixDivRef input[type='text'] {
+.sixDivRef-input-nick {
+    margin-left: 5%;
     border: none;
     border-bottom: 3px solid black;
     background-color: transparent;
@@ -379,13 +412,22 @@
     font-weight: bold;
 }
 
-.sixDivRef input[type='text']::placeholder {
+.sixDivRef-input-nick::placeholder {
     color: black;
 }
 
 .sixDivRef-input {
     display: flex;
-    align-items: center;
+    align-items: baseline;
+    margin-bottom: 16px;
+}
+.last-button-container {
+    align-self: flex-end;
+    margin-right: 5%;
+}
+.sixDivRef img {
+    cursor: pointer;
+    align-self: center;
 }
 .last-button {
     background-color: #d2d2d2;
@@ -393,16 +435,19 @@
     border-radius: 48px;
     width: 360px;
     height: 72px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
     font-size: 32px;
     font-weight: bold;
     cursor: pointer;
     margin-bottom: 26px;
-    margin-left: 554px;
-    margin-top: 0;
+    margin-top: 6px;
 }
 
 .sixDivRef-second {
     display: flex;
     align-items: flex-start;
+}
+
+.sixDivRef-alert {
+    margin-left: 5%;
 }
