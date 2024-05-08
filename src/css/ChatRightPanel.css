@@ -1,35 +1,10 @@
 /* ChatRightPanel.css */
 .right-panel {
-  width: 50%; /* 오른쪽 패널의 너비는 전체의 절반입니다. */
+  width: 65%; /* 오른쪽 패널의 너비는 전체의 절반입니다. */
   height: 100%; /* 화면 높이를 따라갑니다. */
   float: right; /* 오른쪽으로 정렬됩니다. */
-}
-
-.item-box {
-  margin: 20px;
-  /* 아이템 박스 스타일을 원하는 대로 추가하세요. */
-}
-
-.item-image {
-  width: 100px;
-  height: 100px;
-  /* 이미지 스타일을 원하는 대로 추가하세요. */
-}
-
-.item-details {
-  /* 아이템 정보 스타일을 원하는 대로 추가하세요. */
-}
-
-.complete-button {
-  /* 버튼 스타일을 원하는 대로 추가하세요. */
-}
-
-.chat-page {
-  /* 채팅 페이지 스타일을 원하는 대로 추가하세요. */
-}
-
-.input-box {
-  /* 입력창과 버튼을 감싸는 박스의 스타일을 원하는 대로 추가하세요. */
+  background-color: rgba(210, 210, 210, 0.8);
+  border-radius: 0px 32px 32px 0px;
 }
 
 .chat-input {

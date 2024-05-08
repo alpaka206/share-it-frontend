@@ -1,9 +1,10 @@
 /* ChatLeftPanel.css */
 .left-panel {
-  width: 50%;
+  width: 35%;
   height: 100%;
   float: left;
-  background-color: #bcbcbc;
+  /* background-color: #bcbcbc; */
+  background-color: rgba(188, 188, 188, 0.8);
   border-radius: 32px 0px 0px 32px;
 }
 
@@ -15,19 +16,27 @@
 }
 
 .chat-search-input {
-  width: 90%;
-  margin: 16px 0px 0px 16px;
-  padding: 8px 0px 8px 19px;
+  width: calc(100% - 72px);
+  margin: 16px 16px 0px 16px;
+  padding: 8px 20px 8px 20px;
   font-size: 16px;
   border: none;
   border-radius: 16px;
   background-color: #b2b2b2;
+  box-shadow: inset -3px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .chat-list {
-  background-color: #ffffff;
-  width: 90%;
-  margin: 32px 0px 0px 32px;
-  padding: 5px;
+  background-color: rgba(255, 255, 255, 0.8);
+  width: calc(100% - 50px);
+  height: 640px;
+  overflow-y: auto;
+  margin: 32px 16px 16px 16px;
+  padding: 9px;
   border-radius: 32px;
+  align-items: center;
+  justify-content: center;
+}
+.chat-list::-webkit-scrollbar {
+  width: 0;
 }

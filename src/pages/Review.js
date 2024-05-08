@@ -10,7 +10,6 @@ import Footer from "../components/Footer";
 import ItemRow from "../components/MainPage/ItemRow";
 import RecentTrade from "../components/MainPage/RecentTrade";
 import GradePreview from "../components/MainPage/GradePreview";
-import Calendar from "../components/Calendar";
 
 function Review() {
   const navigate = useNavigate();

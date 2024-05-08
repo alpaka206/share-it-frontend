@@ -1,0 +1,70 @@
+.ChatRoominfo {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin: 22px 12px 0px 12px;
+  border-radius: 16px;
+  height: 96px;
+  justify-content: space-between;
+  padding: 0px 16px;
+}
+.ChatRoominfo-Info-Container {
+  display: flex;
+  align-items: center;
+}
+.ChatRoominfo-img {
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #d9d9d9;
+  border-radius: 100px;
+  margin-right: 24px;
+}
+.ChatRoominfo-img img {
+  width: 35px;
+  height: 35px;
+}
+.ChatRoominfo-username {
+  text-align: left;
+  font-size: 24px;
+  font-weight: 900;
+}
+.ChatRoominfo-itemname {
+  text-align: left;
+  font-size: 20px;
+  font-weight: 600;
+}
+.ChatRoominfo-complete-button {
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 40px;
+  font-size: 16px;
+  font-weight: 900;
+  border: none;
+  border-radius: 8px;
+  background-color: rgba(221, 221, 221, 0.7);
+  margin-right: 8px;
+}
+.ChatRoominfo-complete-button img {
+  width: 16px;
+  height: 12px;
+}
+.ChatRoominfo-plan-button {
+  align-items: center;
+  width: 120px;
+  height: 40px;
+  font-size: 16px;
+  font-weight: 900;
+  border: none;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+}
+.ChatRoominfo-plan-button img {
+  width: 16px;
+  height: 17px;
+  margin-right: 8px;
+}
