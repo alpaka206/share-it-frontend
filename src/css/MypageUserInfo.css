@@ -1,9 +1,9 @@
-.mypage-userinfo {
+.mainpuage-login-userinfo {
   display: flex;
   margin: 37px 0 0 55px;
 }
 
-.mypage-userimage {
+.mainpuage-login-userimage {
   width: 128px;
   height: 128px;
   background-color: #d9d9d9;
@@ -12,25 +12,28 @@
   align-items: center;
   justify-content: center;
 }
-.mypage-usertext-top {
+.mainpuage-login-usertext-top {
   align-items: center;
-  justify-content: center;
   display: flex;
 }
-.mypage-star {
+.mainpuage-login-star {
   margin-top: 10px;
 }
-.mypage-userdot {
+.mainpuage-login-userdot {
   margin: 0px 10px;
 }
-.mypage-username {
+.mainpuage-login-username {
   font-size: 32px;
   font-weight: bold;
 }
-.mypage-school {
+.mainpuage-login-school {
   text-align: left;
+  margin: 8px 0px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #5c5c5c;
 }
-.mypage-fixbutton {
+.mainpuage-login-fixbutton {
   display: flex;
   background-color: rgba(221, 221, 221, 0.7);
   border: none;
@@ -40,7 +43,30 @@
   text-align: center;
   align-items: center;
   justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
 }
-.mypage-userinfo-right {
+.mainpuage-login-userinfo-right {
   margin-left: 42px;
+}
+.mainpuage-login-info {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.info-box {
+  text-align: center;
+  width: 150px;
+}
+
+.item-label {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.item-value {
+  margin-top: 5px;
+  font-size: 48px;
+  font-weight: 900;
 }
