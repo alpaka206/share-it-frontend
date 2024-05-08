@@ -1,0 +1,42 @@
+.ChatListElement {
+  display: flex;
+  width: 100%;
+  height: 96px;
+  align-items: center;
+  border-radius: 32px;
+  border: none;
+  background-color: transparent;
+}
+.ChatListElement.active {
+  background-color: #e9e9e9;
+  box-shadow: inset -2px 2px 4px rgba(0, 0, 0, 0.25);
+}
+.ChatListElement-image {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #d9d9d9;
+  border-radius: 100px;
+  margin-left: 16px;
+  margin-right: 24px;
+}
+.ChatListElement-image img {
+  width: 30px;
+}
+.ChatListElement-top {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+.ChatListElement-time {
+  color: #999999;
+}
+.ChatListElement-message {
+  margin-top: 4px;
+  text-align: left;
+  font-size: 16px;
+  font-weight: bold;
+}
