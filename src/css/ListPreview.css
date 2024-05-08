@@ -1,0 +1,104 @@
+.list-box {
+    width: 69vw;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    padding: 0px 32px;
+    background-color: #f4f4f4;
+    border-radius: 25px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.list-details {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.list-heart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 32px;
+}
+
+.list-heart-count {
+    margin-top: 9px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.list-heart-icon {
+    width: 31px;
+    height: auto;
+    cursor: pointer;
+}
+
+.list-details {
+    display: flex;
+    align-items: center;
+}
+
+.list-preview-name {
+    display: flex;
+    flex-direction: column;
+}
+
+.list-name-container {
+    display: flex;
+    align-items: baseline;
+}
+.list-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 16px;
+    align-self: center;
+}
+.list-date {
+    font-size: 15px;
+    color: #909090;
+    font-weight: bold;
+    align-self: center;
+}
+
+.list-hashtags {
+    display: flex;
+    margin-top: 9px;
+}
+
+.list-hashtag {
+    white-space: nowrap;
+    margin-right: 5px;
+    background-color: #e2e2e2;
+    padding: 6px 12px;
+    border-radius: 8px; /* 해시태그 모서리 둥글게 만들기 */
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.list-info {
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.list-info-first-text {
+    font-size: 16px;
+    font-weight: bold;
+    color: #909090;
+}
+.list-price {
+    font-size: 24px;
+    font-weight: bold;
+}
+.list-rental-days {
+    font-size: 16px;
+    font-weight: bold;
+    color: #909090;
+}
+.list-info-first-text,
+.list-price,
+.list-rental-days {
+    margin-left: 5px; /* 텍스트들 사이 간격 조정 */
+}

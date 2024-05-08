@@ -75,6 +75,13 @@ function Sidebar({ isOpen, onClose }) {
                     isActive={activeMenuLink === '/lend_form'}
                     onClick={() => handleMenuClick('/lend_form')}
                 />
+                <PublicSideMenu
+                    Menu_Text="필요해요 폼"
+                    Menu_Link="/need_form"
+                    Menu_Image={`assets/need.svg`}
+                    isActive={activeMenuLink === '/need_form'}
+                    onClick={() => handleMenuClick('/need_form')}
+                />
             </div>
             <div className="space"></div>
             <div className="evaluate-group">
