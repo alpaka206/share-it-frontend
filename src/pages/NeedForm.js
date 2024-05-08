@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Topnav from '../components/Topnav';
-import '../css/LendForm.css';
+import '../css/NeedForm.css';
 import Footer from '../components/Footer';
 import Autoword from '../components/Autoword';
 
@@ -43,7 +43,7 @@ function Lend_form() {
     };
 
     const handleSubmit = () => {
-        window.location.href = '/lend'; // 페이지 이동
+        window.location.href = '/need'; // 페이지 이동
     };
 
     const handleEnterPress = (e) => {
@@ -67,11 +67,14 @@ function Lend_form() {
     return (
         <div className="container">
             <Topnav />
-            <div className="lend-form-product-img">
+            <div className="need-form-product-img">
                 <p>제품 사진</p>
-                <div className="photo-big-container">
-                    <div className="photo-container">
-                        <div className="upload-box" onClick={() => document.getElementById('photo-upload').click()}>
+                <div className="need-form-photo-big-container">
+                    <div className="need-form-photo-container">
+                        <div
+                            className="need-form-upload-box"
+                            onClick={() => document.getElementById('photo-upload').click()}
+                        >
                             <img src="/assets/camera_add.svg" alt="camera_add" width={26} height={23} />
                             <div>{numPhotos}/5</div>
                         </div>
@@ -85,16 +88,20 @@ function Lend_form() {
                         style={{ display: 'none' }}
                     />
                     {selectedPhotos.map((photo, index) => (
-                        <div key={index} className="photo-wrapper">
-                            <img src={URL.createObjectURL(photo)} alt={`Selected ${index + 1}`} className="photo" />
-                            <button className="delete-button" onClick={() => handlePhotoDelete(index)}>
+                        <div key={index} className="need-form-photo-wrapper">
+                            <img
+                                src={URL.createObjectURL(photo)}
+                                alt={`Selected ${index + 1}`}
+                                className="need-form-photo"
+                            />
+                            <button className="need-form-delete-button" onClick={() => handlePhotoDelete(index)}>
                                 X
                             </button>
                         </div>
                     ))}
                 </div>
             </div>
-            <div className="lend-form-product-name">
+            <div className="need-form-product-name">
                 <p>제품 이름</p>
                 <input
                     type="text"
@@ -103,7 +110,7 @@ function Lend_form() {
                     placeholder="제품 이름을 입력하세요."
                 />
             </div>
-            <div className="lend-form-hashtag">
+            <div className="need-form-hashtag">
                 <p>해시태그</p>
                 <div className="hasttag-list">
                     {hashtagList.map((tag, index) => (
@@ -120,7 +127,7 @@ function Lend_form() {
                     placeholder="제품과 관련된 해시태그를 입력해 주세요. (최대 5개)"
                 />
                 <Autoword keyword={productTag} onSearch={setProductTag} className="lend-autoword" />
-                <div className="lend-form-hashtag-info">
+                <div className="need-form-hashtag-info">
                     ▪ 태그는 띄어쓰기로 구분되며 최대 9자까지 입력할 수 있어요.
                     <br />
                     ▪ 대충 번개장터에서 긁어온거임. 여기다가는 관련된 매뉴얼 적어놓으면 될듯
@@ -129,29 +136,29 @@ function Lend_form() {
                     <br />▪ 상품과 관련 없는 태그를 입력할 경우, 판매에 제재를 받을 수 있어요.
                 </div>
             </div>
-            <div className="lend-form-price">
+            <div className="need-form-price">
                 <p>가격</p>
                 <input
-                    className="lend-form-price-krw"
+                    className="need-form-price-krw"
                     type="text"
                     value={formatNumber(price)}
                     onChange={(e) => setPrice(e.target.value.replace(/\D/g, ''))}
                     placeholder="₩"
                 />
 
-                <p className="lend-form-price-unit">원</p>
-                <p className="lend-form-price-unit2"> /</p>
+                <p className="need-form-price-unit">원</p>
+                <p className="need-form-price-unit2"> /</p>
                 <input
-                    className="lend-form-price-day"
+                    className="need-form-price-day"
                     type="text"
                     value={duration}
                     onChange={(e) => setDuration(e.target.value)}
                     placeholder=" 단위 날짜 입력"
                 />
-                <p className="lend-form-price-unit2">일</p>
+                <p className="need-form-price-unit2">일</p>
             </div>
-            <div className="lend-form-product-info">
-                <div className="lend-form-product-info-title">자세한 설명</div>
+            <div className="need-form-product-info">
+                <div className="need-form-product-info-title">자세한 설명</div>
                 <textarea
                     value={productInfo}
                     onChange={handleProductInfoChange}
@@ -160,7 +167,7 @@ function Lend_form() {
             </div>
             <div>
                 {' '}
-                <button className="lend-form-submit" onClick={handleSubmit}>
+                <button className="need-form-submit" onClick={handleSubmit}>
                     등록하기
                 </button>
             </div>

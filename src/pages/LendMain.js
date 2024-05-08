@@ -14,7 +14,7 @@ function LendMain() {
         <div className="container">
             <Topnav />
             <div>
-                {keyword && <h2>{decodeURIComponent(keyword)}</h2>}
+                <h2>{keyword ? decodeURIComponent(keyword) : '주변엔 이런 물건을 빌릴 수 있어요'}</h2>
                 <LendListRow />
                 <TopTags location={'Lend'} />
             </div>
