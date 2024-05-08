@@ -1,0 +1,49 @@
+.ChatInput {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin: 0px 12px 0px 12px;
+  border-radius: 16px;
+  height: 72px;
+  padding: 0px 16px;
+}
+.ChatInput-Image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(221, 221, 221, 0.7);
+  width: 44px;
+  height: 44px;
+  border-radius: 100px;
+  margin-right: 16px;
+}
+.ChatInput-InputBox {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 26px;
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0 0 2px #dddddd inset;
+  border-radius: 100px;
+  padding: 12px 21px;
+}
+.ChatInput-input {
+  border: none;
+  background-color: transparent;
+  height: 27px;
+  width: calc(100% - 32px);
+}
+.ChatInput-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: #a191de;
+  width: 32px;
+  height: 32px;
+  border-radius: 100px;
+}
+.ChatInput-button img {
+  width: 16px;
+  height: 18px;
+}
