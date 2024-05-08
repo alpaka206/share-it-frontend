@@ -1,16 +1,15 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { redirect, useNavigate } from "react-router-dom";
 import "../css/LoginRegisterPrev.css";
 import Login from "./Login";
+import { kakaoConfig } from "../data/kakaoConfig.js";
 
 function LoginRegisterPrev() {
   const [isLogin, setIsLogin] = useState(false);
   const navigate = useNavigate();
 
-  const Rest_api_key = "6caecbc232757f347cc9db0a0cfb6392"; //REST API KEY
-  const redirect_uri = "http://localhost:3000/"; //Redirect URI
   // oauth 요청 URL
-  const kakaoURL = `https://kauth.kakao.com/oauth/authorize?client_id=${Rest_api_key}&redirect_uri=${redirect_uri}&response_type=code`;
+  const kakaoURL = `https://kauth.kakao.com/oauth/authorize?client_id=${kakaoConfig.Rest_api_key}&redirect_uri=${kakaoConfig.redirect_uri}&response_type=code`;
 
   const handleLogin = () => {
     window.location.href = kakaoURL;
