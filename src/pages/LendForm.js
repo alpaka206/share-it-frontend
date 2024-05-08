@@ -68,7 +68,7 @@ function Lend_form() {
         <div className="container">
             <Topnav />
             <div className="lend-form-product-img">
-                <p>제품 사진</p>
+                <div className="lend-form-product-img-title">제품 사진</div>
                 <div className="photo-big-container">
                     <div className="photo-container">
                         <div className="upload-box" onClick={() => document.getElementById('photo-upload').click()}>
@@ -95,7 +95,7 @@ function Lend_form() {
                 </div>
             </div>
             <div className="lend-form-product-name">
-                <p>제품 이름</p>
+                <div>제품 이름</div>
                 <input
                     type="text"
                     value={productName}
@@ -104,7 +104,7 @@ function Lend_form() {
                 />
             </div>
             <div className="lend-form-hashtag">
-                <p>해시태그</p>
+                <div>해시태그</div>
                 <div className="hasttag-list">
                     {hashtagList.map((tag, index) => (
                         <div key={index} className="hashtag-item">
@@ -130,7 +130,7 @@ function Lend_form() {
                 </div>
             </div>
             <div className="lend-form-price">
-                <p>가격</p>
+                <div>가격</div>
                 <input
                     className="lend-form-price-krw"
                     type="text"
@@ -139,8 +139,8 @@ function Lend_form() {
                     placeholder="₩"
                 />
 
-                <p className="lend-form-price-unit">원</p>
-                <p className="lend-form-price-unit2"> /</p>
+                <div className="lend-form-price-unit">원</div>
+                <div className="lend-form-price-unit2"> /</div>
                 <input
                     className="lend-form-price-day"
                     type="text"
@@ -148,7 +148,7 @@ function Lend_form() {
                     onChange={(e) => setDuration(e.target.value)}
                     placeholder=" 단위 날짜 입력"
                 />
-                <p className="lend-form-price-unit2">일</p>
+                <div className="lend-form-price-unit2">일</div>
             </div>
             <div className="lend-form-product-info">
                 <div className="lend-form-product-info-title">자세한 설명</div>

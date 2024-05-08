@@ -215,10 +215,12 @@ const Register = () => {
                 </div>
 
                 <div className="firstDivRef">
-                    <p>
-                        공유경제의 기쁨, <br /> 쉐어릿으로 시작해보세요.
-                    </p>
-                    <p>간단한 회원가입으로 시작할게요.</p>
+                    <div className="firstDivRef-first-text">
+                        공유경제의 기쁨,
+                        <br />
+                        쉐어릿으로 시작해보세요.
+                    </div>
+                    <div className="firstDivRef-second-text">간단한 회원가입으로 시작할게요.</div>
                     <div className="checkbox-container-first">
                         <div className="checkbox-container">
                             <button
@@ -230,19 +232,22 @@ const Register = () => {
                                     <img src="/assets/register_check.svg" alt="Checked" className="checkmark" />
                                 )}
                             </button>
-                            <span className="agree-text" onClick={() => setAgreeChecked(!agreeChecked)}>
+                            <div className="agree-text" onClick={() => setAgreeChecked(!agreeChecked)}>
                                 개인정보 수집 및 이용에 동의합니다.
-                            </span>
+                            </div>
                         </div>
-                        <button onClick={(e) => handleNext(e, secondDivRef)} className="second-button">
-                            시작하기
-                        </button>
+                        <div className="second-button-container">
+                            <button onClick={(e) => handleNext(e, secondDivRef)} className="second-button">
+                                시작하기
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div className="secondDivRef" ref={secondDivRef}>
-                    <p className="secondDivRef-firsttext">먼저, 아이디를 알려주세요.</p>
+                    <div className="secondDivRef-firsttext">먼저, 아이디를 알려주세요.</div>
                     <div className="secondDivRef-input">
                         <input
+                            className="secondDivRef-input-id"
                             type="text"
                             value={username}
                             onChange={handleUsernameChange}
@@ -250,17 +255,19 @@ const Register = () => {
                         />
                         <img src="/assets/delete_red.svg" alt="reset" onClick={() => handleReset(setUsername)} />
                     </div>
-
-                    <p className="secondDivRef-secondtext">
+                    <div className="secondDivRef-secondtext">
                         {usernameError || '아이디는 8-15자, 소문자 영어, 숫자만 사용할 수 있어요.'}
-                    </p>
-                    <button onClick={(e) => handleNext(e, thirdDivRef)}>다음으로</button>
+                    </div>
+                    <div className="third-button">
+                        <button onClick={(e) => handleNext(e, thirdDivRef)}>다음으로</button>
+                    </div>
                 </div>
                 <div className="thirdDivRef" ref={thirdDivRef}>
-                    <p className="thirdDivRef-firsttext">비밀번호를 작성해 주세요.</p>
-                    <div className="thirdDivRef-firstinput">
-                        <div className="inputContainer">
+                    <div className="thirdDivRef-firsttext">비밀번호를 작성해 주세요.</div>
+                    <div className="thirdDivRef-first-input-container">
+                        <div className="thirdDivRef-first-input-2">
                             <input
+                                className="thirdDivRef-first-input"
                                 type={showPassword ? 'text' : 'password'}
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
@@ -274,11 +281,13 @@ const Register = () => {
                                 onMouseLeave={() => setShowPassword(false)}
                             />
                         </div>
+
                         <img src="/assets/delete_red.svg" alt="reset" onClick={() => handleReset(setPassword)} />
                     </div>
-                    <div className="thirdDivRef-secondinput">
-                        <div className="inputContainer">
+                    <div className="thirdDivRef-second-input-container">
+                        <div className="thirdDivRef-second-input-2">
                             <input
+                                className="thirdDivRef-second-input"
                                 type={showConfirmPassword ? 'text' : 'password'}
                                 value={confirmPassword}
                                 onChange={handleConfirmPassword}
@@ -292,22 +301,28 @@ const Register = () => {
                                 onMouseLeave={() => setShowConfirmPassword(false)}
                             />
                         </div>
+
                         <img src="/assets/delete_red.svg" alt="reset" onClick={() => handleReset(setConfirmPassword)} />
                     </div>
                     <div className="thirdDivRef-second">
-                        <p className="thirdDivRef-secondtext">{validatePassword()}</p>
-                        <button onClick={(e) => handleNext(e, fourthDivRef)}>다음으로</button>
+                        <div className="thirdDivRef-secondtext">{validatePassword()}</div>
+                        <div className="fourth-button-container">
+                            <button className="fourth-button" onClick={(e) => handleNext(e, fourthDivRef)}>
+                                다음으로
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 <div className="fourthDivRef" ref={fourthDivRef}>
-                    <p className="fourthDivRef-firsttext">
+                    <div className="fourthDivRef-firsttext">
                         거의 다 왔어요!
                         <br />
                         학교 이메일을 입력해주세요.
-                    </p>
+                    </div>
                     <div className="fourthDivRef-input">
                         <input
+                            className="fourthDivRef-input-email"
                             type="email"
                             value={email}
                             onChange={handleEmailChange}
@@ -316,16 +331,19 @@ const Register = () => {
                         <img src="/assets/delete_red.svg" alt="reset" onClick={() => handleReset(setEmail)} />
                     </div>
                     <div className="fourthDivRef-second">
-                        <p className="fourthDivRef-secondtext">
+                        <div className="fourthDivRef-secondtext">
                             {emailError || '보다 신뢰할 수 있는 거래를 위해 필요해요.'}
-                        </p>
-                        <button onClick={(e) => handleNext(e, fifthDivRef)}>인증하기</button>
+                        </div>
+                        <div className="fifth-button">
+                            <button onClick={(e) => handleNext(e, fifthDivRef)}>인증하기</button>
+                        </div>
                     </div>
                 </div>
                 <div className="fifthDivRef" ref={fifthDivRef}>
-                    <p className="fifthDivRef-firsttext">작성하신 주소로 이메일을 보냈어요</p>
+                    <div className="fifthDivRef-firsttext">작성하신 주소로 이메일을 보냈어요</div>
                     <div className="fifthDivRef-input">
                         <input
+                            className="fifthDivRef-input-email"
                             type="email"
                             value={confirmEmail}
                             onChange={(e) => setConfirmEmail(e.target.value)}
@@ -333,27 +351,40 @@ const Register = () => {
                         />
                         <img src="/assets/delete_red.svg" alt="reset" onClick={() => handleReset(setConfirmEmail)} />
                     </div>
-                    <p className="fifthDivRef-secondtext">메일함을 확인해 주세요.</p>
+                    <div className="fifthDivRef-secondtext">메일함을 확인해 주세요.</div>
                     <div className="fifthDivRef-second">
-                        <button className="fifthDivRef-thirdtext">메일이 도착하지 않았나요?</button>
-                        <button className="fifthDivRef-secondbutton" onClick={(e) => handleNext(e, sixDivRef)}>
-                            다음으로
-                        </button>
+                        <div>
+                            <button className="fifthDivRef-thirdtext">메일이 도착하지 않았나요?</button>
+                        </div>
+                        <div className="six-button-container">
+                            <button className="fifthDivRef-secondbutton" onClick={(e) => handleNext(e, sixDivRef)}>
+                                다음으로
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div className="sixDivRef" ref={sixDivRef}>
-                    <p className="sixDivRef-firsttext">환영해요! 이제부터 저를,,</p>
+                    <div className="sixDivRef-firsttext">환영해요! 이제부터 저를,,</div>
                     <div className="sixDivRef-input">
-                        <input type="text" value={nickname} onChange={handleNicknameChange} placeholder="username" />
-                        <p className="sixDivRef-secondtext">님</p>
+                        <input
+                            className="sixDivRef-input-nick"
+                            type="text"
+                            value={nickname}
+                            onChange={handleNicknameChange}
+                            placeholder="username"
+                        />
+                        <div className="sixDivRef-secondtext">님</div>
                         <img src="/assets/delete_red.svg" alt="reset" onClick={() => handleReset(setNickname)} />
                     </div>
-                    <p>{nicknameError || '닉네임은 15자 이내로, 영어, 한글, 숫자만 사용 가능합니다.'}</p>
-                    <p className="sixDivRef-thirdtext">으로 불러주세요!</p>
-
-                    <button className="last-button" onClick={handleRegisterButtonClicked}>
-                        공유경제 시작하기 <span>&gt;</span>
-                    </button>
+                    <div className="sixDivRef-alert">
+                        {nicknameError || '닉네임은 15자 이내로, 영어, 한글, 숫자만 사용 가능합니다.'}
+                    </div>
+                    <div className="sixDivRef-thirdtext">으로 불러주세요!</div>
+                    <div className="last-button-container">
+                        <button className="last-button" onClick={handleRegisterButtonClicked}>
+                            공유경제 시작하기 <span>&gt;</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
