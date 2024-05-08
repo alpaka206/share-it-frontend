@@ -232,7 +232,7 @@ const Register = () => {
                                     <img src="/assets/register_check.svg" alt="Checked" className="checkmark" />
                                 )}
                             </button>
-                            <div className="agree-text" onClick={() => setAgreeChecked(!agreeChecked)}>
+                            <div className="firstDivRef-agree-text" onClick={() => setAgreeChecked(!agreeChecked)}>
                                 개인정보 수집 및 이용에 동의합니다.
                             </div>
                         </div>

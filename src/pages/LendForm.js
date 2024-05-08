@@ -73,7 +73,7 @@ function Lend_form() {
                     <div className="photo-container">
                         <div className="upload-box" onClick={() => document.getElementById('photo-upload').click()}>
                             <img src="/assets/camera_add.svg" alt="camera_add" width={26} height={23} />
-                            <div>{numPhotos}/5</div>
+                            <div className="lend-form-photo-num">{numPhotos}/5</div>
                         </div>
                     </div>
                     <input
@@ -95,7 +95,7 @@ function Lend_form() {
                 </div>
             </div>
             <div className="lend-form-product-name">
-                <div>제품 이름</div>
+                <div className="lend-from-product-name-title">제품 이름</div>
                 <input
                     type="text"
                     value={productName}
@@ -104,11 +104,11 @@ function Lend_form() {
                 />
             </div>
             <div className="lend-form-hashtag">
-                <div>해시태그</div>
-                <div className="hasttag-list">
+                <div className="lend-form-product-name-hashtag-title">해시태그</div>
+                <div className="hashtag-list">
                     {hashtagList.map((tag, index) => (
                         <div key={index} className="hashtag-item">
-                            # {tag} <button onClick={() => handleHashtagDelete(tag)}>X</button>
+                            #{tag} <button onClick={() => handleHashtagDelete(tag)}>X</button>
                         </div>
                     ))}
                 </div>
@@ -130,7 +130,7 @@ function Lend_form() {
                 </div>
             </div>
             <div className="lend-form-price">
-                <div>가격</div>
+                <div className="lend-form-price-title">가격</div>
                 <input
                     className="lend-form-price-krw"
                     type="text"
@@ -158,11 +158,12 @@ function Lend_form() {
                     placeholder={`브랜드, 모델명, 구매 시기, 하자 유무 등 상품 설명을 최대한 자세히 적어주세요.\n전화번호, SNS 계정 등 개인정보 입력은 제한될 수 있어요.`}
                 ></textarea>
             </div>
-            <div>
-                {' '}
-                <button className="lend-form-submit" onClick={handleSubmit}>
-                    등록하기
-                </button>
+            <div className="lend-form-submit-container">
+                <div className="lend-form-submit-small-container">
+                    <button className="lend-form-submit" onClick={handleSubmit}>
+                        등록하기
+                    </button>
+                </div>
             </div>
 
             <Footer />
