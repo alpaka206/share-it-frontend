@@ -116,7 +116,6 @@
 .secondDivRef-input-id:focus,
 .secondDivRef-input-id:active {
     outline: none;
-    border: none;
 }
 
 .secondDivRef img {
@@ -192,7 +191,6 @@
 .thirdDivRef-second-input:focus,
 .thirdDivRef-second-input:active {
     outline: none;
-    border: none;
 }
 
 .thirdDivRef-first-input::placeholder,
@@ -266,7 +264,6 @@
 .fourthDivRef-input-email:focus,
 .fourthDivRef-input-email:active {
     outline: none;
-    border: none;
 }
 
 .fourthDivRef img {
@@ -330,7 +327,6 @@
 .fifthDivRef-input-email:focus,
 .fifthDivRef-input-email:active {
     outline: none;
-    border: none;
 }
 
 .fifthDivRef img {
