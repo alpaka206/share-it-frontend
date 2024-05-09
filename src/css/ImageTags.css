@@ -1,6 +1,6 @@
 .ImageTags {
   background-color: #f4f4f4;
-  width: 597px;
+  width: calc(67% - 50px);
   height: 235px;
   border-radius: 25px;
   padding: 50px;

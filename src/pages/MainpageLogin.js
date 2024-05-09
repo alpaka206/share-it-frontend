@@ -11,6 +11,7 @@ import ItemRow from "../components/MainPage/ItemRow";
 import RecentTrade from "../components/MainPage/RecentTrade";
 import GradePreview from "../components/MainPage/GradePreview";
 import MypageUserInfo from "../components/MypageUserInfo";
+import Recentdate from "../components/MainPage/Recentdate";
 
 function Mainpage() {
   const navigate = useNavigate();
@@ -41,7 +42,7 @@ function Mainpage() {
           nextReservation="D-3"
           isLoggedIn={isLoggedIn}
         />
-        <div className="testbox">D</div>
+        <Recentdate />
       </div>
       <div className="semi_container">
         <RecentTrade className="RecentTrade" />

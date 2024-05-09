@@ -1,7 +1,7 @@
 /* src/components/YellowBox.css */
 .yellow-box {
   background-color: #f0f424;
-  width: 697px;
+  width: calc(67% - 13px);
   height: 335px;
   border-radius: 25px;
   padding: 0px;
