@@ -1,3 +1,12 @@
+.MypageUserInfo {
+  background-color: #f0f424;
+  width: calc(67% - 13px);
+  height: 335px;
+  border-radius: 25px;
+  padding: 0px;
+  margin: 0px;
+}
+
 .mainpuage-login-userinfo {
   display: flex;
   margin: 37px 0 0 55px;
