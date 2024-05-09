@@ -1,21 +1,14 @@
 .container {
-    width: 70vw;
-    height: 100vh;
+    width: 75%;
     text-align: center;
     margin: 0 auto;
     display: flex;
-    margin-bottom: 100px;
     flex-direction: column;
 }
 .semi_container {
+    margin-top: 20px;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 2.7vw;
-    padding-bottom: 2vh;
-    margin: 0 auto;
+    justify-content: space-between;
 }
 .text-wrapper {
     margin-top: 20px;
@@ -26,28 +19,22 @@
 }
 
 .lend-more {
+    display: flex;
+    justify-content: flex-end;
     margin-top: 15px;
-    margin-bottom: 26px;
+}
+
+.main-more-button {
+    background-color: transparent;
+    border: none;
     font-size: 24px;
     text-align: right;
     font-weight: bold;
     cursor: pointer;
-    vertical-align: middle;
 }
 
 .lend-more img:hover {
     content: url('../../public/assets/arrow_circle_hover.svg');
-    width: 26px;
-    height: 26px;
-}
-
-.preview {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 2.7vw;
-    padding-bottom: 2vh;
-    margin: 0 auto;
+    width: 24px;
+    height: 24px;
 }

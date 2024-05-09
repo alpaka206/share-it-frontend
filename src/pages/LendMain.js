@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom'; // useLocation 훅 import
 import Topnav from '../components/Topnav';
 import LendListRow from '../components/LendListRow';
 import TopTags from '../components/TopTags';
+import Footer from '../components/Footer';
 
 function LendMain() {
     const location = useLocation(); // 현재 URL 정보를 가져옵니다.
@@ -18,6 +19,7 @@ function LendMain() {
                 <LendListRow />
                 <TopTags location={'Lend'} />
             </div>
+            <Footer />
         </div>
     );
 }

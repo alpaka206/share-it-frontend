@@ -1,5 +1,3 @@
-//Sidebar.js
-
 import React, { useState } from 'react';
 import '../css/Sidebar.css';
 import PublicSideMenu from './PublicSideMenu';

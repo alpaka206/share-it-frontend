@@ -1,9 +1,11 @@
 .Footer {
-    margin-top: 20px;
+    margin-top: 26px;
+    margin-bottom: 26px;
     font-size: 14px;
     color: #bebebe;
 }
-.project-info {
+.project-info,
+.disclaimer {
     margin-top: 15px;
 }
 .links {
