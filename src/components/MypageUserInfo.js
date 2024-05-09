@@ -16,7 +16,7 @@ const MypageUserInfo = ({
   isLoggedIn,
 }) => {
   return (
-    <div className="yellow-box">
+    <div className="MypageUserInfo">
       <div className="mainpuage-login-userinfo">
         <div className="mainpuage-login-userimage">
           <img
