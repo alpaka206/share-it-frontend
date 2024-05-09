@@ -1,64 +1,66 @@
-/* Topnav.css */
-
 .header {
-  margin-top: 50px;
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 20px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
 }
 
 .nav_top {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-left: 18px;
-  margin-right: 18px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-
-.nav_bottom {
-  margin-top: 10px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  margin-left: 18px;
-  margin-right: 18px;
-}
-
 .left-header {
-  margin-left: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: left;
+    margin-left: 33px;
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+}
+.menu-icon {
+    cursor: pointer;
+}
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo {
+    width: 116px;
+}
+.left-header > *:not(:last-child) {
+    margin-right: 16px;
 }
 
 .right-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 18px;
 }
 
-.left-header > *:not(:last-child),
-.right-header > *:not(:last-child),
-.nav_bottom > *:not(:last-child) {
-  margin-right: 16px;
-}
-
-.menu-icon {
-  cursor: pointer;
-}
-
-.logo-container {
-  flex-grow: 1;
-  text-align: right;
-}
-
-.logo {
-  max-width: 100%;
-}
 .login-register {
-  position: absolute;
-  top: 12%;
-  right: 16%;
-  z-index: 1;
+    position: absolute;
+    top: 9%;
+    right: 14%;
+    z-index: 1;
+}
+.right-header > *:not(:last-child) {
+    margin-right: 15px;
+}
+.nav_bottom {
+    margin-top: 25px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-left: 22px;
+}
+
+.nav_bottom > *:not(:last-child) {
+    margin-right: 16px;
+}
+.public-button.active {
+    /* Styles for active button */
+    color: white;
+    background-color: blue; /* Change to your desired blue color */
 }

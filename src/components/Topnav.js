@@ -11,7 +11,7 @@ function Topnav() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [showLoginRegister, setShowLoginRegister] = useState(false);
     const navigate = useNavigate();
-    const loginRegisterRef = useRef(null); // Ref for login-register element
+    const loginRegisterRef = useRef(null);
 
     const toggleMenu = () => {
         setIsMenuOpen((prevState) => !prevState);
@@ -94,7 +94,11 @@ function Topnav() {
                     Button_Image={`assets/need.svg`}
                     onClick={() => handleButtonClick('/lend_form')}
                 />
-                <PublicButton Button_Text="필요해요" Button_Image={`assets/lend.svg`} />
+                <PublicButton
+                    Button_Text="필요해요"
+                    Button_Image={`assets/lend.svg`}
+                    onClick={() => handleButtonClick('/need_form')}
+                />
             </div>
         </div>
     );
