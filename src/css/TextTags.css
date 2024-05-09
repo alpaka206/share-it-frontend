@@ -1,6 +1,6 @@
 .TextTags {
   background-color: #f0f424;
-  width: 335px;
+  width: calc(32% - 50px);
   height: 335px;
   border-radius: 25px;
   display: flex;
