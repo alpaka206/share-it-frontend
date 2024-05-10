@@ -37,7 +37,11 @@ const NeedListRow = () => {
                     </div>
                 ))}
             </div>
-            {displayedProducts.length < testData.length && <button onClick={loadMore}>더 보기</button>}
+            {displayedProducts.length < testData.length && (
+                <button className="need-load-more-button" onClick={loadMore}>
+                    상품 더보기 <img src={process.env.PUBLIC_URL + `assets/loadmore.svg`} alt="상품 더보기" />
+                </button>
+            )}
         </div>
     );
 };

@@ -1,5 +1,5 @@
-.load-more-button {
-    margin-top: 16px;
+.need-load-more-button {
+    margin: 0;
     font-size: 16px;
     font-weight: bold;
     position: relative;
@@ -8,17 +8,10 @@
     width: 160px;
     border-radius: 48px;
     border: none;
+    backdrop-filter: blur(100);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
 }
-.load-more-button img {
+.need-load-more-button img {
     margin-bottom: 2px;
     margin-left: 8px;
-}
-.list-row-container {
-    display: flex;
-    flex-wrap: wrap;
-    margin: -8px; /* 각 ListPreview 요소 주위에 16px의 간격을 만듭니다. */
-}
-
-.list-preivew-wrapper {
-    margin: 8px; /* 각 ListPreview 요소의 위아래 간격을 조정합니다. */
 }

@@ -59,8 +59,3 @@
 .nav_bottom > *:not(:last-child) {
     margin-right: 16px;
 }
-.public-button.active {
-    /* Styles for active button */
-    color: white;
-    background-color: blue; /* Change to your desired blue color */
-}
