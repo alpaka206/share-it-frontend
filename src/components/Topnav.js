@@ -4,14 +4,16 @@ import '../css/Topnav.css';
 import PublicButton from './PublicButton';
 import SearchContainer from './SearchContainer';
 import LoginRegisterPrev from './LoginRegisterPrev';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function Topnav() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [showLoginRegister, setShowLoginRegister] = useState(false);
+    const [activeButton, setActiveButton] = useState('/');
     const navigate = useNavigate();
     const loginRegisterRef = useRef(null);
+    const location = useLocation();
 
     const toggleMenu = () => {
         setIsMenuOpen((prevState) => !prevState);
@@ -33,7 +35,13 @@ function Topnav() {
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, []);
+
+    React.useEffect(() => {
+        setActiveButton(location.pathname);
+    }, [location.pathname]);
+
     const handleButtonClick = (menuLink) => {
+        setActiveButton(menuLink);
         navigate(menuLink);
     };
 
@@ -51,13 +59,14 @@ function Topnav() {
                         />
                     </div>
                 </div>
-                <Sidebar isOpen={isMenuOpen} onClose={toggleMenu} />
+                <Sidebar isOpen={isMenuOpen} onClose={toggleMenu} activeButton={activeButton} />
                 <div className="right-header">
                     <SearchContainer />
                     <PublicButton
                         Button_Text="채팅"
                         Button_Image={`assets/chat.svg`}
-                        onClick={() => handleButtonClick('/Chat')}
+                        targetUrl="/chat"
+                        onClick={() => handleButtonClick('/chat')}
                     />
                     {isLoggedIn ? (
                         <PublicButton Button_Text="로그아웃" Button_Image={`assets/mypage.svg`} />
@@ -76,27 +85,33 @@ function Topnav() {
             <div className="nav_bottom">
                 <PublicButton
                     Button_Text="홈"
-                    Button_Image={`assets/home.svg`}
+                    Button_Image="/assets/home.svg"
+                    targetUrl="/"
                     onClick={() => handleButtonClick('/')}
                 />
+
                 <PublicButton
                     Button_Text="빌릴물건"
                     Button_Image={`assets/Search.svg`}
+                    targetUrl="/lend"
                     onClick={() => handleButtonClick('/lend')}
                 />
                 <PublicButton
                     Button_Text="필요물건"
                     Button_Image={`assets/Search.svg`}
+                    targetUrl="/need"
                     onClick={() => handleButtonClick('/need')}
                 />
                 <PublicButton
                     Button_Text="빌리기"
-                    Button_Image={`assets/need.svg`}
+                    Button_Image={`assets/lend.svg`}
+                    targetUrl="/lend_form"
                     onClick={() => handleButtonClick('/lend_form')}
                 />
                 <PublicButton
                     Button_Text="필요해요"
-                    Button_Image={`assets/lend.svg`}
+                    Button_Image={`assets/need.svg`}
+                    targetUrl="/need_form"
                     onClick={() => handleButtonClick('/need_form')}
                 />
             </div>

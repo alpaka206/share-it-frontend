@@ -36,13 +36,6 @@ function Sidebar({ isOpen, onClose }) {
                     onClick={() => handleMenuClick('/')}
                 />
                 <PublicSideMenu
-                    Menu_Text="통합 검색"
-                    Menu_Link="/search"
-                    Menu_Image={`assets/search.svg`}
-                    isActive={activeMenuLink === '/search'}
-                    onClick={() => handleMenuClick('/search')}
-                />
-                <PublicSideMenu
                     Menu_Text="채팅"
                     Menu_Link="/chat"
                     Menu_Image={`assets/chat.svg`}
@@ -53,28 +46,28 @@ function Sidebar({ isOpen, onClose }) {
             <div className="space"></div>
             <div className="lend-group">
                 <PublicSideMenu
-                    Menu_Text="빌려주기"
+                    Menu_Text="빌릴물건"
                     Menu_Link="/lend"
                     Menu_Image={`assets/lend.svg`}
                     isActive={activeMenuLink === '/lend'}
                     onClick={() => handleMenuClick('/lend')}
                 />
                 <PublicSideMenu
-                    Menu_Text="필요해요"
+                    Menu_Text="필요물건"
                     Menu_Link="/need"
                     Menu_Image={`assets/need.svg`}
                     isActive={activeMenuLink === '/need'}
                     onClick={() => handleMenuClick('/need')}
                 />
                 <PublicSideMenu
-                    Menu_Text="빌려주기 폼"
+                    Menu_Text="빌리기"
                     Menu_Link="/lend_form"
                     Menu_Image={`assets/lend.svg`}
                     isActive={activeMenuLink === '/lend_form'}
                     onClick={() => handleMenuClick('/lend_form')}
                 />
                 <PublicSideMenu
-                    Menu_Text="필요해요 폼"
+                    Menu_Text="필요해요"
                     Menu_Link="/need_form"
                     Menu_Image={`assets/need.svg`}
                     isActive={activeMenuLink === '/need_form'}
@@ -85,17 +78,10 @@ function Sidebar({ isOpen, onClose }) {
             <div className="evaluate-group">
                 <PublicSideMenu
                     Menu_Text="평가하기"
-                    Menu_Link="/evaluate"
+                    Menu_Link="/review"
                     Menu_Image={`assets/rate.svg`}
-                    isActive={activeMenuLink === '/rate'}
-                    onClick={() => handleMenuClick('/rate')}
-                />
-                <PublicSideMenu
-                    Menu_Text="마이페이지"
-                    Menu_Link="/mypage"
-                    Menu_Image={`assets/mypage.svg`}
-                    isActive={activeMenuLink === '/mypage'}
-                    onClick={() => handleMenuClick('/mypage')}
+                    isActive={activeMenuLink === '/review'}
+                    onClick={() => handleMenuClick('/review')}
                 />
             </div>
             <div className="logout-space"></div>

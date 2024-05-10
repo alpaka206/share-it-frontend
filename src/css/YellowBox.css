@@ -1,23 +1,22 @@
-/* src/components/YellowBox.css */
 .yellow-box {
-  background-color: #f0f424;
-  width: calc(67% - 13px);
-  height: 335px;
-  border-radius: 25px;
-  padding: 0px;
-  margin: 0px;
+    background-color: #f0f424;
+    width: calc(67% - 13px);
+    height: 335px;
+    border-radius: 25px;
+    padding: 0px;
+    margin: 0px;
 }
 
 .greeting {
-  font-size: 36px;
-  font-weight: bold;
-  text-align: left;
-  margin: 35px 0px 0px 35px;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: left;
+    margin: 35px 0px 0px 35px;
 }
 
 .prompt {
-  font-size: 36px;
-  font-weight: bold;
-  text-align: left;
-  margin: 10px 0px 0px 35px;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: left;
+    margin: 10px 0px 0px 35px;
 }

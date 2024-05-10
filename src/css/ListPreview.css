@@ -1,5 +1,5 @@
 .list-box {
-    width: 69vw;
+    width: calc(100% - 64px);
     height: 120px;
     display: flex;
     align-items: center;
@@ -7,6 +7,7 @@
     background-color: #f4f4f4;
     border-radius: 25px;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
+    margin-bottom: 16px;
 }
 
 .list-details {
@@ -67,11 +68,10 @@
 }
 
 .list-hashtag {
-    white-space: nowrap;
     margin-right: 5px;
     background-color: #e2e2e2;
     padding: 6px 12px;
-    border-radius: 8px; /* 해시태그 모서리 둥글게 만들기 */
+    border-radius: 8px;
     font-size: 18px;
     font-weight: bold;
 }
@@ -81,6 +81,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    white-space: nowrap;
 }
 
 .list-info-first-text {
@@ -100,5 +101,5 @@
 .list-info-first-text,
 .list-price,
 .list-rental-days {
-    margin-left: 5px; /* 텍스트들 사이 간격 조정 */
+    margin-left: 5px;
 }
