@@ -1,24 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../css/GreenBox.css';
 
 const GreenBox = () => {
     const navigate = useNavigate();
+    const [isHovered, setIsHovered] = useState(false);
 
-    const handleButtonClick = () => {
-        navigate('/need');
+    const handleMoreClick = () => {
+        navigate('/need_form');
         window.scrollTo(0, 0);
     };
 
+    const handleMouseEnter = () => {
+        setIsHovered(true);
+    };
+
+    const handleMouseLeave = () => {
+        setIsHovered(false);
+    };
     return (
         <div className="green-box">
-            <span className="description">찾으시는 물건이</span>
-            <span className="sub-description">없나요?</span>
-            <div className="move">
-                <div className="page-move" onClick={handleButtonClick}>
-                    <span>물건 요청하러 가기 </span>
-                    <img src="/assets/arrow_circle.svg" alt="Footer Icon" width={20} />
-                </div>
+            <div className="description">찾으시는 물건이 없나요?</div>
+
+            <div className="greenbox-move">
+                <button
+                    className="greenbox-button"
+                    onClick={handleMoreClick}
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                >
+                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <div style={{ marginRight: '6px' }}>물건 요청하러 가기</div>
+                        <img
+                            src={isHovered ? '/assets/arrow_circle_hover.svg' : '/assets/arrow_circle.svg'}
+                            alt="More"
+                            width={20}
+                        />
+                    </div>
+                </button>
             </div>
         </div>
     );

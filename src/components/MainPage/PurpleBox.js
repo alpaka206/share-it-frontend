@@ -26,9 +26,17 @@ const PurpleBox = () => {
         setIsHovered(false);
     };
 
-    const handleButtonClick = () => {
-        navigate('/needlist');
+    const handleMoreClick = () => {
+        navigate('/need');
         window.scrollTo(0, 0);
+    };
+
+    const handleMouseEnter = () => {
+        setIsHovered(true);
+    };
+
+    const handleMouseLeave = () => {
+        setIsHovered(false);
     };
 
     return (
@@ -42,23 +50,33 @@ const PurpleBox = () => {
                         onMouseEnter={() => handleItemHover(index)}
                         onMouseLeave={handleItemLeave}
                     >
-                        <span className="circle">{itemNumber}</span>
-                        <span className="purple-text">
+                        <div className="circle">{itemNumber}</div>
+                        <div className="purple-text">
                             {index === 0
                                 ? '길이 체크 a b c d e f g h i j k l m n o p q r s t u v w x y z'
                                 : index === 1
                                 ? '길이 체크 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17'
                                 : '아이폰 케이블 필요해요 급해요 ㅜㅜ'}
-                        </span>
+                        </div>
                     </div>
                 ))}
             </div>
-
-            <div className="move">
-                <div className="page-move" onClick={handleButtonClick}>
-                    <span>필요해요 게시판 바로가기 </span>
-                    <img src="/assets/arrow_circle.svg" alt="Footer Icon" width={20} />
-                </div>
+            <div className="purplebox-move">
+                <button
+                    className="purplebox-button"
+                    onClick={handleMoreClick}
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                >
+                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <div style={{ marginRight: '9px' }}>필요해요 게시판 바로가기</div>
+                        <img
+                            src={isHovered ? '/assets/arrow_circle_hover.svg' : '/assets/arrow_circle.svg'}
+                            alt="More"
+                            width={20}
+                        />
+                    </div>
+                </button>
             </div>
         </div>
     );

@@ -47,7 +47,7 @@ function Topnav() {
 
     return (
         <div className="header">
-            <div className="nav_top">
+            <div className={`nav_top ${isMenuOpen ? 'open' : ''}`}>
                 <div className="left-header">
                     <img src="../assets/menu.svg" onClick={toggleMenu} alt="menu" className="menu-icon" />
                     <div className="logo-container">
