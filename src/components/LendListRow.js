@@ -32,7 +32,10 @@ const LendListRow = () => {
     <div>
       <div className="item-row-container">
         {displayedProducts.map((product, index) => (
-          <div className="product-card-wrapper" key={index}>
+          <div
+            className="product-card-wrapper LendList-product-card"
+            key={index}
+          >
             <ProductCard productData={product} />
           </div>
         ))}
