@@ -1,0 +1,29 @@
+.RecentdateElement {
+  width: calc(100% - 32px);
+  background-color: #f4f4f4;
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border-radius: 24px;
+}
+.RecentdateElement-calendar {
+  width: 80px;
+  height: 80px;
+}
+.RecentdateElement-month {
+  background-color: #000000;
+  border-radius: 24px 24px 0 0;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  height: 24px;
+}
+.RecentdateElement-date {
+  background-color: #dddddd;
+  border-radius: 0 0 24px 24px;
+  color: #000000;
+  font-size: 48px;
+  font-weight: 900;
+  height: 56px;
+  line-height: 48px;
+}
