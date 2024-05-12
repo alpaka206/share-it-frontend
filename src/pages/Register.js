@@ -18,6 +18,9 @@ const Register = () => {
     emailCheck: false,
     emailpwCheck: false,
     nicknameCheck: false,
+    sameid: null,
+    sameemail: false,
+    samenickname: false,
   });
   const [buttonCheck, setButtonCheck] = useState({
     Idbtn: false,
@@ -30,7 +33,7 @@ const Register = () => {
     first: false,
     second: false,
   });
-  const [usernameError, setUsernameError] = useState("");
+  // const [usernameError, setUsernameError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [nicknameError, setNicknameError] = useState("");
 
@@ -67,16 +70,20 @@ const Register = () => {
     if (ref === thirdDivRef) {
       if (!/^[a-z0-9]{8,15}$/.test(userState.id)) return;
       try {
-        const response = await axios.get(
-          `https://jsonplaceholder.typicode.com/users?username=${userState.id}`
-        );
+        const response =
+          await axios.get // `https://jsonplaceholder.typicode.com/users?username=${userState.id}`
+          `https://jsonplaceholder.typicode.com/users?username=${"Bret"}`();
         if (response.data.length > 0) {
-          setUsernameError("중복된 아이디입니다.");
+          setUserState((prevState) => ({
+            ...prevState,
+            sameid: false,
+          }));
           return;
         } else {
           setUserState((prevState) => ({
             ...prevState,
             idCheck: true,
+            sameid: true,
           }));
         }
       } catch (error) {
@@ -131,7 +138,7 @@ const Register = () => {
       }
     }
 
-    if (!usernameError && !emailError) {
+    if (!userState.idCheck && !emailError) {
       if (ref.current) {
         ref.current.scrollIntoView({ behavior: "smooth" });
       }
@@ -338,9 +345,26 @@ const Register = () => {
               />
             )}
           </div>
-          <div className="secondDivRef-secondtext">
+
+          {buttonCheck.Idbtn ? (
+            userState.sameid ? (
+              <div className="secondDivRef-secondtext">
+                아이디는 8-15자, 소문자 영어, 숫자만 사용할 수 있어요.
+              </div>
+            ) : (
+              <div className="secondDivRef-secondtext">
+                중복된 아이디입니다.
+              </div>
+            )
+          ) : (
+            <div className="secondDivRef-secondtext">
+              아이디는 8-15자, 소문자 영어, 숫자만 사용할 수 있어요.
+            </div>
+          )}
+
+          {/* <div className="secondDivRef-secondtext">
             아이디는 8-15자, 소문자 영어, 숫자만 사용할 수 있어요.
-          </div>
+          </div> */}
           <div className="third-button">
             <button
               onClick={(e) => {
