@@ -26,3 +26,12 @@
   width: 24px;
   height: 24px;
 }
+.MyPostProcuctList {
+  margin-top: 16px;
+}
+.MyPostProcuctList-text {
+  text-align: left;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
