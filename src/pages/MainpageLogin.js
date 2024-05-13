@@ -12,9 +12,13 @@ import RecentTrade from "../components/MainPage/RecentTrade";
 import GradePreview from "../components/MainPage/GradePreview";
 import MypageUserInfo from "../components/MypageUserInfo";
 import Recentdate from "../components/MainPage/Recentdate";
+import { useRecoilValue } from "recoil";
+import { NeedDataState } from "../Atoms";
+import ListPreview from "../components/ListPreview";
 
 function Mainpage() {
   const navigate = useNavigate();
+  const testData = useRecoilValue(NeedDataState);
   const [isHovered, setIsHovered] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -72,6 +76,14 @@ function Mainpage() {
             </div>
           </button>
         </div>
+      </div>
+      <div className="MyPostProcuctList">
+        <div className="MyPostProcuctList-text">내가 등록한 상품 목록</div>
+        {testData.map((productData, index) => (
+          <div className="list-preview-wrapper" key={index}>
+            <ListPreview productData={productData} />
+          </div>
+        ))}
       </div>
       <Footer />
     </div>
