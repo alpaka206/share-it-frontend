@@ -242,12 +242,18 @@ textarea::-webkit-scrollbar {
     backdrop-filter: blur(100px);
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
 }
+
 .delete-button {
-    position: absolute;
-    top: 0;
-    right: 0;
-    background-color: transparent;
+    width: 24px;
+    height: 24px;
+    background: rgba(221, 221, 221, 0.7);
+    border-radius: 100px;
     border: none;
-    color: white;
     cursor: pointer;
+    position: absolute;
+    top: -5px;
+    right: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

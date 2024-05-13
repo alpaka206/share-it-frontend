@@ -31,8 +31,13 @@ function Lend_form() {
             alert('사진은 최대 5개까지 올릴 수 있습니다.');
             return;
         }
-        setSelectedPhotos([...selectedPhotos, ...files]);
-        setNumPhotos(selectedPhotos.length + files.length);
+
+        const filteredFiles = files.filter((file) => {
+            return !selectedPhotos.some((photo) => photo.name === file.name && photo.size === file.size);
+        });
+
+        setSelectedPhotos([...selectedPhotos, ...filteredFiles]);
+        setNumPhotos(selectedPhotos.length + filteredFiles.length);
     };
 
     const handlePhotoDelete = (index) => {
@@ -43,7 +48,34 @@ function Lend_form() {
     };
 
     const handleSubmit = () => {
-        window.location.href = '/lend'; // 페이지 이동
+        if (
+            productName.trim() === '' ||
+            selectedPhotos.length === 0 ||
+            hashtagList.length === 0 ||
+            price.trim() === '' ||
+            duration.trim() === '' ||
+            productInfo.trim() === ''
+        ) {
+            alert('모든 항목을 입력해주세요.');
+            return;
+        }
+
+        if (!isValidNumber(price) || !isValidNumber(duration)) {
+            alert('가격과 기간은 숫자만 입력 가능합니다.');
+            return;
+        }
+
+        if (selectedPhotos.length < 1 || selectedPhotos.length > 5) {
+            alert('사진은 최소 1장 이상, 최대 5장까지 올릴 수 있습니다.');
+            return;
+        }
+
+        if (hashtagList.length < 1 || hashtagList.length > 5) {
+            alert('해시태그는 최소 1개 이상, 최대 5개까지 입력할 수 있습니다.');
+            return;
+        }
+
+        window.location.href = '/lend';
     };
 
     const handleEnterPress = (e) => {
@@ -54,9 +86,20 @@ function Lend_form() {
 
     const addHashtagToList = () => {
         if (productTag.trim() !== '') {
-            if (hashtagList.length < 5 && !hashtagList.includes(productTag)) {
-                setHashtagList([...hashtagList, productTag]);
-                setProductTag('');
+            // 공백과 특수문자 체크
+            const isValidHashtag = /^[A-Za-z0-9ㄱ-ㅎㅏ-ㅣ가-힣_]*$/.test(productTag.trim());
+            if (isValidHashtag) {
+                // 해시태그의 길이가 7자를 넘는지 확인
+                if (productTag.trim().length <= 7) {
+                    if (hashtagList.length < 5 && !hashtagList.includes(productTag)) {
+                        setHashtagList([...hashtagList, productTag]);
+                        setProductTag('');
+                    }
+                } else {
+                    alert('해시태그는 최대 7자까지 입력할 수 있습니다.');
+                }
+            } else {
+                alert('해시태그는 영문, 한글, 숫자, 언더바(_)만 입력 가능합니다.');
             }
         }
     };
@@ -88,7 +131,7 @@ function Lend_form() {
                         <div key={index} className="photo-wrapper">
                             <img src={URL.createObjectURL(photo)} alt={`Selected ${index + 1}`} className="photo" />
                             <button className="delete-button" onClick={() => handlePhotoDelete(index)}>
-                                X
+                                <img src="/assets/form_image_delete.svg" alt="delete" width={10} height={10} />
                             </button>
                         </div>
                     ))}
@@ -108,7 +151,10 @@ function Lend_form() {
                 <div className="hashtag-list">
                     {hashtagList.map((tag, index) => (
                         <div key={index} className="hashtag-item">
-                            #{tag} <button onClick={() => handleHashtagDelete(tag)}>X</button>
+                            #{tag}{' '}
+                            <button onClick={() => handleHashtagDelete(tag)}>
+                                <img src="/assets/form_hashtag_delete.svg" alt="delete" width={10} height={10} />
+                            </button>
                         </div>
                     ))}
                 </div>
