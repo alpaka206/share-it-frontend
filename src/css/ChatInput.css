@@ -32,6 +32,7 @@
   background-color: transparent;
   height: 27px;
   width: calc(100% - 32px);
+  font-family: "GothicA1-SemiBold";
 }
 .ChatInput-button {
   display: flex;
