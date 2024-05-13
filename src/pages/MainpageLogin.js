@@ -37,8 +37,8 @@ function Mainpage() {
       <div className="semi_container">
         <MypageUserInfo
           className="yellow_box"
-          tradingItems={3}
-          reviewCount={3}
+          tradingItems={2}
+          reviewCount={1}
           nextReservation="D-3"
           isLoggedIn={isLoggedIn}
         />

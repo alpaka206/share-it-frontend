@@ -23,7 +23,7 @@ const ProductCard = ({ productData }) => {
   };
 
   const formatRentalDays = (rentalDays) => {
-    return `/ ${rentalDays.days}일`;
+    return `/ ${rentalDays}일`;
   };
 
   const handleHeartClick = () => {

@@ -9,23 +9,37 @@ const ChatLeftPanel = () => {
     {
       id: 1,
       isactive: true,
-      username: "user1",
+      username: "winterizcoming",
       time: "6분전",
-      message: "거래해요",
+      message: "거래 장소는 어디서할까요?",
     },
     {
       id: 2,
       isactive: false,
-      username: "user2",
+      username: "devkeon123",
       time: "12분전",
-      message: "안녕하세요",
+      message: "제가 빌릴수 있을까요?",
     },
     {
       id: 3,
       isactive: false,
-      username: "user3",
+      username: "smdmim",
       time: "20분전",
-      message: "반가워요",
+      message: "감사합니다",
+    },
+    {
+      id: 4,
+      isactive: false,
+      username: "alpaka206",
+      time: "40분전",
+      message: "어디신가요?",
+    },
+    {
+      id: 5,
+      isactive: false,
+      username: "xininny",
+      time: "1시간전",
+      message: "넵 알겠습니다",
     },
   ];
 
