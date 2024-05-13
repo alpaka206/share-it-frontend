@@ -18,6 +18,9 @@
   font-size: 16px;
   font-weight: 600;
   height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .RecentdateElement-date {
   background-color: #dddddd;
@@ -25,8 +28,12 @@
   color: #000000;
   font-size: 48px;
   font-weight: 900;
-  height: 56px;
-  line-height: 48px;
+  height: 48px;
+  width: 80px;
+  padding: 4px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .RecentdateElement-info {
   margin-left: 48px;
