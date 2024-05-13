@@ -1,0 +1,44 @@
+.user-info-card {
+    background-color: #f4f4f4;
+    width: calc(32% - 13px);
+    height: 335px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    text-align: left;
+    padding: 0px;
+}
+.user-info-image-container {
+    background-color: rgba(221, 221, 221, 0.7);
+    height: 96px;
+    width: 96px;
+    border-radius: 100%;
+    margin: 24px 0px 0px 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.user-info-username {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 28px 0px 0px 24.5px;
+    height: 25px;
+}
+.user-info-school {
+    font-size: 20px;
+    font-weight: bold;
+    color: #5c5c5c;
+    margin: 14px 0px 0px 24.5px;
+    height: 25px;
+}
+
+.user-info-average-rating {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 24px 0px 0px 24.5px;
+    height: 15px;
+}
+.user-info-star-rating {
+    margin: 8px 0px 0px 24.5px;
+}

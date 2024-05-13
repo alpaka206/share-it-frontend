@@ -43,7 +43,7 @@ function Lend_form() {
     };
 
     const handleSubmit = () => {
-        window.location.href = '/need'; // 페이지 이동
+        window.location.href = '/need';
     };
 
     const handleEnterPress = (e) => {
