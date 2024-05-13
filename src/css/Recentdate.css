@@ -1,5 +1,13 @@
 .Recentdate {
-  background-color: #13f287;
+  background-color: transparent;
   width: calc(32% - 13px);
   height: 335px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* 세로로 공간을 분배 */
+}
+
+/* 각 RecentdateElement의 스타일 */
+.RecentdateElement {
+  margin-bottom: 10px; /* 각 RecentdateElement 사이에 공간을 주기 위해 마진 추가 */
 }

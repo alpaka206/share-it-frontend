@@ -1,16 +1,16 @@
 import React from "react";
 import "../../css/RecentdateElement.css";
 
-const RecentdateElement = () => {
+const RecentdateElement = ({ Month, date, dayinfo, itemname }) => {
   return (
     <div className="RecentdateElement">
       <div className="RecentdateElement-calendar">
-        <div className="RecentdateElement-month">MAY</div>
-        <div className="RecentdateElement-date">13</div>
+        <div className="RecentdateElement-month">{Month}</div>
+        <div className="RecentdateElement-date">{date}</div>
       </div>
       <div className="RecentdateElement-info">
-        <div className="RecentdateElement-dayinfo">반납일</div>
-        <div className="RecentdateElement-iteminfo">에어팟 맥스</div>
+        <div className="RecentdateElement-dayinfo">{dayinfo}</div>
+        <div className="RecentdateElement-iteminfo">{itemname}</div>
       </div>
     </div>
   );
