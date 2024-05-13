@@ -2,33 +2,32 @@ import { atom } from "recoil";
 export const LendDataState = atom({
   key: "LendDataState", // Recoil 상태의 고유한 키입니다.
   default: [
-    // TestData 배열을 기본값으로 설정합니다.
     {
       id: 1,
-      image: "./assets/example.svg",
-      name: "상품1",
-      price: 10000,
+      image: "./assets/camera.svg",
+      name: "카메라",
+      price: 50000,
       rentalDays: 2,
       heartCount: 5,
-      updatedAt: new Date("2024-03-12T18:50:00"),
+      createdAt: new Date("2024-05-12T18:50:00"),
     },
     {
       id: 2,
       image: "./assets/battery.svg",
-      name: "상품2",
+      name: "보조배터리",
       price: 20000,
       rentalDays: 3,
       heartCount: 10,
-      createdAt: new Date("2024-03-11T18:50:00"),
+      createdAt: new Date("2024-05-11T18:50:00"),
     },
     {
       id: 3,
       image: "./assets/book.svg",
-      name: "상품3",
-      price: 30000,
-      rentalDays: 4,
+      name: "전공책",
+      price: 10000,
+      rentalDays: 30,
       heartCount: 15,
-      createdAt: new Date("2024-03-10T18:50:00"),
+      createdAt: new Date("2024-05-10T18:50:00"),
     },
     {
       id: 4,

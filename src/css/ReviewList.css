@@ -1,5 +1,6 @@
 .reviewlist {
   width: calc(100% - 48px);
+  margin-bottom: 16px;
 }
 
 .reviewlist-container {

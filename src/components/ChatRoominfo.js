@@ -10,8 +10,8 @@ const ChatRoominfo = () => {
           <img src={process.env.PUBLIC_URL + `assets/mypage.svg`} alt="Item" />
         </div>
         <div className="ChatRoominfo-textinfo">
-          <div className="ChatRoominfo-username">User2</div>
-          <div className="ChatRoominfo-itemname">User Name</div>
+          <div className="ChatRoominfo-username">winterizcoming</div>
+          <div className="ChatRoominfo-itemname">매직 마우스</div>
         </div>
       </div>
       <div className="ChatRoominfo-button-Container">

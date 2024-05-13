@@ -9,7 +9,14 @@ const ReviewStarStyles = {
   color: "black",
   fontSize: "36px",
 };
-const ReviewList = ({ status, productName, price, daysAgo }) => {
+const ReviewList = ({
+  status,
+  productName,
+  price,
+  daysAgo,
+  rentaldays,
+  star,
+}) => {
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [confirmationCompleted, setConfirmationCompleted] = useState(false);
   const handleConfirmationToggle = () => {
@@ -27,21 +34,21 @@ const ReviewList = ({ status, productName, price, daysAgo }) => {
   };
 
   // 임시 데이터
-  const temporaryData = {
-    status: 2,
-    productName: "임시 상품명",
-    price: "100,000원",
-    rentaldays: 4,
-    daysAgo: 3,
-  };
+  // const temporaryData = {
+  //   status: 2,
+  //   productName: "임시 상품명",
+  //   price: "100,000원",
+  //   rentaldays: 4,
+  //   daysAgo: 3,
+  // };
 
-  const {
-    status: tempStatus,
-    productName: tempProductName,
-    price: tempPrice,
-    rentaldays: tempRentalDays,
-    daysAgo: tempDaysAgo,
-  } = temporaryData;
+  // const {
+  //   status: tempStatus,
+  //   productName: tempProductName,
+  //   price: tempPrice,
+  //   rentaldays: tempRentalDays,
+  //   daysAgo: tempDaysAgo,
+  // } = temporaryData;
 
   return (
     <div className="reviewlist">
@@ -49,35 +56,29 @@ const ReviewList = ({ status, productName, price, daysAgo }) => {
         className={`reviewlist-container ${showConfirmation ? "clicked" : ""}`}
       >
         <div className="reviewlist-status">
-          {tempStatus === 0 && (
-            <div className="reviewlist-status-0">예약중</div>
-          )}
-          {tempStatus === 1 && (
-            <div className="reviewlist-status-1">거래중</div>
-          )}
-          {tempStatus === 2 && (
-            <div className="reviewlist-status-2">반납완료</div>
-          )}
+          {status === 0 && <div className="reviewlist-status-0">예약중</div>}
+          {status === 1 && <div className="reviewlist-status-1">거래중</div>}
+          {status === 2 && <div className="reviewlist-status-2">반납완료</div>}
         </div>
         <div className="reviewlist-info-container">
           <div className="reviewlist-info-1">
             <div className="reviewlist-name">
-              {tempProductName}&nbsp;&middot;&nbsp;
+              {productName}&nbsp;&middot;&nbsp;
             </div>
-            <div className="reviewlist-price">{tempPrice}</div>
-            <div className="reviewlist-rentalday">/{tempRentalDays}일</div>
+            <div className="reviewlist-price">{price}</div>
+            <div className="reviewlist-rentalday">/{rentaldays}일</div>
           </div>
 
           <div className="reviewlist-info-2">
-            <div className="reviewlist-day">{tempDaysAgo}일전</div>
+            <div className="reviewlist-day">{daysAgo}일전</div>
           </div>
         </div>
 
-        {tempStatus === 2 && (
+        {status === 2 && (
           <div className="reviewlist-toggle-container">
             <Rating
               name="read-only"
-              value={starRating}
+              value={star}
               precision={0.1}
               readOnly
               sx={{ "& .MuiSvgIcon-root": ReviewListStarStyles }}
@@ -85,7 +86,7 @@ const ReviewList = ({ status, productName, price, daysAgo }) => {
             <button
               className="reviewlist-toggle"
               onClick={handleConfirmationToggle}
-              disabled={confirmationCompleted}
+              disabled={confirmationCompleted || star !== 0}
             >
               <img
                 src={process.env.PUBLIC_URL + "/assets/toggle_arrow.svg"}
@@ -95,7 +96,7 @@ const ReviewList = ({ status, productName, price, daysAgo }) => {
           </div>
         )}
       </div>
-      {showConfirmation && (
+      {showConfirmation && star === 0 && (
         <div className="reviewlist-confirm-container">
           <div className="reviewlist-confirm-container-text">
             username님 과의 거래는

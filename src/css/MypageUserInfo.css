@@ -21,15 +21,17 @@
   align-items: center;
   justify-content: center;
 }
+.mainpuage-login-userimage img {
+  width: 80px;
+  height: 80px;
+}
 .mainpuage-login-usertext-top {
   align-items: center;
   display: flex;
 }
-.mainpuage-login-star {
-  margin-top: 10px;
-}
 .mainpuage-login-userdot {
   margin: 0px 10px;
+  font-size: 32px;
 }
 .mainpuage-login-username {
   font-size: 32px;

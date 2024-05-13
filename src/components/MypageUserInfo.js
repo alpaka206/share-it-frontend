@@ -5,9 +5,9 @@ import "../css/GradePreview.css";
 import Rating from "@mui/material/Rating";
 
 // CSS를 사용하여 별의 크기를 조절하는 스타일입니다.
-const blackStarStyles = {
+const UserInfoStarStyles = {
   color: "black",
-  fontSize: "1em",
+  fontSize: "32px",
 };
 const MypageUserInfo = ({
   tradingItems,
@@ -20,13 +20,13 @@ const MypageUserInfo = ({
       <div className="mainpuage-login-userinfo">
         <div className="mainpuage-login-userimage">
           <img
-            src={process.env.PUBLIC_URL + `assets/kakao.svg`}
+            src={process.env.PUBLIC_URL + `assets/mypage.svg`}
             alt="유저이미지"
           />
         </div>
         <div className="mainpuage-login-userinfo-right">
           <div className="mainpuage-login-usertext-top">
-            <div className="mainpuage-login-username">username</div>
+            <div className="mainpuage-login-username">shareit</div>
             <div className="mainpuage-login-userdot">•</div>
             <div className="mainpuage-login-star">
               <Rating
@@ -34,7 +34,7 @@ const MypageUserInfo = ({
                 value={4.4}
                 precision={0.1}
                 readOnly
-                sx={{ "& .MuiSvgIcon-root": blackStarStyles }}
+                sx={{ "& .MuiSvgIcon-root": UserInfoStarStyles }}
               />
             </div>
           </div>
