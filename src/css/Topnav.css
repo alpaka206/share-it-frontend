@@ -41,8 +41,8 @@
 
 .login-register {
     position: absolute;
-    top: 9%;
-    right: 14%;
+    top: 8.5%;
+    right: 13.5%;
     z-index: 1;
 }
 .right-header > *:not(:last-child) {

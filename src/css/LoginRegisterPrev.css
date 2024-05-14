@@ -1,62 +1,63 @@
 .LoginRegisterPrev {
-  width: 480px;
-  height: 320px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background-color: rgba(221, 221, 221, 0.7); /* DDDDDD 70% 투명도 배경색 */
-  backdrop-filter: blur(5px); /* 배경 blur */
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* 드롭다운 그림자 */
-  border-radius: 25px;
-  margin-top: 20px;
+    width: 480px;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(221, 221, 221, 0.7);
+    backdrop-filter: blur(50px);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+    margin-top: 20px;
 }
 
-.buttons-row {
-  margin-top: 24px;
-  font-size: 16px;
-  color: #a1a1a1;
+.LoginRegisterText {
+    font-weight: 800;
+    font-size: 32px;
+    height: 64px;
 }
 
-.login-button {
-  width: 160px;
-  height: 48px;
-  margin: 0px 12px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  background-color: transparent;
-  color: #a1a1a1;
-  font-weight: 600;
-  font-size: 16px;
-}
-
-.errorMessage {
-  margin-top: 24px;
-  color: #a1a1a1; /* 로그인 문제 텍스트 색상 */
-}
 .KakaoLogin {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-  width: 360px;
-  height: 48px;
-  border-radius: 15px;
-  background-color: #fee500;
-  border: none;
-  font-size: 20px;
-  font-weight: bold;
-  margin-top: 34px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    width: 360px;
+    height: 48px;
+    border-radius: 15px;
+    background-color: #fee500;
+    border: none;
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 34px;
 }
 
 .KakaoLogin img {
-  width: 24px;
-  height: 24px;
-  margin-right: 24px;
+    width: 24px;
+    height: 24px;
+    margin-right: 24px;
 }
-.LoginRegisterText {
-  font-size: 32px;
-  font-weight: 900;
+
+.buttons-row {
+    margin-top: 24px;
+    font-size: 16px;
+    color: #a1a1a1;
+}
+
+.login-button {
+    margin: 0px 12px 0px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: transparent;
+    color: #a1a1a1;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.errorMessage {
+    margin-top: 24px;
+    color: #a1a1a1;
 }
