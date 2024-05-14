@@ -29,7 +29,7 @@
   display: flex;
   align-items: center;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 700;
 }
 .ChatListElement-time {
   color: #999999;
@@ -38,5 +38,5 @@
   margin-top: 4px;
   text-align: left;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 700;
 }

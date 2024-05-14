@@ -19,9 +19,11 @@
 
 .Column div {
   border-radius: 48px;
-  border: 1px solid;
+  border: 3px solid;
   padding: 5px 10px;
   border-color: black;
   text-align: center; /* 텍스트를 수평 가운데 정렬 */
   margin: 0px 4px 0px 4px;
+  font-size: 16px;
+  font-weight: bold;
 }

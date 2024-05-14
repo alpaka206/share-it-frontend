@@ -7,6 +7,7 @@
   height: 96px;
   justify-content: space-between;
   padding: 0px 16px;
+  box-shadow: 3px 2px 3px rgba(0, 0, 0, 0.25);
 }
 .ChatRoominfo-Info-Container {
   display: flex;
@@ -29,7 +30,7 @@
 .ChatRoominfo-username {
   text-align: left;
   font-size: 24px;
-  font-weight: 900;
+  font-weight: 800;
 }
 .ChatRoominfo-itemname {
   text-align: left;
@@ -57,7 +58,7 @@
   width: 120px;
   height: 40px;
   font-size: 16px;
-  font-weight: 900;
+  font-weight: 800;
   border: none;
   border-radius: 8px;
   background-color: rgba(0, 0, 0, 0.8);

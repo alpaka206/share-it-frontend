@@ -4,7 +4,6 @@ import "../css/ChatLeftPanel.css";
 import ChatListElement from "./ChatListElement";
 
 const ChatLeftPanel = () => {
-  // 가짜 데이터
   const chatData = [
     {
       id: 1,
@@ -43,7 +42,7 @@ const ChatLeftPanel = () => {
     },
   ];
 
-  const [activeId, setActiveId] = useState(1); // 활성화된 ChatListElement의 id
+  const [activeId, setActiveId] = useState(1);
 
   const handleSetActive = (id) => {
     setActiveId(id);
