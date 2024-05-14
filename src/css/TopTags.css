@@ -1,4 +1,13 @@
 .TopTags {
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.TopTags-title {
+    font-size: 32px;
+    height: 30px;
+    font-weight: bold;
+    margin: 16px 0px 16px 0px;
+    text-align: left;
 }
