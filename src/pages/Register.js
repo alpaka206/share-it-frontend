@@ -18,49 +18,23 @@ const Register = () => {
     emailCheck: false,
     emailpwCheck: false,
     nicknameCheck: false,
-    sameid: null,
-    sameemail: false,
-    samenickname: false,
   });
   const [buttonCheck, setButtonCheck] = useState({
     Idbtn: false,
     PWbtn: false,
     Emailbtn: false,
     EmailPWbtn: false,
-    namebtn: false,
   });
   const [showPassword, setShowPassword] = useState({
     first: false,
     second: false,
   });
-  // const [usernameError, setUsernameError] = useState("");
-  const [emailError, setEmailError] = useState("");
-  const [nicknameError, setNicknameError] = useState("");
 
   const secondDivRef = useRef(null);
   const thirdDivRef = useRef(null);
   const fourthDivRef = useRef(null);
   const fifthDivRef = useRef(null);
   const sixDivRef = useRef(null);
-
-  const handleUsernameChange = (e) => {
-    const { value } = e.target;
-    setUserState((prevState) => ({
-      ...prevState,
-      id: value,
-      idCheck: false,
-    }));
-  };
-
-  const handleEmailChange = (e) => {
-    const { value } = e.target;
-    setUserState((prevState) => ({
-      ...prevState,
-      email: value,
-      emailCheck: false,
-    }));
-    setEmailError("");
-  };
 
   const handleNext = async (e, ref) => {
     e.preventDefault();
@@ -70,20 +44,15 @@ const Register = () => {
     if (ref === thirdDivRef) {
       if (!/^[a-z0-9]{8,15}$/.test(userState.id)) return;
       try {
-        const response =
-          await axios.get // `https://jsonplaceholder.typicode.com/users?username=${userState.id}`
-          `https://jsonplaceholder.typicode.com/users?username=${"Bret"}`();
-        if (response.data.length > 0) {
-          setUserState((prevState) => ({
-            ...prevState,
-            sameid: false,
-          }));
+        const response = await axios.get(
+          `https://jsonplaceholder.typicode.com/users?username=${userState.id}`
+        );
+        if (response.data === false) {
           return;
         } else {
           setUserState((prevState) => ({
             ...prevState,
             idCheck: true,
-            sameid: true,
           }));
         }
       } catch (error) {
@@ -98,7 +67,8 @@ const Register = () => {
         userState.passwd.length < 6 ||
         !/[A-Z]/.test(userState.passwd) ||
         !/[a-z]/.test(userState.passwd) ||
-        !/[!@#$%^&*(),.?":{}|<>]/.test(userState.passwd)
+        !/[!@#$%^&*(),.?":{}|<>]/.test(userState.passwd) ||
+        userState.passwd !== userState.passwdCheck
       )
         return;
       else {
@@ -114,8 +84,7 @@ const Register = () => {
         const response = await axios.get(
           `https://jsonplaceholder.typicode.com/users?email=${userState.email}`
         );
-        if (response.data.length > 0) {
-          setEmailError("중복된 이메일입니다.");
+        if (response.data === false) {
           return;
         } else {
           setUserState((prevState) => ({
@@ -138,125 +107,56 @@ const Register = () => {
       }
     }
 
-    if (!userState.idCheck && !emailError) {
-      if (ref.current) {
-        ref.current.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-
     if (ref.current) {
       ref.current.scrollIntoView({ behavior: "smooth" });
     }
   };
 
-  const validatePassword = () => {
-    if (!userState.passwd || !userState.passwdCheck) {
-      return "비밀번호는 6글자 이상, 대소문자, 특수기호를 사용해야 해요.";
-    } else if (userState.passwd !== userState.passwdCheck) {
-      return "비밀번호가 일치하지 않습니다.";
-    } else if (
-      userState.passwd.length < 6 ||
-      !/[A-Z]/.test(userState.passwd) ||
-      !/[a-z]/.test(userState.passwd) ||
-      !/[!@#$%^&*(),.?":{}|<>]/.test(userState.passwd)
-    ) {
-      return "비밀번호는 6글자 이상, 대소문자, 특수기호를 사용해야 해요.";
-    } else {
-      return "비밀번호가 일치합니다.";
-    }
-  };
-
-  //   const handleNicknameChange = (e) => {
-  //     const value = e.target.value;
-  //     setNickname(value);
-
-  //     setNicknameError("");
-
-  //     if (value !== "" && !/^[a-zA-Z0-9\u3131-\uD79D]{1,15}$/.test(value)) {
-  //       setNicknameError(
-  //         "닉네임은 15자 이내로, 영어, 한글, 숫자만 사용 가능합니다."
-  //       );
-  //     }
-  //   };
-
   const handleRegisterButtonClicked = async () => {
-    if (
-      userState.nickname !== "" &&
-      /^[a-zA-Z0-9\u3131-\uD79D]{1,15}$/.test(userState.nickname)
-    ) {
-      setUserState((prevState) => ({
-        ...prevState,
-        nicknameCheck: true,
-      }));
-      const errors = [];
-      if (!userState.agreeCheck) {
-        errors.push("개인정보 수집 및 이용에 동의해야 합니다.");
-      }
+    const errors = [];
+    if (!userState.agreeCheck) {
+      errors.push("개인정보 수집 및 이용에 동의해야 합니다.");
+    }
 
-      if (!userState.idCheck) {
-        errors.push("아이디를 다시 확인해주세요");
-      }
+    if (!userState.idCheck) {
+      errors.push("아이디를 다시 확인해주세요");
+    }
 
-      if (!userState.emailCheck) {
-        errors.push("이메일을 다시 확인해주세요");
-      }
+    if (!userState.emailCheck) {
+      errors.push("이메일을 다시 확인해주세요");
+    }
 
-      if (nicknameError !== "") {
-        errors.push(nicknameError);
-      }
+    if (!userState.pwsame) {
+      errors.push("비밀번호를 다시 확인해주세요");
+    }
 
-      if (
-        userState.id === "" ||
-        userState.passwd === "" ||
-        userState.passwdCheck === "" ||
-        userState.email === "" ||
-        userState.emailpw === "" ||
-        userState.nickname === ""
-      ) {
-        errors.push("모든 필수 항목을 입력하세요.");
-      }
+    if (!userState.emailCheck) {
+      errors.push("올바른 이메일 형식이 아닙니다.");
+    }
 
-      if (
-        userState.passwd === "" ||
-        userState.passwdCheck === "" ||
-        userState.passwd.length < 6 ||
-        !/[A-Z]/.test(userState.passwd) ||
-        !/[a-z]/.test(userState.passwd) ||
-        !/[!@#$%^&*(),.?":{}|<>]/.test(userState.passwd)
-      ) {
-        errors.push(
-          "비밀번호는 6글자 이상, 대소문자, 특수기호를 사용해야 합니다."
-        );
-      }
+    if (userState.emailpwCheck) {
+      errors.push("이메일이 일치하지 않습니다.");
+    }
 
-      if (!/\S+@\S+\.\S+/.test(userState.email)) {
-        errors.push("올바른 이메일 형식이 아닙니다.");
-      }
+    if (errors.length > 0) {
+      alert(errors.join("\n"));
+      return;
+    }
 
-      if (userState.email !== userState.emailpw) {
-        errors.push("이메일이 일치하지 않습니다.");
-      }
+    try {
+      const response = await axios.post(
+        "https://jsonplaceholder.typicode.com/users",
+        {
+          title: "회원가입",
+          body: `아이디: ${userState.id}, 비밀번호: ${userState.passwd}, 이메일: ${userState.email}, 닉네임: ${userState.nickname}`,
+        }
+      );
+      console.log("회원가입 완료:", response.data);
 
-      if (errors.length > 0) {
-        alert(errors.join("\n"));
-        return;
-      }
-
-      try {
-        const response = await axios.post(
-          "https://jsonplaceholder.typicode.com/users",
-          {
-            title: "회원가입",
-            body: `아이디: ${userState.id}, 비밀번호: ${userState.passwd}, 이메일: ${userState.email}, 닉네임: ${userState.nickname}`,
-          }
-        );
-        console.log("회원가입 완료:", response.data);
-
-        navigate("/");
-        window.scrollTo(0, 0);
-      } catch (error) {
-        console.error("Error registering:", error);
-      }
+      navigate("/");
+      window.scrollTo(0, 0);
+    } catch (error) {
+      console.error("Error registering:", error);
     }
   };
 
@@ -346,25 +246,10 @@ const Register = () => {
             )}
           </div>
 
-          {buttonCheck.Idbtn ? (
-            userState.sameid ? (
-              <div className="secondDivRef-secondtext">
-                아이디는 8-15자, 소문자 영어, 숫자만 사용할 수 있어요.
-              </div>
-            ) : (
-              <div className="secondDivRef-secondtext">
-                중복된 아이디입니다.
-              </div>
-            )
-          ) : (
-            <div className="secondDivRef-secondtext">
-              아이디는 8-15자, 소문자 영어, 숫자만 사용할 수 있어요.
-            </div>
-          )}
-
-          {/* <div className="secondDivRef-secondtext">
+          <div className="secondDivRef-secondtext">
             아이디는 8-15자, 소문자 영어, 숫자만 사용할 수 있어요.
-          </div> */}
+          </div>
+
           <div className="third-button">
             <button
               onClick={(e) => {
@@ -470,7 +355,9 @@ const Register = () => {
             )}
           </div>
           <div className="thirdDivRef-second">
-            <div className="thirdDivRef-secondtext">{validatePassword()}</div>
+            <div className="thirdDivRef-secondtext">
+              비밀번호는 6글자 이상, 대소문자, 특수기호를 사용해야 해요.
+            </div>
             <div className="fourth-button-container">
               <button
                 className="fourth-button"
@@ -499,7 +386,13 @@ const Register = () => {
               className="fourthDivRef-input-email"
               type="email"
               value={userState.email}
-              onChange={handleEmailChange}
+              onChange={(e) =>
+                setUserState((prevState) => ({
+                  ...prevState,
+                  email: e.target.value,
+                  emailCheck: false,
+                }))
+              }
               placeholder="example@catholic.ac.kr"
             />
             {buttonCheck.Emailbtn && (
@@ -515,7 +408,7 @@ const Register = () => {
           </div>
           <div className="fourthDivRef-second">
             <div className="fourthDivRef-secondtext">
-              {emailError || "보다 신뢰할 수 있는 거래를 위해 필요해요."}
+              보다 신뢰할 수 있는 거래를 위해 필요해요.
             </div>
             <div className="fifth-button">
               <button
@@ -595,13 +488,32 @@ const Register = () => {
                 setUserState((prevState) => ({
                   ...prevState,
                   nickname: e.target.value,
-                  nicknameCheck: false,
                 }))
               }
+              onBlur={(e) => {
+                const value = e.target.value;
+
+                if (
+                  value !== "" &&
+                  !/^[a-zA-Z0-9\u3131-\uD79D]{1,15}$/.test(value)
+                ) {
+                  setUserState((prevState) => ({
+                    ...prevState,
+                    namecheck: true,
+                    nicknameCheck: false,
+                  }));
+                } else {
+                  setUserState((prevState) => ({
+                    ...prevState,
+                    namecheck: true,
+                    nicknameCheck: true,
+                  }));
+                }
+              }}
               placeholder="username"
             />
             <div className="sixDivRef-secondtext">님</div>
-            {buttonCheck.namebtn && (
+            {userState.namecheck && (
               <img
                 src={
                   userState.nicknameCheck
@@ -612,7 +524,7 @@ const Register = () => {
               />
             )}
           </div>
-          {buttonCheck.namebtn &&
+          {userState.namecheck &&
             (userState.nicknameCheck ? (
               <></>
             ) : (
@@ -626,10 +538,6 @@ const Register = () => {
               className="last-button"
               onClick={(e) => {
                 handleRegisterButtonClicked();
-                setButtonCheck((prevState) => ({
-                  ...prevState,
-                  namebtn: true,
-                }));
               }}
             >
               공유경제 시작하기 <span>&gt;</span>
