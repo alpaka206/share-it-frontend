@@ -124,7 +124,7 @@
 .lend-autoword {
     position: absolute;
     top: calc(100% - 315px);
-    width: calc(100% - 40px);
+    width: calc(100%);
     font-size: 20px;
 }
 .lend-form-hashtag-info {

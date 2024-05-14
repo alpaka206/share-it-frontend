@@ -1,60 +1,69 @@
 .search-history {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  z-index: 1;
-  width: 470px; /* 너비 설정 */
-  background-color: #adadad; /* 투명한 배경 색상 설정 */
-  backdrop-filter: blur(8px); /* 배경 블러 효과 추가 */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 드롭 셰도우 추가 */
-  border-radius: 25px;
-  padding: 0px 20px 0px 20px;
+    position: absolute;
+    top: 120%;
+    right: 0;
+    z-index: 1;
+    width: 470px;
+    background-color: rgba(221, 221, 221, 0.7);
+    backdrop-filter: blur(25px);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
 }
 
 .search-history-text {
-  margin: 10px 0px 0px 0px;
-  text-align: left;
+    margin: 15px 0px 8px 22px;
+    text-align: left;
+    font-weight: bold;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #adadad;
+    margin: 0px 24px 8px 22px;
 }
 
 .search-history-list {
-  display: flex;
-  overflow-x: auto;
-  white-space: nowrap;
-  height: 44px;
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    margin: 0px 23px 0px 23px;
 }
 .search-history-list::-webkit-scrollbar {
-  display: none; /* 스크롤 바를 숨김 */
+    display: none;
 }
 .search-history-word {
-  border: 1px solid #000000;
-  border-radius: 100px;
-  display: flex;
-  align-items: center;
-  height: 23px;
-  padding: 4px 12px 4px 12px;
-  margin-right: 8px;
-  margin-bottom: 8px; /* 각 검색어 사이에 간격 추가 */
+    border: 2px solid #000000;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    height: 23px;
+    padding: 4px 12px 4px 12px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    font-weight: bold;
 }
 
 .search-history-word button {
-  background: none;
-  border: none;
-  padding: 0;
-  color: red; /* X 버튼의 색상을 빨간색으로 설정 */
-  margin-left: 8px; /* X 버튼과 텍스트 사이 간격 추가 */
+    background: none;
+    border: none;
+    padding: 0;
+    color: red;
+    margin-left: 8px;
 }
 .lend-button {
-  border-radius: 100px;
-  border: none;
-  margin-right: 8px;
-  margin-bottom: 13px;
-  padding: 8px 16px 8px 16px;
-  background-color: #ffffff; /* 투명도 70%인 흰색 배경 */
-  backdrop-filter: blur(8px); /* 배경 블러 효과 */
+    border-radius: 100px;
+    font-weight: bold;
+    border: none;
+    margin-right: 8px;
+    margin-bottom: 13px;
+    padding: 8px 16px 8px 16px;
+    background-color: #ffffff;
+    backdrop-filter: blur(100);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
 }
 
 .lend-button.active {
-  background-color: rgba(255, 255, 255, 0.8); /* 배경 블러 효과 */
-  backdrop-filter: blur(8px); /* 배경 블러 효과 추가 */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 드롭 셰도우 추가 */ /* 클릭 시 내부 그림자 강화 */
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
+    box-shadow: inset 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
