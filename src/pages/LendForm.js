@@ -25,6 +25,13 @@ function Lend_form() {
     const handleProductInfoChange = (e) => {
         setProductInfo(e.target.value);
     };
+    const handlePhotoDelete = (index) => {
+        const newPhotos = [...selectedPhotos];
+        newPhotos.splice(index, 1);
+        setSelectedPhotos(newPhotos);
+        setNumPhotos(newPhotos.length);
+    };
+
     const handlePhotoSelect = (event) => {
         const files = Array.from(event.target.files);
         if (selectedPhotos.length + files.length > 5) {
@@ -32,19 +39,10 @@ function Lend_form() {
             return;
         }
 
-        const filteredFiles = files.filter((file) => {
-            return !selectedPhotos.some((photo) => photo.name === file.name && photo.size === file.size);
-        });
+        setSelectedPhotos([...selectedPhotos, ...files]);
+        setNumPhotos(selectedPhotos.length + files.length);
 
-        setSelectedPhotos([...selectedPhotos, ...filteredFiles]);
-        setNumPhotos(selectedPhotos.length + filteredFiles.length);
-    };
-
-    const handlePhotoDelete = (index) => {
-        const newPhotos = [...selectedPhotos];
-        newPhotos.splice(index, 1);
-        setSelectedPhotos(newPhotos);
-        setNumPhotos(newPhotos.length);
+        event.target.value = '';
     };
 
     const handleSubmit = () => {
@@ -86,10 +84,8 @@ function Lend_form() {
 
     const addHashtagToList = () => {
         if (productTag.trim() !== '') {
-            // 공백과 특수문자 체크
             const isValidHashtag = /^[A-Za-z0-9ㄱ-ㅎㅏ-ㅣ가-힣_]*$/.test(productTag.trim());
             if (isValidHashtag) {
-                // 해시태그의 길이가 7자를 넘는지 확인
                 if (productTag.trim().length <= 7) {
                     if (hashtagList.length < 5 && !hashtagList.includes(productTag)) {
                         setHashtagList([...hashtagList, productTag]);
