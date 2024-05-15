@@ -23,6 +23,7 @@ const ReviewList = ({
     setShowConfirmation(!showConfirmation);
   };
   const [starRating, setStarRating] = useState(0);
+  const [teststarRating, setTestStarRating] = useState(star);
 
   const handleConfirmation = () => {
     if (!confirmationCompleted) {
@@ -30,6 +31,7 @@ const ReviewList = ({
       // 여기에 반납 확인 로직을 구현
       setConfirmationCompleted(true);
       setShowConfirmation(false);
+      setTestStarRating(starRating);
     }
   };
 
@@ -78,7 +80,7 @@ const ReviewList = ({
           <div className="reviewlist-toggle-container">
             <Rating
               name="read-only"
-              value={star}
+              value={teststarRating}
               precision={0.1}
               readOnly
               sx={{ "& .MuiSvgIcon-root": ReviewListStarStyles }}
