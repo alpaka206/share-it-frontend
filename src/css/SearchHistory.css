@@ -27,6 +27,7 @@ hr {
     overflow-x: auto;
     white-space: nowrap;
     margin: 0px 23px 0px 23px;
+    height: 44px;
 }
 .search-history-list::-webkit-scrollbar {
     display: none;

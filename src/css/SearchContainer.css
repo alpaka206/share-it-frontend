@@ -30,3 +30,8 @@
     transform: translateY(-50%);
     cursor: pointer;
 }
+
+.search-content {
+    position: relative;
+    margin-bottom: 10px;
+}
