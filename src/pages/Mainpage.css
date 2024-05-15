@@ -1,48 +1,49 @@
 .container {
-    width: 75%;
-    text-align: center;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
+  width: 75%;
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 175px;
 }
 
 .semi_container {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .text-wrapper {
-    margin-top: 20px;
-    margin-bottom: 25px;
-    font-weight: bold;
-    text-align: left;
-    font-size: 32px;
+  margin-top: 20px;
+  margin-bottom: 25px;
+  font-weight: bold;
+  text-align: left;
+  font-size: 32px;
 }
 
 .lend-more {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 15px;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15px;
 }
 
 .main-more-button {
-    background-color: transparent;
-    border: none;
-    font-size: 24px;
-    text-align: right;
-    font-weight: bold;
-    cursor: pointer;
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  text-align: right;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .lend-more img:hover {
-    content: url('../../public/assets/arrow_circle_hover.svg');
-    width: 24px;
-    height: 24px;
+  content: url("../../public/assets/arrow_circle_hover.svg");
+  width: 24px;
+  height: 24px;
 }
 
 .testbox {
-    background-color: #13f287;
-    width: 335px;
-    height: 335px;
+  background-color: #13f287;
+  width: 335px;
+  height: 335px;
 }
