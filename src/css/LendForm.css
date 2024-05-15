@@ -8,6 +8,7 @@
 .photo-big-container {
     display: flex;
     flex-wrap: wrap;
+    height: 105px;
 }
 .photo-container {
     display: flex;
@@ -49,6 +50,7 @@
     height: 100%;
     object-fit: cover;
     border-radius: 24px;
+    margin-top: 4px;
 }
 .lend-from-product-name-title {
     margin-top: 48px;

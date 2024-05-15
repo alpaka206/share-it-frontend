@@ -1,37 +1,44 @@
+.header-container {
+    text-align: center;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
 .text-wrapper {
-  margin-top: 20px;
-  margin-bottom: 25px;
-  font-weight: bold;
-  text-align: left;
-  font-size: 32px;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    font-weight: bold;
+    text-align: left;
+    font-size: 32px;
 }
 
 .lend-more {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 15px;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
 }
 
 .main-more-button {
-  background-color: transparent;
-  border: none;
-  font-size: 24px;
-  text-align: right;
-  font-weight: bold;
-  cursor: pointer;
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    text-align: right;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .lend-more img:hover {
-  content: url("../../public/assets/arrow_circle_hover.svg");
-  width: 24px;
-  height: 24px;
+    content: url('../../public/assets/arrow_circle_hover.svg');
+    width: 24px;
+    height: 24px;
 }
 .MyPostProcuctList {
-  margin-top: 16px;
+    margin-top: 16px;
 }
 .MyPostProcuctList-text {
-  text-align: left;
-  font-size: 32px;
-  font-weight: bold;
-  margin-bottom: 12px;
+    text-align: left;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 12px;
 }
