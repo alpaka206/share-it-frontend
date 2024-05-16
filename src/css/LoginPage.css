@@ -3,5 +3,10 @@
   align-items: center;
   text-align: center;
   justify-content: center;
-  margin: 100px 0px;
+  margin: 38px 0 48px 0;
+}
+.LoginPage-text {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 48px;
 }

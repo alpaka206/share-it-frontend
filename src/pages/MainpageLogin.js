@@ -9,7 +9,6 @@ import PurpleBox from "../components/MainPage/PurpleBox";
 import Footer from "../components/Footer";
 import ItemRow from "../components/MainPage/ItemRow";
 import RecentTrade from "../components/MainPage/RecentTrade";
-import GradePreview from "../components/MainPage/GradePreview";
 import MypageUserInfo from "../components/MypageUserInfo";
 import Recentdate from "../components/MainPage/Recentdate";
 import { useRecoilValue } from "recoil";

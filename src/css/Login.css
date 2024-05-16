@@ -1,61 +1,69 @@
-.Login {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    margin-top: 24px;
+.Login-container {
+  padding: 24px 40px 36px 40px;
 }
 
+.Login {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 24px;
+  font-weight: 900;
+  padding-bottom: 12px;
+}
+.Login div {
+  margin-top: 6px;
+}
 .back-button {
-    width: 32px;
-    height: 32px;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 24px;
-    margin-right: 12px;
-    align-items: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 24px;
+  align-items: center;
 }
 
 .buttons-row {
-    margin-top: 24px;
+  margin-top: 24px;
 }
 
-.id-input-row {
-    margin-top: 16px;
-}
-.pw-input-row {
-    margin-top: 16px;
+.Login-input-row {
+  margin-top: 16px;
 }
 
-.id-input-row input {
-    width: 300px; /* 입력창의 너비를 조정하세요. */
-    height: 40px;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 16px;
-}
-.pw-input-row input {
-    width: 300px; /* 입력창의 너비를 조정하세요. */
-    height: 40px;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 16px;
+.Login-input-row input {
+  width: 366px;
+  height: 32px;
+  padding: 12px 17px;
+  border: 1px solid #ccc;
+  border-radius: 13px;
+  font-size: 20px;
+  font-weight: 500;
 }
 .bottom-row {
-    margin-top: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .find-text {
-    color: #a1a1a1;
+  color: #a1a1a1;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: underline;
 }
 
 .errorMessage {
-    margin-top: 24px;
-    color: #a1a1a1;
+  margin-top: 24px;
+  color: #a1a1a1;
+}
+.Login-container-button {
+  width: 160px;
+  height: 49px;
+  color: #ffffff;
+  background-color: #181818;
+  border-radius: 15px;
+  font-size: 20px;
+  align-self: flex-end;
+  cursor: pointer;
 }
