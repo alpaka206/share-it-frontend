@@ -1,63 +1,66 @@
 .LoginRegisterPrev {
-    width: 480px;
-    height: 320px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-color: rgba(221, 221, 221, 0.7);
-    backdrop-filter: blur(50px);
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 25px;
-    margin-top: 20px;
+  width: 480px;
+  height: 320px;
+  background-color: rgba(221, 221, 221, 0.7);
+  backdrop-filter: blur(50px);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+  position: relative;
 }
-
+.LoginRegisterPrev-prev {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  top: 50%; /* 부모 요소의 중앙에서 위로 50% 이동 */
+  left: 50%;
+}
 .LoginRegisterText {
-    font-weight: 800;
-    font-size: 32px;
-    height: 64px;
+  font-weight: 800;
+  font-size: 32px;
+  height: 64px;
 }
 
 .KakaoLogin {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    width: 360px;
-    height: 48px;
-    border-radius: 15px;
-    background-color: #fee500;
-    border: none;
-    font-size: 20px;
-    font-weight: 700;
-    margin-top: 34px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  width: 360px;
+  height: 48px;
+  border-radius: 15px;
+  background-color: #fee500;
+  border: none;
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 34px;
 }
 
 .KakaoLogin img {
-    width: 24px;
-    height: 24px;
-    margin-right: 24px;
+  width: 24px;
+  height: 24px;
+  margin-right: 24px;
 }
 
 .buttons-row {
-    margin-top: 24px;
-    font-size: 16px;
-    color: #a1a1a1;
+  margin-top: 24px;
+  font-size: 16px;
+  color: #a1a1a1;
 }
 
 .login-button {
-    margin: 0px 12px 0px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    background-color: transparent;
-    color: #a1a1a1;
-    font-weight: 600;
-    font-size: 16px;
+  margin: 0px 12px 0px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: transparent;
+  color: #a1a1a1;
+  font-weight: 600;
+  font-size: 16px;
 }
 
 .errorMessage {
-    margin-top: 24px;
-    color: #a1a1a1;
+  margin-top: 24px;
+  color: #a1a1a1;
 }

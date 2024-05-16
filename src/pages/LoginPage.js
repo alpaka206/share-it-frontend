@@ -10,6 +10,11 @@ function LoginPage() {
       <div className="LoginPage">
         <LoginRegisterPrev />
       </div>
+      <div className="LoginPage-text">
+        공유경제의 기쁨
+        <br />
+        지금 바로 경험해보세요
+      </div>
       <Footer />
     </div>
   );
