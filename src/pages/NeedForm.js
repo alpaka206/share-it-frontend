@@ -12,7 +12,7 @@ function formatNumber(num) {
 function isValidNumber(num) {
     return /^\d+$/.test(num);
 }
-function Lend_form() {
+function Need_form() {
     const [selectedPhotos, setSelectedPhotos] = useState([]);
     const [numPhotos, setNumPhotos] = useState(0);
     const [productName, setProductName] = useState('');
@@ -25,16 +25,6 @@ function Lend_form() {
     const handleProductInfoChange = (e) => {
         setProductInfo(e.target.value);
     };
-    const handlePhotoSelect = (event) => {
-        const files = Array.from(event.target.files);
-        if (selectedPhotos.length + files.length > 5) {
-            alert('사진은 최대 5개까지 올릴 수 있습니다.');
-            return;
-        }
-        setSelectedPhotos([...selectedPhotos, ...files]);
-        setNumPhotos(selectedPhotos.length + files.length);
-    };
-
     const handlePhotoDelete = (index) => {
         const newPhotos = [...selectedPhotos];
         newPhotos.splice(index, 1);
@@ -42,8 +32,48 @@ function Lend_form() {
         setNumPhotos(newPhotos.length);
     };
 
+    const handlePhotoSelect = (event) => {
+        const files = Array.from(event.target.files);
+        if (selectedPhotos.length + files.length > 5) {
+            alert('사진은 최대 5개까지 올릴 수 있습니다.');
+            return;
+        }
+
+        setSelectedPhotos([...selectedPhotos, ...files]);
+        setNumPhotos(selectedPhotos.length + files.length);
+
+        event.target.value = '';
+    };
+
     const handleSubmit = () => {
-        window.location.href = '/need';
+        if (
+            productName.trim() === '' ||
+            selectedPhotos.length === 0 ||
+            hashtagList.length === 0 ||
+            price.trim() === '' ||
+            duration.trim() === '' ||
+            productInfo.trim() === ''
+        ) {
+            alert('모든 항목을 입력해주세요.');
+            return;
+        }
+
+        if (!isValidNumber(price) || !isValidNumber(duration)) {
+            alert('가격과 기간은 숫자만 입력 가능합니다.');
+            return;
+        }
+
+        if (selectedPhotos.length < 1 || selectedPhotos.length > 5) {
+            alert('사진은 최소 1장 이상, 최대 5장까지 올릴 수 있습니다.');
+            return;
+        }
+
+        if (hashtagList.length < 1 || hashtagList.length > 5) {
+            alert('해시태그는 최소 1개 이상, 최대 5개까지 입력할 수 있습니다.');
+            return;
+        }
+
+        window.location.href = '/lend';
     };
 
     const handleEnterPress = (e) => {
@@ -54,9 +84,18 @@ function Lend_form() {
 
     const addHashtagToList = () => {
         if (productTag.trim() !== '') {
-            if (hashtagList.length < 5 && !hashtagList.includes(productTag)) {
-                setHashtagList([...hashtagList, productTag]);
-                setProductTag('');
+            const isValidHashtag = /^[A-Za-z0-9ㄱ-ㅎㅏ-ㅣ가-힣_]*$/.test(productTag.trim());
+            if (isValidHashtag) {
+                if (productTag.trim().length <= 7) {
+                    if (hashtagList.length < 5 && !hashtagList.includes(productTag)) {
+                        setHashtagList([...hashtagList, productTag]);
+                        setProductTag('');
+                    }
+                } else {
+                    alert('해시태그는 최대 7자까지 입력할 수 있습니다.');
+                }
+            } else {
+                alert('해시태그는 영문, 한글, 숫자, 언더바(_)만 입력 가능합니다.');
             }
         }
     };
@@ -68,15 +107,15 @@ function Lend_form() {
         <div className="container">
             <Topnav />
             <div className="need-form-product-img">
-                <p>제품 사진</p>
-                <div className="need-form-photo-big-container">
-                    <div className="need-form-photo-container">
+                <div className="need-form-product-img-title">제품 사진</div>
+                <div className="need-photo-big-container">
+                    <div className="need-photo-container">
                         <div
-                            className="need-form-upload-box"
+                            className="need-upload-box"
                             onClick={() => document.getElementById('photo-upload').click()}
                         >
                             <img src="/assets/camera_add.svg" alt="camera_add" width={26} height={23} />
-                            <div>{numPhotos}/5</div>
+                            <div className="need-form-photo-num">{numPhotos}/5</div>
                         </div>
                     </div>
                     <input
@@ -88,34 +127,33 @@ function Lend_form() {
                         style={{ display: 'none' }}
                     />
                     {selectedPhotos.map((photo, index) => (
-                        <div key={index} className="need-form-photo-wrapper">
-                            <img
-                                src={URL.createObjectURL(photo)}
-                                alt={`Selected ${index + 1}`}
-                                className="need-form-photo"
-                            />
-                            <button className="need-form-delete-button" onClick={() => handlePhotoDelete(index)}>
-                                X
+                        <div key={index} className="need-photo-wrapper">
+                            <img src={URL.createObjectURL(photo)} alt={`Selected ${index + 1}`} className="photo" />
+                            <button className="need-delete-button" onClick={() => handlePhotoDelete(index)}>
+                                <img src="/assets/form_image_delete.svg" alt="delete" width={10} height={10} />
                             </button>
                         </div>
                     ))}
                 </div>
             </div>
             <div className="need-form-product-name">
-                <p>제품 이름</p>
+                <div className="need-from-product-name-title">제목</div>
                 <input
                     type="text"
                     value={productName}
                     onChange={(e) => setProductName(e.target.value)}
-                    placeholder="제품 이름을 입력하세요."
+                    placeholder="제품 이름 및 제목을 입력하세요."
                 />
             </div>
             <div className="need-form-hashtag">
-                <p>해시태그</p>
-                <div className="hasttag-list">
+                <div className="need-form-product-name-hashtag-title">해시태그</div>
+                <div className="hashtag-list">
                     {hashtagList.map((tag, index) => (
                         <div key={index} className="hashtag-item">
-                            # {tag} <button onClick={() => handleHashtagDelete(tag)}>X</button>
+                            #{tag}{' '}
+                            <button onClick={() => handleHashtagDelete(tag)}>
+                                <img src="/assets/form_hashtag_delete.svg" alt="delete" width={10} height={10} />
+                            </button>
                         </div>
                     ))}
                 </div>
@@ -127,7 +165,7 @@ function Lend_form() {
                     placeholder="제품과 관련된 해시태그를 입력해 주세요. (최대 5개)"
                 />
                 <Autoword keyword={productTag} onSearch={setProductTag} className="lend-autoword" />
-                <div className="need-form-hashtag-info">
+                <div className="lend-form-hashtag-info">
                     ▪ 태그는 띄어쓰기로 구분되며 최대 9자까지 입력할 수 있어요.
                     <br />
                     ▪ 대충 번개장터에서 긁어온거임. 여기다가는 관련된 매뉴얼 적어놓으면 될듯
@@ -137,7 +175,7 @@ function Lend_form() {
                 </div>
             </div>
             <div className="need-form-price">
-                <p>가격</p>
+                <div className="need-form-price-title">가격</div>
                 <input
                     className="need-form-price-krw"
                     type="text"
@@ -146,8 +184,8 @@ function Lend_form() {
                     placeholder="₩"
                 />
 
-                <p className="need-form-price-unit">원</p>
-                <p className="need-form-price-unit2"> /</p>
+                <div className="need-form-price-unit">원</div>
+                <div className="need-form-price-unit2"> /</div>
                 <input
                     className="need-form-price-day"
                     type="text"
@@ -155,7 +193,7 @@ function Lend_form() {
                     onChange={(e) => setDuration(e.target.value)}
                     placeholder=" 단위 날짜 입력"
                 />
-                <p className="need-form-price-unit2">일</p>
+                <div className="need-form-price-unit2">일</div>
             </div>
             <div className="need-form-product-info">
                 <div className="need-form-product-info-title">자세한 설명</div>
@@ -165,11 +203,12 @@ function Lend_form() {
                     placeholder={`브랜드, 모델명, 구매 시기, 하자 유무 등 상품 설명을 최대한 자세히 적어주세요.\n전화번호, SNS 계정 등 개인정보 입력은 제한될 수 있어요.`}
                 ></textarea>
             </div>
-            <div>
-                {' '}
-                <button className="need-form-submit" onClick={handleSubmit}>
-                    등록하기
-                </button>
+            <div className="need-form-submit-container">
+                <div className="need-form-submit-small-container">
+                    <button className="need-form-submit" onClick={handleSubmit}>
+                        등록하기
+                    </button>
+                </div>
             </div>
 
             <Footer />
@@ -177,4 +216,4 @@ function Lend_form() {
     );
 }
 
-export default Lend_form;
+export default Need_form;
