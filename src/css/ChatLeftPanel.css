@@ -34,11 +34,15 @@
   height: 640px;
   overflow-y: auto;
   margin: 32px 16px 16px 16px;
-  padding: 9px;
+  padding: 0 9px;
   border-radius: 32px;
   align-items: center;
   justify-content: center;
 }
 .chat-list::-webkit-scrollbar {
   width: 0;
+}
+
+hr {
+  margin: 0;
 }

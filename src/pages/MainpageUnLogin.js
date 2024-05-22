@@ -29,7 +29,7 @@ function Mainpage() {
 
   return (
     <div className="container">
-      <Topnav />
+      <Topnav isLoggedIn={false} />
       <div className="semi_container">
         <YellowBox className="yellow_box" />
         <Unlogin />
