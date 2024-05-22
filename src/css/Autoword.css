@@ -14,18 +14,25 @@
 }
 
 .search-autoword div {
-    padding: 10px 0px 10px 23px;
+    padding: 10px 0px 10px 30px;
     cursor: pointer;
 }
 
 .search-autoword div:hover {
-    background-color: #f0f0f0;
-    border-radius: 25px;
+    background-color: #f2f2f2;
+    border-radius: 8px;
+    width: calc(100% - 60px);
+    padding: 10px 10px;
+    margin: 0 20px;
+    box-shadow: inset -2px 2px 2px rgba(0, 0, 0, 0.25);
 }
 
 .lend-autoword {
     position: absolute;
+    top: 140%;
+    right: 0;
     z-index: 1;
+    width: 470px;
     background-color: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(8px);
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
@@ -35,12 +42,16 @@
     margin: 190px 0px 0px 0px;
 }
 .lend-autoword div {
-    padding: 10px 0px 10px 23px;
+    padding: 10px 0px 10px 30px;
     cursor: pointer;
 }
 .lend-autoword div:hover {
-    background-color: #f0f0f0;
-    border-radius: 25px;
+    background-color: #f2f2f2;
+    border-radius: 8px;
+    width: calc(100% - 60px);
+    padding: 10px 10px;
+    margin: 0 20px;
+    box-shadow: inset -2px 2px 2px rgba(0, 0, 0, 0.25);
 }
 
 .auto-complete-item {

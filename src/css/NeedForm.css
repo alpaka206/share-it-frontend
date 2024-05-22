@@ -1,36 +1,25 @@
-.need-form-product-img {
-    margin-bottom: 0px;
-}
-.need-form-product-img p {
+.need-form-product-img-title {
+    margin-top: 38px;
+    margin-bottom: 24px;
     text-align: left;
     font-size: 32px;
     font-weight: bold;
 }
-.need-form-trade-date,
-.need-form-product-info,
-.need-form-price,
-.need-form-product-name p {
-    margin-top: 0px;
-    text-align: left;
-    font-size: 32px;
-    font-weight: bold;
-}
-.need-form-photo-big-container {
+.need-photo-big-container {
     display: flex;
     flex-wrap: wrap;
+    height: 105px;
 }
-.need-form-photo-container {
+.need-photo-container {
     display: flex;
     align-items: center;
-    top: 24px;
     margin-bottom: 0px;
 }
-
-.need-form-upload-box {
+.need-upload-box {
     width: 96px;
     height: 96px;
-    background-color: #efefef;
-    margin-right: 10px;
+    background-color: #dddddd;
+    margin-right: 16px;
     justify-content: center;
     align-items: center;
     cursor: pointer;
@@ -39,75 +28,126 @@
     cursor: pointer;
     display: flex;
     flex-direction: column;
+    backdrop-filter: blur(100px);
+    border: 1px solid rgba(210, 210, 210, 0.8);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
 }
-
-.need-form-photo-wrapper {
-    width: 96px;
-    height: 96px;
-    margin-right: 10px;
+.need-form-photo-num {
+    margin-top: 8px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+.need-photo-wrapper {
+    width: 98px;
+    height: 98px;
+    margin-right: 16px;
     position: relative;
     margin-bottom: 0px;
 }
-
-.need-form-photo {
+.need-photo {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 24px;
+    margin-top: 4px;
 }
-
-.need-form-delete-button {
-    position: absolute;
-    top: 0;
-    right: 0;
-    background-color: transparent;
-    border: none;
-    color: white;
-    cursor: pointer;
-}
-
-.need-form-product-name,
-.need-form-price,
-.need-form-product-info,
-.need-form-trade-date {
-    width: 100%;
+.need-from-product-name-title {
     margin-top: 48px;
+    margin-bottom: 24px;
+    text-align: left;
+    font-size: 32px;
+    font-weight: bold;
 }
-
 .need-form-product-name input {
-    width: 100%;
+    width: calc(100% - 48px);
     height: 67px;
     padding: 0px 24px;
     font-size: 18px;
     border: 0px;
     border-radius: 16px;
-    background-color: #efefef;
+    background-color: #dddddd;
     outline: none;
+    backdrop-filter: blur(100px);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
 }
-
-.need-form-hashtag input {
-    width: 100%;
-    height: 67px;
-    padding: 0px 24px;
-    font-size: 18px;
-    border: 0px;
-    border-radius: 16px;
-    background-color: #efefef;
-    outline: none;
-}
-
 .need-form-product-name input::placeholder {
     color: #999999;
 }
+.need-form-hashtag {
+    position: relative;
+    text-align: left;
+}
+.need-form-product-name-hashtag-title {
+    margin-top: 48px;
+    margin-bottom: 24px;
+    text-align: left;
+    font-size: 32px;
+    font-weight: bold;
+}
+.hashtag-list {
+    display: flex;
+    white-space: nowrap;
+}
+.hashtag-item {
+    font-size: 16px;
+    font-weight: bolder;
+    border: 3px solid #000000;
+    border-radius: 48px;
+    display: flex;
+    align-items: center;
+    padding: 12px 12px;
+    margin-right: 8px;
+    margin-bottom: 16px;
+}
 
-.lend-form-hastag-info {
-    margin-left: 56px;
+.hashtag-item button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    margin-left: 8px;
+}
+.need-form-hashtag input {
+    width: calc(100% - 48px);
+    height: 67px;
+    padding: 0px 24px;
+    font-size: 18px;
+    border: 0px;
+    border-radius: 16px;
+    background-color: #dddddd;
+    outline: none;
+    backdrop-filter: blur(100px);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+}
+.need-form-hashtag input::placeholder {
+    color: #999999;
+}
+.need-autoword {
+    position: absolute;
+    top: calc(100% - 315px);
+    width: calc(100%);
+    font-size: 20px;
+}
+.need-form-hashtag-info {
+    margin-top: 34px;
+    margin-left: 5%;
     font-size: 20px;
     font-weight: normal;
 }
-
+.need-form-price {
+    position: relative;
+    text-align: left;
+}
+.need-form-price-title {
+    margin-top: 48px;
+    margin-bottom: 24px;
+    text-align: left;
+    font-size: 32px;
+    font-weight: bold;
+}
 .need-form-price-krw {
-    width: 264px;
+    width: 23%;
     height: 48px;
     border: none;
     border-bottom: 3px solid black;
@@ -118,8 +158,30 @@
     line-height: 48px;
     text-align: left;
 }
+.need-form-price-krw:focus,
+.need-form-price-day:focus {
+    outline: none;
+}
+
+.need-form-price-krw::placeholder,
+.need-form-price-day::placeholder {
+    text-align: left;
+    color: #999999;
+}
+.need-form-price-unit {
+    display: inline;
+    margin: 0;
+    font-size: 36px;
+    font-weight: bold;
+}
+.need-form-price-unit2 {
+    display: inline;
+    font-size: 24px;
+    color: #999999;
+    font-weight: bold;
+}
 .need-form-price-day {
-    width: 183px;
+    width: 15%;
     height: 42px;
     border: none;
     border-bottom: 3px solid #999999;
@@ -131,39 +193,18 @@
     text-align: left;
     padding-bottom: 0;
 }
-
-.need-form-price-krw:focus,
-.need-form-price-day:focus {
-    outline: none;
-}
-
-.need-form-price-krw::placeholder,
-.need-form-price-day::placeholder {
-    text-align: left;
-    margin: 0;
-}
-
-.need-form-price-unit {
-    display: inline;
-    margin: 0;
-    font-size: 36px;
-}
-
-.need-form-price-unit2 {
-    display: inline;
-    margin: 0;
-    font-size: 24px;
-    color: #999999;
-}
 .need-form-product-info-title {
     margin-top: 48px;
+    margin-bottom: 24px;
+    text-align: left;
+    font-size: 32px;
+    font-weight: bold;
 }
 
 .need-form-product-info textarea {
-    margin-top: 24px;
-    width: 100%;
+    width: calc(100% - 48px);
     height: 240px;
-    background-color: #efefef;
+    background-color: #dddddd;
     border: none;
     border-radius: 16px;
     padding: 24px;
@@ -171,55 +212,50 @@
     outline: none;
     resize: none;
     font-family: inherit;
+    backdrop-filter: blur(100px);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
 }
-.need-form-hasttag-list {
-    display: flex;
-    white-space: nowrap;
-    margin-bottom: 20px;
-}
-.need-form-hashtag-item {
-    font-size: 16px;
-    border: 1px solid #000000;
-    border-radius: 100px;
-    display: flex;
-    align-items: center;
-    padding: 10px 10px 10px 10px;
-    margin-right: 10px;
-}
-.need-form-hashtag-item button {
-    background: none;
-    border: none;
-    padding: 0;
-    color: red; /* X 버튼의 색상을 빨간색으로 설정 */
-    margin-left: 8px; /* X 버튼과 텍스트 사이 간격 추가 */
-}
-.need-form-hashtag {
-    position: relative;
-    text-align: left;
-    font-size: 32px;
-    font-weight: bold;
-    margin-top: 48px;
-}
-.need-form-hashtag-info {
-    margin: 24px 56px;
+.need-form-product-info textarea::placeholder {
     font-size: 20px;
-    font-weight: normal;
+    color: #999999;
+}
+textarea::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
 }
 
-.need-autoword {
-    position: absolute;
-    top: calc(100% - 350px);
+.need-form-submit-container {
+    width: 100%;
+    margin-top: 48px;
+    justify-content: space-between;
 }
-
 .need-form-submit {
     width: 160px;
-    height: 48px;
+    height: 49px;
     color: #ffffff;
     background-color: #181818;
     border-radius: 15px;
     font-size: 20px;
-    margin-top: 96px;
-    margin-left: 836px;
+    margin-left: 80%;
+    margin-top: 48px;
+    margin-bottom: 48px;
     align-self: flex-end;
     cursor: pointer;
+    backdrop-filter: blur(100px);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.need-delete-button {
+    width: 24px;
+    height: 24px;
+    background: rgba(221, 221, 221, 0.7);
+    border-radius: 100px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: -5px;
+    right: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -6,7 +6,8 @@ const RecentTrade = () => {
     const navigate = useNavigate(); // useNavigate를 사용하여 navigate 함수 생성
 
     const handleButtonClick = () => {
-        navigate('/trade'); // '/request' 경로로 이동
+        navigate('/review');
+        window.scrollTo(0, 0); // '/request' 경로로 이동
     };
 
     return (
