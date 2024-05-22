@@ -36,7 +36,7 @@ function Mainpage() {
 
   return (
     <div className="container">
-      <Topnav />
+      <Topnav isLoggedIn={true} />
       <div className="semi_container">
         <MypageUserInfo
           className="yellow_box"
