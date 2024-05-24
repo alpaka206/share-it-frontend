@@ -45,7 +45,7 @@ function Lend_form() {
         event.target.value = '';
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         if (
             productName.trim() === '' ||
             selectedPhotos.length === 0 ||
@@ -73,7 +73,28 @@ function Lend_form() {
             return;
         }
 
-        window.location.href = '/lend';
+        const payload = {
+            title: productName,
+            content: productInfo,
+            cost: parseInt(price, 10),
+            hashTag: hashtagList.join('#'),
+            perDate: parseInt(duration, 10),
+            postType: 'NEED',
+        };
+
+        console.log('Payload to be sent:', payload);
+
+        // try {
+        //     const response = await axios.post('/api/post', payload);
+        //     if (response.status === 200) {
+        //         window.location.href = '/lend';
+        //     } else {
+        //         alert('서버에 오류가 발생했습니다. 다시 시도해주세요.');
+        //     }
+        // } catch (error) {
+        //     console.error('There was an error sending the request:', error);
+        //     alert('서버에 오류가 발생했습니다. 다시 시도해주세요.');
+        // }
     };
 
     const handleEnterPress = (e) => {
