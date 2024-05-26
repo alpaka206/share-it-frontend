@@ -81,6 +81,10 @@ function Need_form() {
             addHashtagToList();
         }
     };
+    const handleDurationChange = (e) => {
+        const value = e.target.value.replace(/\D/g, '');
+        setDuration(value);
+    };
 
     const addHashtagToList = () => {
         if (productTag.trim() !== '') {
@@ -190,7 +194,7 @@ function Need_form() {
                     className="need-form-price-day"
                     type="text"
                     value={duration}
-                    onChange={(e) => setDuration(e.target.value)}
+                    onChange={handleDurationChange}
                     placeholder=" 단위 날짜 입력"
                 />
                 <div className="need-form-price-unit2">일</div>
