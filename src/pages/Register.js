@@ -13,13 +13,13 @@ const Register = () => {
     email: null,
     emailpw: null,
     nickname: null,
+  });
+  const [buttonCheck, setButtonCheck] = useState({
     idCheck: false,
     pwsame: false,
     emailCheck: false,
     emailpwCheck: false,
     nicknameCheck: false,
-  });
-  const [buttonCheck, setButtonCheck] = useState({
     Idbtn: false,
     PWbtn: false,
     Emailbtn: false,
@@ -43,20 +43,28 @@ const Register = () => {
     }
     if (ref === thirdDivRef) {
       if (!/^[a-z0-9]{8,15}$/.test(userState.id)) return;
+
       try {
         const response = await axios.get(
           `https://jsonplaceholder.typicode.com/users?username=${userState.id}`
         );
         if (response.data === false) {
+          setButtonCheck((prevState) => ({
+            ...prevState,
+            idCheck: false,
+            Idbtn: true,
+          }));
           return;
         } else {
-          setUserState((prevState) => ({
+          setButtonCheck((prevState) => ({
             ...prevState,
             idCheck: true,
+            Idbtn: true,
           }));
         }
       } catch (error) {
         console.error("Error checking username:", error);
+
         return;
       }
     }
@@ -69,27 +77,46 @@ const Register = () => {
         !/[a-z]/.test(userState.passwd) ||
         !/[!@#$%^&*(),.?":{}|<>]/.test(userState.passwd) ||
         userState.passwd !== userState.passwdCheck
-      )
+      ) {
+        setButtonCheck((prevState) => ({
+          ...prevState,
+          pwsame: false,
+          PWbtn: true,
+        }));
         return;
-      else {
-        setUserState((prevState) => ({
+      } else {
+        setButtonCheck((prevState) => ({
           ...prevState,
           pwsame: true,
+          PWbtn: true,
         }));
       }
     }
     if (ref === fifthDivRef) {
-      if (!/\S+@\S+\.\S+/.test(userState.email)) return;
+      if (!/\S+@\S+\.\S+/.test(userState.email)) {
+        setButtonCheck((prevState) => ({
+          ...prevState,
+          emailCheck: false,
+          Emailbtn: true,
+        }));
+        return;
+      }
       try {
         const response = await axios.get(
           `https://jsonplaceholder.typicode.com/users?email=${userState.email}`
         );
         if (response.data === false) {
+          setButtonCheck((prevState) => ({
+            ...prevState,
+            emailCheck: false,
+            Emailbtn: true,
+          }));
           return;
         } else {
-          setUserState((prevState) => ({
+          setButtonCheck((prevState) => ({
             ...prevState,
             emailCheck: true,
+            Emailbtn: true,
           }));
         }
       } catch (error) {
@@ -98,11 +125,18 @@ const Register = () => {
       }
     }
     if (ref === sixDivRef) {
-      if (userState.email !== userState.emailpw) return;
-      else {
-        setUserState((prevState) => ({
+      if (userState.email !== userState.emailpw) {
+        setButtonCheck((prevState) => ({
+          ...prevState,
+          emailpwCheck: false,
+          EmailPWbtn: true,
+        }));
+        return;
+      } else {
+        setButtonCheck((prevState) => ({
           ...prevState,
           emailpwCheck: true,
+          EmailPWbtn: true,
         }));
       }
     }
@@ -118,24 +152,19 @@ const Register = () => {
       errors.push("개인정보 수집 및 이용에 동의해야 합니다.");
     }
 
-    if (!userState.idCheck) {
+    if (!buttonCheck.idCheck) {
       errors.push("아이디를 다시 확인해주세요");
     }
-
-    if (!userState.emailCheck) {
-      errors.push("이메일을 다시 확인해주세요");
-    }
-
-    if (!userState.pwsame) {
+    if (!buttonCheck.pwsame) {
       errors.push("비밀번호를 다시 확인해주세요");
     }
 
-    if (!userState.emailCheck) {
-      errors.push("올바른 이메일 형식이 아닙니다.");
+    if (!buttonCheck.emailCheck) {
+      errors.push("이메일을 다시 확인해주세요");
     }
 
-    if (userState.emailpwCheck) {
-      errors.push("이메일이 일치하지 않습니다.");
+    if (buttonCheck.emailpwCheck) {
+      errors.push("이메일 인증 코드를 확인해 주세요");
     }
 
     if (errors.length > 0) {
@@ -144,14 +173,18 @@ const Register = () => {
     }
 
     try {
-      const response = await axios.post(
-        "https://jsonplaceholder.typicode.com/users",
-        {
-          title: "회원가입",
-          body: `아이디: ${userState.id}, 비밀번호: ${userState.passwd}, 이메일: ${userState.email}, 닉네임: ${userState.nickname}`,
-        }
-      );
-      console.log("회원가입 완료:", response.data);
+      const postData = {
+        ID: userState.id,
+        PW: userState.passwd,
+        Email: userState.email,
+        nickname: userState.nickname,
+      };
+      console.log(postData);
+      // const response = await axios.post(
+      //   "https://jsonplaceholder.typicode.com/users",
+      //   postData
+      // );
+      // console.log("회원가입 완료:", response.data);
 
       navigate("/");
       window.scrollTo(0, 0);
@@ -225,19 +258,22 @@ const Register = () => {
               className="secondDivRef-input-id"
               type="text"
               value={userState.id}
-              onChange={(e) =>
+              onChange={(e) => {
                 setUserState((prevState) => ({
                   ...prevState,
                   id: e.target.value,
+                }));
+                setButtonCheck((prev) => ({
+                  ...prev,
                   idCheck: false,
-                }))
-              }
+                }));
+              }}
               placeholder="아이디 입력..."
             />
-            {buttonCheck.Idbtn && (
+            {buttonCheck.Idbtn && buttonCheck.idCheck !== null && (
               <img
                 src={
-                  userState.idCheck
+                  buttonCheck.idCheck === true
                     ? "/assets/approved.svg"
                     : "/assets/delete_red.svg"
                 }
@@ -253,10 +289,6 @@ const Register = () => {
           <div className="third-button">
             <button
               onClick={(e) => {
-                setButtonCheck((prevState) => ({
-                  ...prevState,
-                  Idbtn: true,
-                }));
                 handleNext(e, thirdDivRef);
               }}
             >
@@ -272,13 +304,16 @@ const Register = () => {
                 className="thirdDivRef-first-input"
                 type={showPassword.first ? "text" : "password"}
                 value={userState.passwd}
-                onChange={(e) =>
+                onChange={(e) => {
                   setUserState((prevState) => ({
                     ...prevState,
                     passwd: e.target.value,
+                  }));
+                  setButtonCheck((prev) => ({
+                    ...prev,
                     pwsame: false,
-                  }))
-                }
+                  }));
+                }}
                 placeholder="비밀번호 입력..."
               />
               <img
@@ -302,7 +337,7 @@ const Register = () => {
             {buttonCheck.PWbtn && (
               <img
                 src={
-                  userState.pwsame
+                  buttonCheck.pwsame
                     ? "/assets/approved.svg"
                     : "/assets/delete_red.svg"
                 }
@@ -316,13 +351,16 @@ const Register = () => {
                 className="thirdDivRef-second-input"
                 type={showPassword.second ? "text" : "password"}
                 value={userState.passwdCheck}
-                onChange={(e) =>
+                onChange={(e) => {
                   setUserState((prevState) => ({
                     ...prevState,
                     passwdCheck: e.target.value,
+                  }));
+                  setButtonCheck((prev) => ({
+                    ...prev,
                     pwsame: false,
-                  }))
-                }
+                  }));
+                }}
                 placeholder="비밀번호 재확인"
               />
               <img
@@ -346,7 +384,7 @@ const Register = () => {
             {buttonCheck.PWbtn && (
               <img
                 src={
-                  userState.pwsame
+                  buttonCheck.pwsame
                     ? "/assets/approved.svg"
                     : "/assets/delete_red.svg"
                 }
@@ -363,10 +401,6 @@ const Register = () => {
                 className="fourth-button"
                 onClick={(e) => {
                   handleNext(e, fourthDivRef);
-                  setButtonCheck((prevState) => ({
-                    ...prevState,
-                    PWbtn: true,
-                  }));
                 }}
               >
                 다음으로
@@ -386,13 +420,16 @@ const Register = () => {
               className="fourthDivRef-input-email"
               type="email"
               value={userState.email}
-              onChange={(e) =>
+              onChange={(e) => {
                 setUserState((prevState) => ({
                   ...prevState,
                   email: e.target.value,
+                }));
+                setButtonCheck((prev) => ({
+                  ...prev,
                   emailCheck: false,
-                }))
-              }
+                }));
+              }}
               placeholder="example@catholic.ac.kr"
             />
             {buttonCheck.Emailbtn && (
@@ -414,10 +451,6 @@ const Register = () => {
               <button
                 onClick={(e) => {
                   handleNext(e, fifthDivRef);
-                  setButtonCheck((prevState) => ({
-                    ...prevState,
-                    Emailbtn: true,
-                  }));
                 }}
               >
                 인증하기
@@ -434,13 +467,16 @@ const Register = () => {
               className="fifthDivRef-input-email"
               type="email"
               value={userState.emailpw}
-              onChange={(e) =>
+              onChange={(e) => {
                 setUserState((prevState) => ({
                   ...prevState,
                   emailpw: e.target.value,
+                }));
+                setButtonCheck((prev) => ({
+                  ...prev,
                   emailpwCheck: false,
-                }))
-              }
+                }));
+              }}
               placeholder="4자리 코드 입력"
             />
             {buttonCheck.EmailPWbtn && (
@@ -466,10 +502,6 @@ const Register = () => {
                 className="fifthDivRef-secondbutton"
                 onClick={(e) => {
                   handleNext(e, sixDivRef);
-                  setButtonCheck((prevState) => ({
-                    ...prevState,
-                    EmailPWbtn: true,
-                  }));
                 }}
               >
                 다음으로
@@ -497,15 +529,13 @@ const Register = () => {
                   value !== "" &&
                   !/^[a-zA-Z0-9\u3131-\uD79D]{1,15}$/.test(value)
                 ) {
-                  setUserState((prevState) => ({
-                    ...prevState,
-                    namecheck: true,
+                  setButtonCheck((prev) => ({
+                    ...prev,
                     nicknameCheck: false,
                   }));
                 } else {
-                  setUserState((prevState) => ({
-                    ...prevState,
-                    namecheck: true,
+                  setButtonCheck((prev) => ({
+                    ...prev,
                     nicknameCheck: true,
                   }));
                 }
@@ -513,15 +543,10 @@ const Register = () => {
               placeholder="username"
             />
             <div className="sixDivRef-secondtext">님</div>
-            {userState.namecheck && (
-              <img
-                src={
-                  userState.nicknameCheck
-                    ? "/assets/approved.svg"
-                    : "/assets/delete_red.svg"
-                }
-                alt="reset"
-              />
+            {userState.nicknameCheck ? (
+              <img src="/assets/approved.svg" alt="approved" />
+            ) : (
+              <img src="/assets/delete_red.svg" alt="delete" />
             )}
           </div>
           {userState.namecheck &&
