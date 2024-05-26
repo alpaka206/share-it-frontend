@@ -103,6 +103,11 @@ function Lend_form() {
         }
     };
 
+    const handleDurationChange = (e) => {
+        const value = e.target.value.replace(/\D/g, '');
+        setDuration(value);
+    };
+
     const addHashtagToList = () => {
         if (productTag.trim() !== '') {
             const isValidHashtag = /^[A-Za-z0-9ㄱ-ㅎㅏ-ㅣ가-힣_]*$/.test(productTag.trim());
@@ -208,7 +213,7 @@ function Lend_form() {
                     className="lend-form-price-day"
                     type="text"
                     value={duration}
-                    onChange={(e) => setDuration(e.target.value)}
+                    onChange={handleDurationChange}
                     placeholder=" 단위 날짜 입력"
                 />
                 <div className="lend-form-price-unit2">일</div>
