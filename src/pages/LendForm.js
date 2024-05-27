@@ -4,6 +4,7 @@ import Topnav from '../components/Topnav';
 import '../css/LendForm.css';
 import Footer from '../components/Footer';
 import Autoword from '../components/Autoword';
+import { useNavigate } from 'react-router-dom';
 
 function formatNumber(num) {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -73,29 +74,30 @@ function Lend_form() {
             return;
         }
 
-        const payload = {
-            title: productName,
-            content: productInfo,
-            cost: parseInt(price, 10),
-            hashTag: hashtagList.join('#'),
-            perDate: parseInt(duration, 10),
-            postType: 'NEED',
-        };
+        try {
+            const LendFormData = {
+                title: productName,
+                content: productInfo,
+                cost: parseInt(price, 10),
+                hashTag: hashtagList.map((tag) => `#${tag}`).join(' '),
+                perDate: parseInt(duration, 10),
+                postType: 'NEED',
+            };
+            console.log(LendFormData);
+            // const response = await axios.post(
+            //   "/api/post",
+            //   LendFormData
+            // );
+            // console.log("Success:", response.data);
 
-        console.log('Payload to be sent:', payload);
-
-        // try {
-        //     const response = await axios.post('/api/post', payload);
-        //     if (response.status === 200) {
-        //         window.location.href = '/lend';
-        //     } else {
-        //         alert('서버에 오류가 발생했습니다. 다시 시도해주세요.');
-        //     }
-        // } catch (error) {
-        //     console.error('There was an error sending the request:', error);
-        //     alert('서버에 오류가 발생했습니다. 다시 시도해주세요.');
-        // }
+            navigate('/lend');
+            window.scrollTo(0, 0);
+        } catch (error) {
+            console.error('Error:', error);
+        }
     };
+
+    const navigate = useNavigate();
 
     const handleEnterPress = (e) => {
         if (e.key === 'Enter') {
@@ -129,6 +131,7 @@ function Lend_form() {
     const handleHashtagDelete = (tag) => {
         setHashtagList(hashtagList.filter((item) => item !== tag));
     };
+
     return (
         <div className="container">
             <Topnav />
