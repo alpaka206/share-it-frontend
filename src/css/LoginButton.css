@@ -3,3 +3,6 @@
   top: 48px;
   z-index: 1;
 }
+.Topnav-login-img {
+  min-width: 15px;
+}

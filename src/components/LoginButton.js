@@ -36,6 +36,7 @@ function LoginButton({ targetUrl }) {
         <img
           src={process.env.PUBLIC_URL + `assets/mypage.svg`}
           alt="ButtonImage"
+          className={`Topnav-login-img`}
         />
 
         <div>로그인</div>
