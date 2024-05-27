@@ -66,11 +66,13 @@ function Topnav() {
               Button_Image={`assets/chat.svg`}
               targetUrl="/chat"
               onClick={() => handleButtonClick("/chat")}
+              minWidth="16px"
             />
             {isLoggedIn ? (
               <PublicButton
                 Button_Text="로그아웃"
                 Button_Image={`assets/mypage.svg`}
+                minWidth="15px"
               />
             ) : (
               <>
@@ -86,30 +88,35 @@ function Topnav() {
           Button_Image={`/assets/home.svg`}
           targetUrl="/"
           onClick={() => handleButtonClick("/")}
+          minWidth="13px"
         />
 
         <PublicButton
           Button_Text="빌릴물건"
-          Button_Image={`assets/Search.svg`}
+          Button_Image={`assets/search.svg`}
           targetUrl="/lend"
           onClick={() => handleButtonClick("/lend")}
+          minWidth="14px"
         />
         <PublicButton
           Button_Text="필요물건"
-          Button_Image={`assets/Search.svg`}
+          Button_Image={`assets/search.svg`}
           targetUrl="/need"
           onClick={() => handleButtonClick("/need")}
+          minWidth="14px"
         />
         <PublicButton
           Button_Text="빌리기"
           Button_Image={`assets/lend.svg`}
           targetUrl="/lend_form"
           onClick={() => handleButtonClick("/lend_form")}
+          minWidth="21px"
         />
         <PublicButton
           Button_Text="필요해요"
           Button_Image={`assets/need.svg`}
           targetUrl="/need_form"
+          minWidth="17px"
           onClick={() => handleButtonClick("/need_form")}
         />
       </div>

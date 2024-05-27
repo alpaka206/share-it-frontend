@@ -1,9 +1,7 @@
-/* ChatLeftPanel.css */
 .left-panel {
   width: 35%;
   height: 100%;
   float: left;
-  /* background-color: #bcbcbc; */
   background-color: rgba(188, 188, 188, 0.8);
   border-radius: 32px 0px 0px 32px;
 }
