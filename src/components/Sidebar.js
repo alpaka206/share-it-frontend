@@ -19,6 +19,9 @@ function Sidebar({ isOpen, onClose }) {
         navigate(menuLink);
     };
 
+    const scrollToTop = () => {
+        window.scrollTo(0, 0);
+    };
     return (
         <div className={`sidebar ${isOpen ? 'open' : ''}`}>
             <div className="sidebar-header">
@@ -33,14 +36,20 @@ function Sidebar({ isOpen, onClose }) {
                     Menu_Link="/"
                     Menu_Image={`assets/home.svg`}
                     isActive={activeMenuLink === '/'}
-                    onClick={() => handleMenuClick('/')}
+                    onClick={() => {
+                        handleMenuClick('/');
+                        scrollToTop();
+                    }}
                 />
                 <PublicSideMenu
                     Menu_Text="채팅"
                     Menu_Link="/chat"
                     Menu_Image={`assets/chat.svg`}
                     isActive={activeMenuLink === '/chat'}
-                    onClick={() => handleMenuClick('/chat')}
+                    onClick={() => {
+                        handleMenuClick('/chat');
+                        scrollToTop();
+                    }}
                 />
             </div>
             <div className="space"></div>
@@ -50,28 +59,40 @@ function Sidebar({ isOpen, onClose }) {
                     Menu_Link="/lend"
                     Menu_Image={`assets/lend.svg`}
                     isActive={activeMenuLink === '/lend'}
-                    onClick={() => handleMenuClick('/lend')}
+                    onClick={() => {
+                        handleMenuClick('/lend');
+                        scrollToTop();
+                    }}
                 />
                 <PublicSideMenu
                     Menu_Text="필요물건"
                     Menu_Link="/need"
                     Menu_Image={`assets/need.svg`}
                     isActive={activeMenuLink === '/need'}
-                    onClick={() => handleMenuClick('/need')}
+                    onClick={() => {
+                        handleMenuClick('/need');
+                        scrollToTop();
+                    }}
                 />
                 <PublicSideMenu
                     Menu_Text="빌리기"
                     Menu_Link="/lend_form"
                     Menu_Image={`assets/lend.svg`}
                     isActive={activeMenuLink === '/lend_form'}
-                    onClick={() => handleMenuClick('/lend_form')}
+                    onClick={() => {
+                        handleMenuClick('/lend_form');
+                        scrollToTop();
+                    }}
                 />
                 <PublicSideMenu
                     Menu_Text="필요해요"
                     Menu_Link="/need_form"
                     Menu_Image={`assets/need.svg`}
                     isActive={activeMenuLink === '/need_form'}
-                    onClick={() => handleMenuClick('/need_form')}
+                    onClick={() => {
+                        handleMenuClick('/need_form');
+                        scrollToTop();
+                    }}
                 />
             </div>
             <div className="space"></div>
@@ -81,7 +102,10 @@ function Sidebar({ isOpen, onClose }) {
                     Menu_Link="/review"
                     Menu_Image={`assets/rate.svg`}
                     isActive={activeMenuLink === '/review'}
-                    onClick={() => handleMenuClick('/review')}
+                    onClick={() => {
+                        handleMenuClick('/review');
+                        scrollToTop();
+                    }}
                 />
             </div>
             <div className="logout-space"></div>
@@ -91,7 +115,10 @@ function Sidebar({ isOpen, onClose }) {
                     Menu_Link="/logout"
                     Menu_Image={`assets/logout.svg`}
                     isActive={activeMenuLink === '/logout'}
-                    onClick={() => handleMenuClick('/logout')}
+                    onClick={() => {
+                        handleMenuClick('/logout');
+                        scrollToTop();
+                    }}
                 />
             </div>
         </div>
