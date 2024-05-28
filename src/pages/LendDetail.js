@@ -1,13 +1,15 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Topnav from "../components/Topnav";
 import "../css/LendDetail.css";
 import Footer from "../components/Footer";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import LendListRow from "../components/LendListRow";
 import UserInfoPreview from "../components/UserInfoPreview";
 import axios from "axios";
 
 function LendDetail() {
+  const location = useLocation();
+  const keyword = new URLSearchParams(location.search).get("q");
   const [photos, setPhotos] = useState([
     "/assets/monitor.svg",
     "https://via.placeholder.com/360",
@@ -21,6 +23,54 @@ function LendDetail() {
   const navigate = useNavigate();
   const [heartCount, setHeartCount] = useState(15);
   const [isLiked, setIsLiked] = useState(false);
+  const [lendDatailData, setLendDatailData] = useState({
+    id: null,
+    title: null,
+    content: null,
+    hashTag: null,
+    cost: null,
+    perDate: null,
+    imageKeys: [],
+    editor: null,
+  });
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const token = localStorage.getItem("token");
+  //       const response = await axios.get(
+  //         `https://catholic-mibal.site/api/post/${keyword}`,
+  //         {
+  //           headers: {
+  //             Authorization: token,
+  //           },
+  //         }
+  //       );
+  //       if (
+  //         response.data.code === "SEC-001" ||
+  //         response.data.code === "SEC-002"
+  //       ) {
+  //         localStorage.removeItem("token");
+  //       } else if (response.status === 200) {
+  //         setLendDatailData((prev) => ({
+  //           ...prev,
+  //           id: response.data.data.id,
+  //           title: response.data.data.title,
+  //           content: response.data.data.content,
+  //           hashTag: response.data.data.hashTag,
+  //           cost: response.data.data.cost,
+  //           perDate: response.data.data.perDate,
+  //           imageKeys: response.data.data.imageKeys,
+  //           editor: response.data.data.editor,
+  //         }));
+  //       }
+  //     } catch (error) {
+  //       console.error("Error fetching data:", error);
+  //       // Handle errors if needed
+  //     }
+  //   };
+
+  //   fetchData(); // Call the async function immediately
+  // }, []);
 
   const handleChatButtonClick = () => {
     // const response = axios.post(
