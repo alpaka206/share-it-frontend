@@ -13,6 +13,7 @@ import Lendform from './pages/LendForm';
 import Needform from './pages/NeedForm';
 import Chat from './pages/Chat';
 import LendDetail from './pages/LendDetail';
+import NeedDetail from './pages/NeedDetail';
 import Review from './pages/Review';
 import LoginPage from './pages/LoginPage';
 
@@ -54,6 +55,16 @@ const App = () => {
                         }
                     />
                     <Route
+                        path="/lend_detail"
+                        element={
+                            <TransitionGroup>
+                                <CSSTransition key="lend_detail" classNames="page" timeout={500}>
+                                    <LendDetail />
+                                </CSSTransition>
+                            </TransitionGroup>
+                        }
+                    />
+                    <Route
                         path="/need"
                         element={
                             <TransitionGroup>
@@ -69,6 +80,16 @@ const App = () => {
                             <TransitionGroup>
                                 <CSSTransition key="need_form" classNames="page" timeout={500}>
                                     <Needform />
+                                </CSSTransition>
+                            </TransitionGroup>
+                        }
+                    />
+                    <Route
+                        path="/need_detail"
+                        element={
+                            <TransitionGroup>
+                                <CSSTransition key="need_detail" classNames="page" timeout={500}>
+                                    <NeedDetail />
                                 </CSSTransition>
                             </TransitionGroup>
                         }
@@ -103,16 +124,7 @@ const App = () => {
                             </TransitionGroup>
                         }
                     />
-                    <Route
-                        path="/lend_detail"
-                        element={
-                            <TransitionGroup>
-                                <CSSTransition key="lend_detail" classNames="page" timeout={500}>
-                                    <LendDetail />
-                                </CSSTransition>
-                            </TransitionGroup>
-                        }
-                    />
+
                     <Route
                         path="/review"
                         element={

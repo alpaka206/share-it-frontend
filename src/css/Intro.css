@@ -1,0 +1,52 @@
+.Intro {
+    background-color: #f4f4f4;
+    width: calc(32% - 13px);
+    height: 335px;
+    border-radius: 25px;
+}
+.Intro-title {
+    font-size: 32px;
+    font-weight: 700;
+    text-align: right;
+    color: #808080;
+    margin: 48px 30px 0px 0px;
+    height: 25px;
+}
+.Intro-subtitle {
+    font-size: 56px;
+    font-weight: 900;
+    text-align: right;
+    margin: 11px 30px 0px 0px;
+    height: 51px;
+}
+.Intro-description {
+    font-size: 24px;
+    font-weight: 700;
+    text-align: right;
+    color: #808080;
+    margin: 15px 30px 0px 0px;
+}
+
+.Intro-quotation-1 {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: left;
+    color: #555555;
+    margin: 29px 0px 0px 33px;
+    height: 15px;
+}
+
+.Intro-long-description {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    color: #555555;
+}
+.Intro-quotation-2 {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: right;
+    color: #555555;
+    margin: 0px 32px 23px 0px;
+    height: 15px;
+}
