@@ -75,43 +75,6 @@ const ChatLeftPanel = ({ chatHistory, setChatHistory }) => {
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
   };
-  // const chatData = [
-  //   {
-  //     id: 1,
-  //     isactive: true,
-  //     username: "winterizcoming",
-  //     time: "6분전",
-  //     message: "거래 장소는 어디서할까요?",
-  //   },
-  //   {
-  //     id: 2,
-  //     isactive: false,
-  //     username: "devkeon123",
-  //     time: "12분전",
-  //     message: "제가 빌릴수 있을까요?",
-  //   },
-  //   {
-  //     id: 3,
-  //     isactive: false,
-  //     username: "smdmim",
-  //     time: "20분전",
-  //     message: "감사합니다",
-  //   },
-  //   {
-  //     id: 4,
-  //     isactive: false,
-  //     username: "alpaka206",
-  //     time: "40분전",
-  //     message: "어디신가요?",
-  //   },
-  //   {
-  //     id: 5,
-  //     isactive: false,
-  //     username: "xininny",
-  //     time: "1시간전",
-  //     message: "넵 알겠습니다",
-  //   },
-  // ];
 
   const [activeId, setActiveId] = useState(1);
 
@@ -132,9 +95,105 @@ const ChatLeftPanel = ({ chatHistory, setChatHistory }) => {
       ...prev,
       // hasNext: response.data.data.hasNext,
       // cursor: response.data.data.cursor,
-      // messages: [...prev.messages, ...response.data.data.messages],
-      presentId: id,
+      // messages: [...response.data.data.messages],
+      // roomId: response.data.data.messages[0].roomId,
       userId: title,
+
+      messages: [
+        {
+          roomId: 1,
+          sender: "winterizcoming",
+          message: "안녕하세요. 혹시 빌릴수 있을까요?",
+          sendTime: "2024-05-07T00:58:23.36076",
+          discriminateType: "MESSAGE",
+        },
+        {
+          roomId: 1,
+          sender: "alpaka206",
+          message: "네 가능해요. 언제부터 언제까지 사용하시나요?",
+          sendTime: "2024-05-07T01:00:23.36076",
+          discriminateType: "MESSAGE",
+        },
+        {
+          roomId: 1,
+          sender: "winterizcoming",
+          message: "5월 22일부터 5월 23일까지 빌릴수 있을까요?",
+          sendTime: "2024-05-07T01:05:23.36076",
+          discriminateType: "MESSAGE",
+        },
+        {
+          roomId: 1,
+          sender: "alpaka206",
+          message: "네 가능할거같아요",
+          sendTime: "2024-05-07T01:10:23.36076",
+          discriminateType: "MESSAGE",
+        },
+        {
+          roomId: 1,
+          sender: "winterizcoming",
+          message: "혹시 물건에 문제같은건 따로 없을까요?",
+          sendTime: "2024-05-07T01:15:23.36076",
+          discriminateType: "MESSAGE",
+        },
+        {
+          roomId: 1,
+          sender: "alpaka206",
+          message: "생활 기스정도만 있고 기능적으로 문제는 없어요",
+          sendTime: "2024-05-07T01:20:23.36076",
+          discriminateType: "MESSAGE",
+        },
+        {
+          roomId: 1,
+          sender: "winterizcoming",
+          message: "아 감사합니다. 가격은 혹시 얼마일까요?",
+          sendTime: "2024-05-07T01:25:23.36076",
+          discriminateType: "MESSAGE",
+        },
+        {
+          roomId: 1,
+          sender: "alpaka206",
+          message: "2일이면 10000원이십니다.",
+          sendTime: "2024-05-07T01:30:23.36076",
+          discriminateType: "MESSAGE",
+        },
+        {
+          roomId: 1,
+          sender: "winterizcoming",
+          message: "혹시 네고 가능할까요?",
+          sendTime: "2024-05-07T01:35:23.36076",
+          discriminateType: "MESSAGE",
+        },
+        {
+          roomId: 1,
+          sender: "alpaka206",
+          message: "아니요 네고는 힘들것 같습니다",
+          sendTime: "2024-05-07T01:40:23.36076",
+          discriminateType: "MESSAGE",
+        },
+        {
+          roomId: 1,
+          sender: "winterizcoming",
+          message: "넵 알겠습니다",
+          sendTime: "2024-05-07T01:45:23.36076",
+          discriminateType: "MESSAGE",
+        },
+        {
+          roomId: 1,
+          sender: "alpaka206",
+          message: "거래 장소는 어디서할까요?",
+          sendTime: "2024-05-07T01:50:23.36076",
+          discriminateType: "MESSAGE",
+        },
+        {
+          roomId: 1,
+          sender: "alpaka206",
+          discriminateType: "PURCHASE",
+          purchaseId: 1,
+          startDate: "2024-05-07T00:58:23.36076",
+          endDate: "2024-05-07T00:58:23.36076",
+          sendTime: "2024-05-07T00:58:23.36076",
+        },
+      ],
     }));
     // }
   };

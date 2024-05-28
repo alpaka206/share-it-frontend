@@ -1,7 +1,7 @@
 import React, { Fragment, useRef, useState } from "react";
 import "../css/ChatRoominfo.css";
 
-const ChatRoominfo = () => {
+const ChatRoominfo = ({ stompClient, chatHistory, setChatHistory }) => {
   const [makeDeal, setMakeDeal] = useState(false);
   const [rentalDate, setRentalDate] = useState({
     year: "",
@@ -72,9 +72,40 @@ const ChatRoominfo = () => {
       returnDate.minute
     );
 
-    if (returnD <= rental) {
-      alert("반납일은 대여일보다 뒤여야 합니다. 다시 설정해주세요.");
+    if (
+      isNaN(rental.getTime()) ||
+      isNaN(returnD.getTime()) ||
+      returnD <= rental
+    ) {
+      alert("대여 및 반납 일자를 올바르게 설정해주세요.");
       return;
+    }
+    if (stompClient && stompClient.connected) {
+      const messageData = {
+        roomId: chatHistory.roomId,
+        senderId: chatHistory.userId,
+        purchaseId: 1,
+        startDate: rental,
+        endDate: returnD,
+        sendTime: new Date().toISOString(),
+      };
+
+      stompClient.publish({
+        destination: `/pub/chat/purchase`,
+        body: JSON.stringify(messageData),
+      });
+
+      stompClient.subscribe(
+        `/pub/chat/purchase${chatHistory.roomId}`,
+        (message) => {
+          const response = JSON.parse(message.body);
+          // 응답을 받아와서 chatHistory의 messages에 추가
+          setChatHistory((prev) => ({
+            ...prev,
+            messages: [...prev.messages, response],
+          }));
+        }
+      );
     }
   };
 

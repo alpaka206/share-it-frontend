@@ -34,27 +34,30 @@ const ChatingRoom = ({ chatHistory, setChatHistory }) => {
   return (
     <div className="ChatingRoom">
       <div className="ChatContainer">
-        {chatHistory.messages.map((chat, index) =>
-          chat.sender === chatHistory.userId ? (
-            chat.discriminateType === "MESSAGE" ? (
-              <GuestChat key={index} GuestText={chat.message} />
+        {chatHistory.messages
+          .slice()
+          .reverse()
+          .map((chat, index) =>
+            chat.sender === chatHistory.userId ? (
+              chat.discriminateType === "MESSAGE" ? (
+                <GuestChat key={index} GuestText={chat.message} />
+              ) : (
+                <GuestDeal
+                  key={index}
+                  startDate={chat.startDate}
+                  endDate={chat.endDate}
+                />
+              )
+            ) : chat.discriminateType === "MESSAGE" ? (
+              <MyChat key={index} myText={chat.message} />
             ) : (
-              <GuestDeal
+              <MyDeal
                 key={index}
                 startDate={chat.startDate}
                 endDate={chat.endDate}
               />
             )
-          ) : chat.discriminateType === "MESSAGE" ? (
-            <MyChat key={index} myText={chat.message} />
-          ) : (
-            <MyDeal
-              key={index}
-              startDate={chat.startDate}
-              endDate={chat.endDate}
-            />
-          )
-        )}
+          )}
       </div>
     </div>
   );
