@@ -163,7 +163,7 @@ const Register = () => {
       errors.push("이메일을 다시 확인해주세요");
     }
 
-    if (buttonCheck.emailpwCheck) {
+    if (!buttonCheck.emailpwCheck) {
       errors.push("이메일 인증 코드를 확인해 주세요");
     }
 
@@ -435,7 +435,7 @@ const Register = () => {
             {buttonCheck.Emailbtn && (
               <img
                 src={
-                  userState.emailCheck
+                  buttonCheck.emailCheck
                     ? "/assets/approved.svg"
                     : "/assets/delete_red.svg"
                 }
@@ -482,7 +482,7 @@ const Register = () => {
             {buttonCheck.EmailPWbtn && (
               <img
                 src={
-                  userState.emailpwCheck
+                  buttonCheck.emailpwCheck
                     ? "/assets/approved.svg"
                     : "/assets/delete_red.svg"
                 }
@@ -544,9 +544,9 @@ const Register = () => {
             />
             <div className="sixDivRef-secondtext">님</div>
             {userState.nicknameCheck ? (
-              <img src="/assets/approved.svg" alt="approved" />
-            ) : (
               <img src="/assets/delete_red.svg" alt="delete" />
+            ) : (
+              <img src="/assets/approved.svg" alt="approved" />
             )}
           </div>
           {userState.namecheck &&

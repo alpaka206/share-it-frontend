@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../css/ChatListElement.css";
 
-const ChatListElement = ({ isactive, username, time, message, onClick }) => {
+const ChatListElement = ({ isactive, title, onClick }) => {
   return (
     <button
       className={`ChatListElement ${isactive ? "active" : ""}`}
@@ -16,10 +16,10 @@ const ChatListElement = ({ isactive, username, time, message, onClick }) => {
       </div>
       <div className="ChatListElement-info">
         <div className="ChatListElement-top">
-          {username}&nbsp;&nbsp;
-          <div className="ChatListElement-time">•&nbsp;&nbsp;{time}</div>
+          {title}&nbsp;&nbsp;
+          {/* <div className="ChatListElement-time">•&nbsp;&nbsp;{time}</div> */}
         </div>
-        <div className="ChatListElement-message">{message}</div>
+        {/* <div className="ChatListElement-message">{message}</div> */}
       </div>
     </button>
   );
