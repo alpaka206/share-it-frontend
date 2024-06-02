@@ -1,4 +1,12 @@
 import { atom } from "recoil";
+
+export const userState = atom({
+  key: "userState",
+  default: {
+    token: null,
+  },
+});
+
 export const LendDataState = atom({
   key: "LendDataState", // Recoil 상태의 고유한 키입니다.
   default: [
