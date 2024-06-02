@@ -16,6 +16,7 @@ import LendDetail from "./pages/LendDetail";
 import NeedDetail from "./pages/NeedDetail";
 import Review from "./pages/Review";
 import LoginPage from "./pages/LoginPage";
+import Redirection from "./pages/RedirectionPage";
 
 import "./css/Appcss.css";
 
@@ -153,6 +154,16 @@ const App = () => {
               <TransitionGroup>
                 <CSSTransition key="loginPage" classNames="page" timeout={500}>
                   <LoginPage />
+                </CSSTransition>
+              </TransitionGroup>
+            }
+          />
+          <Route
+            path="/redirection"
+            element={
+              <TransitionGroup>
+                <CSSTransition key="loginPage" classNames="page" timeout={500}>
+                  <Redirection />
                 </CSSTransition>
               </TransitionGroup>
             }
