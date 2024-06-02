@@ -79,21 +79,41 @@ function Lend_form() {
                 title: productName,
                 content: productInfo,
                 cost: parseInt(price, 10),
-                hashTag: hashtagList.map((tag) => `#${tag}`).join(' '),
+                hashTag: hashtagList.map((tag) => `#${tag}`).join(''),
                 perDate: parseInt(duration, 10),
-                postType: 'NEED',
+                postType: 'LENT',
             };
             console.log(LendFormData);
-            // const response = await axios.post(
-            //   "/api/post",
-            //   LendFormData
-            // );
-            // console.log("Success:", response.data);
+            const response = await axios.post('https://catholic-mibal.site/api/post', LendFormData);
+            console.log('Success:', response.data);
+
+            const postId = response.data.data.postId;
+
+            await uploadImages(postId);
 
             navigate('/lend');
             window.scrollTo(0, 0);
         } catch (error) {
             console.error('Error:', error);
+        }
+    };
+
+    const uploadImages = async (postId) => {
+        const formData = new FormData();
+        formData.append('postId', postId);
+        selectedPhotos.forEach((photo) => {
+            formData.append('files', photo);
+        });
+
+        try {
+            const response = await axios.post('https://catholic-mibal.site/api/image', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
+            console.log('Image Upload Success:', response.data);
+        } catch (error) {
+            console.error('Image Upload Error:', error);
         }
     };
 

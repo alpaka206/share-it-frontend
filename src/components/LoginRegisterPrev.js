@@ -8,8 +8,7 @@ function LoginRegisterPrev() {
     const [isLogin, setIsLogin] = useState(false);
     const navigate = useNavigate();
 
-    const kakaoURL = `https://kauth.kakao.com/oauth/authorize?client_id=${kakaoConfig.Rest_api_key}&redirect_uri=${kakaoConfig.redirect_uri}&response_type=code`;
-
+    const kakaoURL = `https://catholic-mibal.site/oauth2/authorization/kakao`;
     const handleLogin = () => {
         window.location.href = kakaoURL;
     };
