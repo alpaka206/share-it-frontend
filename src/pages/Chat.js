@@ -4,8 +4,12 @@ import ChatLeftPanel from "../components/ChatLeftPanel";
 import ChatRightPanel from "../components/ChatRightPanel";
 import "../css/Chat.css";
 import ChatEmpty from "../components/ChatEmpty";
+import { useRecoilState } from "recoil";
+import { chatingList } from "../Atoms";
 
 const Chat = () => {
+  const [chatMain, setChatMain] = useRecoilState(chatingList);
+
   const [chatHistory, setChatHistory] = useState({
     hasNext: null,
     cursor: "",
@@ -115,7 +119,7 @@ const Chat = () => {
           chatHistory={chatHistory}
           setChatHistory={setChatHistory}
         />
-        {chatHistory.messages.length < 1 ? (
+        {chatMain.messages.length < 1 ? (
           <ChatEmpty />
         ) : (
           <ChatRightPanel

@@ -142,7 +142,7 @@ const SocialRegister = () => {
     try {
       console.log("nickname : ", userRegisterState.nickname);
       const response = await axios.post(
-        "https://jsonplaceholder.typicode.com/users",
+        "https://catholic-mibal.site/auth/register",
         { nick_name: userRegisterState.nickname },
         {
           headers: {
