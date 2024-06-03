@@ -18,7 +18,9 @@ function Redirection() {
         // 역할 확인
         if (decoded.role === "ROLE_SOCIAL") {
           console.log("회원가입 유저");
+          console.log("decoded: ", decoded);
           setUserToken((prevUser) => ({ ...prevUser, token: token }));
+          // console.log("token:", userToken.token);
           // alert("회원가입은 불가능합니다.");
           navigate("/social-register");
         } else if (decoded.role === "ROLE_USER") {
