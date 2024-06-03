@@ -532,10 +532,12 @@ const Register = () => {
                   setButtonCheck((prev) => ({
                     ...prev,
                     nicknameCheck: false,
+                    namecheck: true,
                   }));
                 } else {
                   setButtonCheck((prev) => ({
                     ...prev,
+                    namecheck: true,
                     nicknameCheck: true,
                   }));
                 }
@@ -543,14 +545,15 @@ const Register = () => {
               placeholder="username"
             />
             <div className="sixDivRef-secondtext">님</div>
-            {userState.nicknameCheck ? (
-              <img src="/assets/delete_red.svg" alt="delete" />
-            ) : (
-              <img src="/assets/approved.svg" alt="approved" />
-            )}
+            {buttonCheck.namecheck &&
+              (buttonCheck.nicknameCheck ? (
+                <img src="/assets/approved.svg" alt="approved" />
+              ) : (
+                <img src="/assets/delete_red.svg" alt="delete" />
+              ))}
           </div>
-          {userState.namecheck &&
-            (userState.nicknameCheck ? (
+          {buttonCheck.namecheck &&
+            (buttonCheck.nicknameCheck ? (
               <></>
             ) : (
               <div className="sixDivRef-alert">
