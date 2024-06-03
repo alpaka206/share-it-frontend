@@ -3,8 +3,12 @@ import React, { useEffect, useState } from "react";
 import "../css/ChatLeftPanel.css";
 import ChatListElement from "./ChatListElement";
 import axios from "axios";
+import { useRecoilState } from "recoil";
+import { chatingList } from "../Atoms";
 
 const ChatLeftPanel = ({ chatHistory, setChatHistory }) => {
+  const [chatItem, setChatItem] = useRecoilState(chatingList);
+
   const [chatList, setChatList] = useState([
     {
       id: 1,
@@ -76,7 +80,7 @@ const ChatLeftPanel = ({ chatHistory, setChatHistory }) => {
     setSearchTerm(e.target.value);
   };
 
-  const [activeId, setActiveId] = useState(1);
+  const [activeId, setActiveId] = useState(null);
 
   const handleSetActive = (id, title) => {
     setActiveId(id);
@@ -91,7 +95,7 @@ const ChatLeftPanel = ({ chatHistory, setChatHistory }) => {
     // if (response.data.code === "SEC-001" || response.data.code === "SEC-002") {
     //   localStorage.removeItem("token");
     // } else if (response.status === 200) {
-    setChatHistory((prev) => ({
+    setChatItem((prev) => ({
       ...prev,
       // hasNext: response.data.data.hasNext,
       // cursor: response.data.data.cursor,
@@ -184,17 +188,18 @@ const ChatLeftPanel = ({ chatHistory, setChatHistory }) => {
           sendTime: "2024-05-07T01:50:23.36076",
           discriminateType: "MESSAGE",
         },
-        {
-          roomId: 1,
-          sender: "alpaka206",
-          discriminateType: "PURCHASE",
-          purchaseId: 1,
-          startDate: "2024-05-07T00:58:23.36076",
-          endDate: "2024-05-07T00:58:23.36076",
-          sendTime: "2024-05-07T00:58:23.36076",
-        },
+        // {
+        //   roomId: 1,
+        //   sender: "alpaka206",
+        //   discriminateType: "PURCHASE",
+        //   purchaseId: 1,
+        //   startDate: "2024-05-07T00:58:23.36076",
+        //   endDate: "2024-05-07T00:58:23.36076",
+        //   sendTime: "2024-05-07T00:58:23.36076",
+        // },
       ],
     }));
+    console.log(chatItem.messages);
     // }
   };
 

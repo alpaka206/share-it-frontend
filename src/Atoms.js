@@ -1,5 +1,16 @@
 import { atom } from "recoil";
 
+export const chatingList = atom({
+  key: "chatingList",
+  default: {
+    hasNext: null,
+    cursor: "",
+    userId: null,
+    roomId: null,
+    messages: [],
+  },
+});
+
 export const userState = atom({
   key: "userState",
   default: {
