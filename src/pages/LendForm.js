@@ -84,7 +84,7 @@ function Lend_form() {
                 postType: 'LENT',
             };
             console.log(LendFormData);
-            const response = await axios.post('https://catholic-mibal.site/api/post', LendFormData);
+            const response = await axios.post('http://localhost:8080/api/post', LendFormData);
             console.log('Success:', response.data);
 
             const postId = response.data.data.postId;
@@ -106,7 +106,7 @@ function Lend_form() {
         });
 
         try {
-            const response = await axios.post('https://catholic-mibal.site/api/image', formData, {
+            const response = await axios.post('http://localhost:8080/api/image', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
