@@ -84,13 +84,26 @@ function Lend_form() {
                 postType: 'LENT',
             };
             console.log(LendFormData);
-            const response = await axios.post('http://localhost:8080/api/post', LendFormData);
+            const token = localStorage.getItem('token') || '';
+            const response = await axios.post('http://localhost:8080/api/post', LendFormData, {
+                headers: {
+                    Authorization: token,
+                },
+            });
             console.log('Success:', response.data);
 
             const postId = response.data.data.postId;
-
+            //   const imageresponse = await axios.post(
+            //     "https://catholic-mibal.site/api/image",
+            //     postId,
+            //     {
+            //       headers: {
+            //         Authorization: token,
+            //       },
+            //     }
+            //   );
             await uploadImages(postId);
-
+            console.log('post 완료');
             navigate('/lend');
             window.scrollTo(0, 0);
         } catch (error) {
@@ -106,9 +119,10 @@ function Lend_form() {
         });
 
         try {
+            const token = localStorage.getItem('token') || '';
             const response = await axios.post('http://localhost:8080/api/image', formData, {
                 headers: {
-                    'Content-Type': 'multipart/form-data',
+                    Authorization: token,
                 },
             });
             console.log('Image Upload Success:', response.data);

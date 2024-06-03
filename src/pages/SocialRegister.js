@@ -2,10 +2,14 @@ import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../css/SocialRegister.css';
+import { useRecoilState } from 'recoil';
+import { userState } from '../Atoms';
 
 const SocialRegister = () => {
     const navigate = useNavigate();
-    const [userState, setUserState] = useState({
+    const [registerToken, setRegisterToken] = useRecoilState(userState);
+
+    const [userRegisterState, setRegisterUserState] = useState({
         agreeCheck: false,
         email: null,
         emailpw: null,
@@ -20,17 +24,18 @@ const SocialRegister = () => {
     });
 
     const secondDivRef = useRef(null);
+    const thirdDivRef = useRef(null);
     const fourthDivRef = useRef(null);
     const fifthDivRef = useRef(null);
     const sixDivRef = useRef(null);
 
     const handleNext = async (e, ref) => {
         e.preventDefault();
-        if (ref === secondDivRef) {
-            if (!userState.agreeCheck) return;
+        if (ref === fourthDivRef) {
+            if (!userRegisterState.agreeCheck) return;
         }
         if (ref === fifthDivRef) {
-            if (!/\S+@\S+\.\S+/.test(userState.email)) {
+            if (!/\S+@\S+\.\S+/.test(userRegisterState.email)) {
                 setButtonCheck((prevState) => ({
                     ...prevState,
                     emailCheck: false,
@@ -39,18 +44,28 @@ const SocialRegister = () => {
                 return;
             }
             try {
-                const response = await axios.post(`https://catholic-mibal.site/auth/mail`, {
-                    email: useState.email,
-                });
+                console.log('token:', registerToken.token);
+                console.log('token:', registerToken.token);
+                const response = await axios.post(
+                    `https://catholic-mibal.site/auth/mail`,
+                    {
+                        email: userRegisterState.email,
+                    },
+                    {
+                        headers: {
+                            Authorization: registerToken.token,
+                        },
+                    }
+                );
                 console.log('email : ', response);
-                console.log('user email : ', useState.email);
-                if (response.data === false) {
+                console.log('user email : ', userRegisterState.email);
+                if (response.data.status !== 200) {
                     setButtonCheck((prevState) => ({
                         ...prevState,
                         emailCheck: false,
                         Emailbtn: true,
                     }));
-                    console.log('fail user email : ', useState.email);
+                    console.log('fail user email : ', userRegisterState.email);
 
                     return;
                 } else {
@@ -59,7 +74,7 @@ const SocialRegister = () => {
                         emailCheck: true,
                         Emailbtn: true,
                     }));
-                    console.log('succes user email : ', useState.email);
+                    console.log('succes user email : ', userRegisterState.email);
                 }
             } catch (error) {
                 console.error('Error checking email:', error);
@@ -68,10 +83,19 @@ const SocialRegister = () => {
         }
         if (ref === sixDivRef) {
             try {
-                const response = await axios.post(`https://catholic-mibal.site/auth/email-code`, {
-                    code: useState.emailpw,
-                });
-                if (response.data === false) {
+                console.log('token:', registerToken.token);
+                const response = await axios.post(
+                    `https://catholic-mibal.site/auth/email-code`,
+                    {
+                        code: userRegisterState.emailpw,
+                    },
+                    {
+                        headers: {
+                            Authorization: registerToken.token,
+                        },
+                    }
+                );
+                if (response.data.status !== 200) {
                     setButtonCheck((prevState) => ({
                         ...prevState,
                         emailpwCheck: false,
@@ -98,7 +122,7 @@ const SocialRegister = () => {
 
     const handleRegisterButtonClicked = async () => {
         const errors = [];
-        if (!userState.agreeCheck) {
+        if (!userRegisterState.agreeCheck) {
             errors.push('개인정보 수집 및 이용에 동의해야 합니다.');
         }
 
@@ -116,19 +140,28 @@ const SocialRegister = () => {
         }
 
         try {
-            const postData = {
-                Email: userState.email,
-                nickname: userState.nickname,
-            };
-            console.log(postData);
-            // const response = await axios.post(
-            //   "https://jsonplaceholder.typicode.com/users",
-            //   postData
-            // );
-            // console.log("회원가입 완료:", response.data);
+            console.log('nickname : ', userRegisterState.nickname);
+            const response = await axios.post(
+                'https://catholic-mibal.site/auth/register',
+                { nick_name: userRegisterState.nickname },
+                {
+                    headers: {
+                        Authorization: registerToken.token,
+                    },
+                }
+            );
+            console.log('response : ', response);
 
-            navigate('/');
-            window.scrollTo(0, 0);
+            console.log('회원가입 완료:', response.data);
+
+            if (response.data.status === 200) {
+                const token = response.data.data.update_token;
+                localStorage.setItem('token', token);
+
+                alert('가입이 완료되었습니다.');
+                navigate('/');
+                window.scrollTo(0, 0);
+            }
         } catch (error) {
             console.error('Error registering:', error);
         }
@@ -154,14 +187,17 @@ const SocialRegister = () => {
                         <div
                             className="checkbox-container"
                             onClick={() =>
-                                setUserState((prevState) => ({
+                                setRegisterUserState((prevState) => ({
                                     ...prevState,
                                     agreeCheck: !prevState.agreeCheck,
                                 }))
                             }
                         >
-                            <button id="agree" className={`checkbox-check ${userState.agreeCheck ? 'checked' : ''}`}>
-                                {userState.agreeCheck && (
+                            <button
+                                id="agree"
+                                className={`checkbox-check ${userRegisterState.agreeCheck ? 'checked' : ''}`}
+                            >
+                                {userRegisterState.agreeCheck && (
                                     <img src="/assets/register_check.svg" alt="Checked" className="checkmark" />
                                 )}
                             </button>
@@ -184,9 +220,9 @@ const SocialRegister = () => {
                         <input
                             className="fourthDivRef-input-email"
                             type="email"
-                            value={userState.email}
+                            value={userRegisterState.email}
                             onChange={(e) => {
-                                setUserState((prevState) => ({
+                                setRegisterUserState((prevState) => ({
                                     ...prevState,
                                     email: e.target.value,
                                 }));
@@ -223,9 +259,9 @@ const SocialRegister = () => {
                         <input
                             className="fifthDivRef-input-email"
                             type="email"
-                            value={userState.emailpw}
+                            value={userRegisterState.emailpw}
                             onChange={(e) => {
-                                setUserState((prevState) => ({
+                                setRegisterUserState((prevState) => ({
                                     ...prevState,
                                     emailpw: e.target.value,
                                 }));
@@ -234,7 +270,7 @@ const SocialRegister = () => {
                                     emailpwCheck: false,
                                 }));
                             }}
-                            placeholder="4자리 코드 입력"
+                            placeholder="6자리 코드 입력"
                         />
                         {buttonCheck.EmailPWbtn && (
                             <img
@@ -266,9 +302,9 @@ const SocialRegister = () => {
                         <input
                             className="sixDivRef-input-nick"
                             type="text"
-                            value={userState.nickname}
+                            value={userRegisterState.nickname}
                             onChange={(e) =>
-                                setUserState((prevState) => ({
+                                setRegisterUserState((prevState) => ({
                                     ...prevState,
                                     nickname: e.target.value,
                                 }))
@@ -280,10 +316,12 @@ const SocialRegister = () => {
                                     setButtonCheck((prev) => ({
                                         ...prev,
                                         nicknameCheck: false,
+                                        namecheck: true,
                                     }));
                                 } else {
                                     setButtonCheck((prev) => ({
                                         ...prev,
+                                        namecheck: true,
                                         nicknameCheck: true,
                                     }));
                                 }
@@ -291,14 +329,15 @@ const SocialRegister = () => {
                             placeholder="username"
                         />
                         <div className="sixDivRef-secondtext">님</div>
-                        {userState.nicknameCheck ? (
-                            <img src="/assets/delete_red.svg" alt="delete" />
-                        ) : (
-                            <img src="/assets/approved.svg" alt="approved" />
-                        )}
+                        {buttonCheck.namecheck &&
+                            (buttonCheck.nicknameCheck ? (
+                                <img src="/assets/approved.svg" alt="approved" />
+                            ) : (
+                                <img src="/assets/delete_red.svg" alt="delete" />
+                            ))}
                     </div>
-                    {userState.namecheck &&
-                        (userState.nicknameCheck ? (
+                    {buttonCheck.namecheck &&
+                        (buttonCheck.nicknameCheck ? (
                             <></>
                         ) : (
                             <div className="sixDivRef-alert">
