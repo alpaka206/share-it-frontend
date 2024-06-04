@@ -47,6 +47,7 @@ const NeedDetail = () => {
 
     const handleChatClick = () => {
         navigate('/chat');
+        window.scrollTo(0, 0);
     };
 
     const handleHeartClick = () => {
