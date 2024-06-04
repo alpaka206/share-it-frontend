@@ -1,9 +1,45 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Topnav from "../components/Topnav";
 import Footer from "../components/Footer";
 import ReviewList from "../components/ReviewList";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Review() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    console.log("dddd");
+    const checkLoginStatus = async () => {
+      try {
+        const token = localStorage.getItem("token") || "";
+        const response = await axios.get(
+          "https://catholic-mibal.site/token/check",
+          {
+            headers: {
+              Authorization: token,
+            },
+          }
+        );
+        if (
+          response.data.code[0] === "SEC-001" ||
+          response.data.code[0] === "SEC-002"
+        ) {
+          alert("다시 로그인해주세요!");
+
+          localStorage.removeItem("token");
+          navigate("/");
+        } else {
+        }
+      } catch (error) {
+        console.error(error);
+        // setIsLoggedIn(false);
+      }
+    };
+
+    checkLoginStatus();
+  }, []);
+
   const review = [
     {
       status: 0,

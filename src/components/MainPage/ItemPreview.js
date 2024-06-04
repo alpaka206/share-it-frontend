@@ -6,7 +6,7 @@ const redHeart = process.env.PUBLIC_URL + "/assets/heart.svg";
 
 const ProductCard = ({ productData }) => {
   const [heartClicked, setHeartClicked] = useState(false);
-  const [heartCount, setHeartCount] = useState(productData.heartCount);
+  const [heartCount, setHeartCount] = useState(productData.likeCount);
 
   const calculateTimeDiff = (startTime, endTime) => {
     const diffMs = endTime - startTime;
@@ -27,32 +27,29 @@ const ProductCard = ({ productData }) => {
   };
 
   const handleHeartClick = () => {
-    if (heartClicked) {
-      setHeartCount(heartCount - 1);
-    } else {
-      setHeartCount(heartCount + 1);
-    }
     setHeartClicked(!heartClicked);
+    setHeartCount((prevCount) =>
+      heartClicked ? prevCount - 1 : prevCount + 1
+    );
   };
 
   return (
     <div className="product-box">
       <div className="image-container">
-        <img
-          src={process.env.PUBLIC_URL + productData.image}
-          alt="상품 이미지"
-        />
+        {productData.postImageUrls.map((imageUrl, index) => (
+          <img key={index} src={imageUrl} alt={`상품 이미지 ${index + 1}`} />
+        ))}
       </div>
       <div className="product-details">
-        <div className="productcard-name">{productData.name}</div>
+        <div className="productcard-name">{productData.title}</div>
         <div className="productcard-time">
-          {calculateTimeDiff(productData.createdAt, new Date())}
+          {calculateTimeDiff(new Date(productData.updatedAt), new Date())}
         </div>
         <div className="product-info">
           <div>
-            <span className="productcard-price">{`${productData.price.toLocaleString()}원 `}</span>
+            <span className="productcard-price">{`${productData.cost.toLocaleString()}원 `}</span>
             <span className="productcard-rental-days">
-              {formatRentalDays(productData.rentalDays)}
+              {formatRentalDays(productData.perDate)}
             </span>
           </div>
           <div className="heart-container">

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import base64 from "base-64";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
@@ -7,39 +7,48 @@ import { userState } from "../Atoms";
 function Redirection() {
   const navigate = useNavigate();
   const [userToken, setUserToken] = useRecoilState(userState);
+  const tokenRef = useRef(null);
 
   useEffect(() => {
-    // 쿠키에서 토큰 가져오기
-    const token = new URL(window.location.href).searchParams.get("token");
+    // Extract token from URL once
+    if (!tokenRef.current) {
+      const token = new URL(window.location.href).searchParams.get("token");
+      tokenRef.current = token;
+      console.log("Extracted token from URL:", token);
+    }
 
-    if (token) {
-      const decoded = decodeJWT(token);
-      if (decoded) {
-        // 역할 확인
-        if (decoded.role === "ROLE_SOCIAL") {
-          console.log("회원가입 유저");
-          console.log("decoded: ", decoded);
-          setUserToken((prevUser) => ({ ...prevUser, token: token }));
-          // console.log("token:", userToken.token);
-          // alert("회원가입은 불가능합니다.");
-          navigate("/social-register");
-        } else if (decoded.role === "ROLE_USER") {
-          console.log("로그인 유저");
-          localStorage.setItem("token", token);
-          navigate("/");
+    const processToken = async () => {
+      const token = tokenRef.current;
+
+      if (token) {
+        const decoded = decodeJWT(token);
+        console.log("Decoded token:", decoded);
+
+        if (decoded) {
+          if (decoded.role === "ROLE_SOCIAL") {
+            console.log("회원가입 유저");
+            setUserToken((prevUser) => ({ ...prevUser, token: token }));
+            navigate("/social-register");
+          } else if (decoded.role === "ROLE_USER") {
+            console.log("로그인 유저");
+            localStorage.setItem("token", token);
+            navigate("/");
+          } else {
+            console.error("Unknown role:", decoded.role);
+            navigate("/");
+          }
         } else {
-          console.error("Unknown role:", decoded.role);
+          console.error("Invalid token");
           navigate("/");
         }
       } else {
-        console.error("Invalid token");
+        console.error("Token not found in URL");
         navigate("/");
       }
-    } else {
-      console.error("Token not found in cookies");
-      navigate("/");
-    }
-  }, []);
+    };
+
+    processToken();
+  }, [navigate, setUserToken]);
 
   const decodeJWT = (token) => {
     try {
