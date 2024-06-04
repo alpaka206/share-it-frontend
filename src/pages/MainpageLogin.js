@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/MainpageLogin.css";
 import Topnav from "../components/Topnav";
@@ -14,6 +14,7 @@ import Recentdate from "../components/MainPage/Recentdate";
 import { useRecoilValue } from "recoil";
 import { NeedDataState } from "../Atoms";
 import ListPreview from "../components/ListPreview";
+import axios from "axios";
 
 function Mainpage() {
   const navigate = useNavigate();
@@ -21,6 +22,31 @@ function Mainpage() {
   const [isHovered, setIsHovered] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  const [homeData, setHomeData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`http://localhost:8080/api/posts`, {
+          params: {
+            limit: 3,
+            postType: "LENT",
+            cursor: null,
+            keyword: null,
+          },
+        });
+        console.log(response);
+        if (response.status === 200) {
+          setHomeData(response.data.data.postInfos);
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        // Handle errors if needed
+      }
+    };
+    fetchData();
+    // Call the async function immediately
+  }, []);
   const handleMoreClick = () => {
     navigate("/lend");
     window.scrollTo(0, 0);
@@ -53,7 +79,7 @@ function Mainpage() {
       </div>
       <div>
         <div className="text-wrapper">주변엔 이런 물건을 빌릴 수 있어요</div>
-        <ItemRow />
+        <ItemRow lendData={homeData} />
         <div className="lend-more">
           <button
             className="main-more-button"

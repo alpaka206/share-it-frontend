@@ -4,31 +4,46 @@ import ProductCard from "./MainPage/ItemPreview";
 import "../css/LendListRow.css";
 import { LendDataState } from "../Atoms.js";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const ITEMS_PER_PAGE = 3; // 한 번에 보여질 항목 수
 
-const LendListRow = ({ lendData, setLendData }) => {
+const LendListRow = ({ lendData, setLendData, cursor, keyword }) => {
   const navigate = useNavigate();
   const [page, setPage] = useState(1);
-  const [testData, setTestData] = useRecoilState(LendDataState); // Recoil 상태 가져오기
+  const [end, setEnd] = useState(true);
 
-  const displayedProducts = testData.slice(0, ITEMS_PER_PAGE * page);
-  // const displayedProducts = lendData.postInfos.slice(0, ITEMS_PER_PAGE * page);
+  const displayedProducts = lendData.slice(0, ITEMS_PER_PAGE * page);
 
-  // const fetchData = async () => {
-  //   try {
-  //     const response = await fetch("https://example.com/data");
-  //     const newData = await response.json();
-  //     setTestData([...testData, ...newData]); // 외부 데이터를 현재 상태에 추가
-  //   } catch (error) {
-  //     console.error("Error fetching data:", error);
-  //   }
-  // };
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(`http://localhost:8080/api/posts`, {
+        params: {
+          limit: 3,
+          postType: "LENT",
+          cursor: cursor,
+          keyword: keyword,
+        },
+      });
+      if (response.status === 200) {
+        // const newData = response.data.data.postInfos;
+        // const combinedData = [...lendData, ...newData]; // 새로운 데이터를 뒤에 추가
+        // const uniqueData = combinedData.filter((item, index, array) => {
+        //   return array.findIndex((elem) => elem.id === item.id) === index;
+        // });
+        // setLendData(uniqueData);
+        setLendData((prev) => [...prev, ...response.data.data.postInfos]);
+        setEnd(response.data.data.hasNext);
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
 
   const loadMore = () => {
     const nextPage = page + 1;
     setPage(nextPage);
-    // fetchData(); // 더보기를 클릭했을 때 데이터를 가져옴
+    fetchData();
   };
   const handleClickProductCard = async (id) => {
     navigate(`/lend_detail?q=${encodeURIComponent(id)}`);
@@ -47,7 +62,7 @@ const LendListRow = ({ lendData, setLendData }) => {
         ))}
       </div>
       {/* {lendData.hasNext && ( */}
-      {displayedProducts.length < testData.length && (
+      {end && (
         <button className="load-more-button" onClick={loadMore}>
           상품 더보기{" "}
           <img

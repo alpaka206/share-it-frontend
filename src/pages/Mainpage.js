@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import MainpageLogin from "./MainpageLogin";
 import MainpageUnLogin from "./MainpageUnLogin";
 import axios from "axios";
+
 function Mainpage() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   useEffect(() => {
