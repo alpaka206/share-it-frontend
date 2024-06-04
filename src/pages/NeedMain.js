@@ -15,7 +15,7 @@ function NeedMain() {
                 <div className="needmain-title">
                     {keyword ? decodeURIComponent(keyword) : '이런 물건들이 필요해요!'}
                 </div>
-                <NeedListRow />
+                <NeedListRow keyword={keyword} />
             </div>
         </div>
     );

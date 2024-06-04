@@ -3,15 +3,15 @@ import { useRecoilState } from 'recoil';
 import ListPreview from './ListPreview.js';
 import '../css/NeedListRow.css';
 import { NeedDataState } from '../Atoms.js';
-import { useNavigate } from 'react-router-dom'; // Step 1
+import { useNavigate } from 'react-router-dom';
 
 const ITEMS_PER_PAGE = 3;
 
-const NeedListRow = () => {
+const NeedListRow = ({ keyword }) => {
     const [page, setPage] = useState(1);
     const [testData, setTestData] = useRecoilState(NeedDataState);
     const [hasNext, setHasNext] = useState(false);
-    const navigate = useNavigate(); // Step 2
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetchData();
@@ -41,26 +41,30 @@ const NeedListRow = () => {
             setTestData([...testData, ...newData.data.postInfos]);
             setHasNext(newData.data.hasNext);
             setPage(page + 1);
+            console.log(newData);
         } catch (error) {
             console.error('Error fetching more data:', error);
         }
     };
 
-    // Step 3: Function to handle click event and navigate
     const handleClickProductCard = async (id) => {
         navigate(`/need_detail?q=${encodeURIComponent(id)}`);
     };
 
+    // Filter testData based on keyword if keyword is not null
+    const filteredData = keyword
+        ? testData.filter((product) => product.hashTag && product.hashTag.includes(keyword))
+        : testData;
+
     return (
         <div>
             <div className="list-row-container">
-                {testData.map((product, index) => (
+                {filteredData.map((product, index) => (
                     <div
                         className="list-preivew-wrapper"
                         key={index}
                         onClick={() => handleClickProductCard(product.id)}
                     >
-                        {' '}
                         <ListPreview productData={product} />
                     </div>
                 ))}
