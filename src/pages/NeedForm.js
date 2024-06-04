@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Topnav from '../components/Topnav';
 import '../css/NeedForm.css';
 import Footer from '../components/Footer';
 import Autoword from '../components/Autoword';
+import { useNavigate } from 'react-router-dom';
 
 function formatNumber(num) {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -13,6 +14,8 @@ function isValidNumber(num) {
     return /^\d+$/.test(num);
 }
 function Need_form() {
+    const navigate = useNavigate();
+
     const [selectedPhotos, setSelectedPhotos] = useState([]);
     const [numPhotos, setNumPhotos] = useState(0);
     const [productName, setProductName] = useState('');
@@ -21,6 +24,29 @@ function Need_form() {
     const [duration, setDuration] = useState('');
     const [productInfo, setProductInfo] = useState('');
     const [hashtagList, setHashtagList] = useState([]);
+
+    useEffect(() => {
+        const checkLoginStatus = async () => {
+            try {
+                const token = localStorage.getItem('token') || '';
+                const response = await axios.get('https://catholic-mibal.site/token/check', {
+                    headers: {
+                        Authorization: token,
+                    },
+                });
+                console.log('need form useEffect');
+                if (response.data.code[0] === 'SEC-001' || response.data.code[0] === 'SEC-002') {
+                    alert('다시 로그인해주세요!');
+                    localStorage.removeItem('token');
+                    navigate('/');
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        checkLoginStatus();
+    }, [navigate]);
 
     const handleProductInfoChange = (e) => {
         setProductInfo(e.target.value);
@@ -45,7 +71,7 @@ function Need_form() {
         event.target.value = '';
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         if (
             productName.trim() === '' ||
             selectedPhotos.length === 0 ||
@@ -73,7 +99,47 @@ function Need_form() {
             return;
         }
 
-        window.location.href = '/lend';
+        try {
+            const NeedFormData = {
+                title: productName,
+                content: productInfo,
+                cost: parseInt(price, 10),
+                hashTag: hashtagList.map((tag) => `#${tag}`).join(''),
+                perDate: parseInt(duration, 10),
+                postType: 'NEED',
+            };
+            console.log(NeedFormData);
+            const response = await axios.post('http://localhost:8080/api/post', NeedFormData);
+            console.log('Success:', response.data);
+
+            const postId = response.data.data.postId;
+            await uploadImages(postId);
+            console.log('post 완료');
+            navigate('/need');
+            window.scrollTo(0, 0);
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
+
+    const uploadImages = async (postId) => {
+        const formData = new FormData();
+        formData.append('postId', postId);
+        selectedPhotos.forEach((photo) => {
+            formData.append('files', photo);
+        });
+
+        try {
+            const token = localStorage.getItem('token') || '';
+            const response = await axios.post('http://localhost:8080/api/image', formData, {
+                headers: {
+                    Authorization: token,
+                },
+            });
+            console.log('Image Upload Success:', response.data);
+        } catch (error) {
+            console.error('Image Upload Error:', error);
+        }
     };
 
     const handleEnterPress = (e) => {
@@ -81,6 +147,7 @@ function Need_form() {
             addHashtagToList();
         }
     };
+
     const handleDurationChange = (e) => {
         const value = e.target.value.replace(/\D/g, '');
         setDuration(value);
@@ -107,6 +174,7 @@ function Need_form() {
     const handleHashtagDelete = (tag) => {
         setHashtagList(hashtagList.filter((item) => item !== tag));
     };
+
     return (
         <div className="container">
             <Topnav />
@@ -146,7 +214,7 @@ function Need_form() {
                     type="text"
                     value={productName}
                     onChange={(e) => setProductName(e.target.value)}
-                    placeholder="제품 이름 및 제목을 입력하세요."
+                    placeholder="제품 이름을제품 이름 및 제목을 입력하세요."
                 />
             </div>
             <div className="need-form-hashtag">
@@ -170,11 +238,11 @@ function Need_form() {
                 />
                 <Autoword keyword={productTag} onSearch={setProductTag} className="lend-autoword" />
                 <div className="lend-form-hashtag-info">
-                    ▪ 태그는 띄어쓰기로 구분되며 최대 9자까지 입력할 수 있어요.
+                    ▪ 태그는 띄어쓰기로 구분되며 최대 7자까지 입력할 수 있어요.
                     <br />
-                    ▪ 대충 번개장터에서 긁어온거임. 여기다가는 관련된 매뉴얼 적어놓으면 될듯
+                    ▪ 최대 5개 까지 등록 가능합니다.
                     <br />
-                    ▪ 사람들이 내 상품을 더 잘 찾을 수 있어요.
+                    ▪ 태그를 통해서 사람들이 내 게시물을 검색해서 들어올 수 있어요.
                     <br />▪ 상품과 관련 없는 태그를 입력할 경우, 판매에 제재를 받을 수 있어요.
                 </div>
             </div>
