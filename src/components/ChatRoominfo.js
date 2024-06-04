@@ -126,6 +126,7 @@ const ChatRoominfo = ({ stompClient, chatHistory, setChatHistory }) => {
     //   //   }
     //   // );
     // }
+    setMakeDeal(false);
   };
 
   return (

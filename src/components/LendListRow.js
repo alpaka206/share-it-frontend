@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import ProductCard from "./MainPage/ItemPreview";
 import "../css/LendListRow.css";
@@ -12,8 +12,6 @@ const LendListRow = ({ lendData, setLendData, cursor, keyword }) => {
   const navigate = useNavigate();
   const [page, setPage] = useState(1);
   const [end, setEnd] = useState(true);
-
-  const displayedProducts = lendData.slice(0, ITEMS_PER_PAGE * page);
 
   const fetchData = async () => {
     try {
@@ -51,18 +49,19 @@ const LendListRow = ({ lendData, setLendData, cursor, keyword }) => {
   return (
     <div>
       <div className="item-row-container">
-        {displayedProducts.map((product, index) => (
-          <div
-            className="product-card-wrapper LendList-product-card"
-            key={index}
-            onClick={() => handleClickProductCard(product.id)}
-          >
-            <ProductCard productData={product} />
-          </div>
-        ))}
+        {lendData &&
+          lendData.slice(0, ITEMS_PER_PAGE * page).map((product, index) => (
+            <div
+              className="product-card-wrapper LendList-product-card"
+              key={index}
+              onClick={() => handleClickProductCard(product.id)}
+            >
+              <ProductCard productData={product} />
+            </div>
+          ))}
       </div>
       {/* {lendData.hasNext && ( */}
-      {end && (
+      {lendData && end && (
         <button className="load-more-button" onClick={loadMore}>
           상품 더보기{" "}
           <img
