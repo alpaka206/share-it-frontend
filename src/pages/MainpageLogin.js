@@ -47,6 +47,7 @@ function Mainpage() {
     fetchData();
     // Call the async function immediately
   }, []);
+
   const handleMoreClick = () => {
     navigate("/lend");
     window.scrollTo(0, 0);
