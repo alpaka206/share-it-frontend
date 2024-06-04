@@ -9,18 +9,22 @@ const ITEMS_PER_PAGE = 3;
 
 const NeedListRow = ({ keyword }) => {
     const [page, setPage] = useState(1);
-    const [testData, setTestData] = useRecoilState(NeedDataState);
+    const [testData, setTestData] = useRecoilState(NeedDataState, []);
     const [hasNext, setHasNext] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
         fetchData();
-    }, []);
+    }, [keyword]);
 
     const fetchData = async () => {
         try {
             const limit = ITEMS_PER_PAGE;
-            const response = await fetch(`http://localhost:8080/api/posts?limit=${limit}&postType=NEED`);
+            const response = await fetch(
+                `http://localhost:8080/api/posts?limit=${limit}&postType=NEED${
+                    keyword ? `&keyword=${encodeURIComponent(keyword)}` : ''
+                }`
+            );
             const data = await response.json();
             setTestData(data.data.postInfos);
             setHasNext(data.data.hasNext);
@@ -35,7 +39,9 @@ const NeedListRow = ({ keyword }) => {
         const cursor = testData[testData.length - 1].updatedAt;
         try {
             const response = await fetch(
-                `http://localhost:8080/api/posts?limit=${limit}&postType=NEED&cursor=${cursor}`
+                `http://localhost:8080/api/posts?limit=${limit}&postType=NEED&cursor=${cursor}${
+                    keyword ? `&keyword=${encodeURIComponent(keyword)}` : ''
+                }`
             );
             const newData = await response.json();
             setTestData([...testData, ...newData.data.postInfos]);
@@ -51,15 +57,12 @@ const NeedListRow = ({ keyword }) => {
         navigate(`/need_detail?q=${encodeURIComponent(id)}`);
     };
 
-    // Filter testData based on keyword if keyword is not null
-    const filteredData = keyword
-        ? testData.filter((product) => product.hashTag && product.hashTag.includes(keyword))
-        : testData;
+    const displayedData = testData || [];
 
     return (
         <div>
             <div className="list-row-container">
-                {filteredData.map((product, index) => (
+                {displayedData.map((product, index) => (
                     <div
                         className="list-preivew-wrapper"
                         key={index}
