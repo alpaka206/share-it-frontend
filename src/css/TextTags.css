@@ -1,29 +1,32 @@
 .TextTags {
-  background-color: #f0f424;
-  width: calc(32% - 50px);
-  height: 335px;
-  border-radius: 25px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* 수직 중앙 정렬 */
-  align-items: center; /* 수평 가운데 정렬 */
-  position: relative;
-  padding: 0px;
+    background-color: #f0f424;
+    width: calc(32% - 50px);
+    height: 335px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 수직 중앙 정렬 */
+    align-items: center; /* 수평 가운데 정렬 */
+    position: relative;
+    padding: 0px;
 }
 
 .Column {
-  display: flex; /* 내부 요소들을 세로로 배치 */
-  padding: 4px 0px;
-  align-items: center; /* 수직 가운데 정렬 */
+    display: flex; /* 내부 요소들을 세로로 배치 */
+    padding: 4px 0px;
+    align-items: center; /* 수직 가운데 정렬 */
 }
 
 .Column div {
-  border-radius: 48px;
-  border: 3px solid;
-  padding: 5px 10px;
-  border-color: black;
-  text-align: center; /* 텍스트를 수평 가운데 정렬 */
-  margin: 0px 4px 0px 4px;
-  font-size: 16px;
-  font-weight: bold;
+    border-radius: 48px;
+    border: 3px solid;
+    padding: 5px 10px;
+    border-color: black;
+    text-align: center; /* 텍스트를 수평 가운데 정렬 */
+    margin: 0px 4px 0px 4px;
+    font-size: 16px;
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap; /* 텍스트가 한 줄로 표시되게 함 */
+    text-overflow: ellipsis;
 }
