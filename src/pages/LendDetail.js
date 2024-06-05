@@ -29,7 +29,7 @@ function LendDetail() {
   const [cursor, setCursor] = useState(null);
 
   const userData = {
-    username: "winterizcoming",
+    username: "shareit",
     userschool: "Catholic University of Korea",
     star: 4.5,
   };

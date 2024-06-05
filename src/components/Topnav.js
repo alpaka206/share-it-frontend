@@ -31,6 +31,7 @@ function Topnav() {
     localStorage.removeItem("token"); // Remove token from localStorage
     setIsLoggedIn(false); // Update login state
     handleButtonClick("/"); // Navigate to home or login page
+    scrollToTop();
   };
 
   const handleButtonClick = (menuLink) => {
