@@ -3,6 +3,7 @@ import Topnav from '../components/Topnav';
 import NeedListRow from '../components/NeedListRow';
 import { useLocation } from 'react-router-dom';
 import '../css/NeedMain.css';
+import Footer from '../components/Footer';
 
 function NeedMain() {
     const location = useLocation();
@@ -17,6 +18,7 @@ function NeedMain() {
                 </div>
                 <NeedListRow keyword={keyword} />
             </div>
+            <Footer />
         </div>
     );
 }

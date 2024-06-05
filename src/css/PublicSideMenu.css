@@ -1,43 +1,44 @@
 .PublicSideMenu {
-  display: flex;
-  align-items: left;
-  margin-bottom: 10px;
-  margin: 10px;
-  height: 50px;
-  width: 95%;
-  border-radius: 16px;
+    display: flex;
+    align-items: left;
+    margin-bottom: 10px;
+    margin: 10px;
+    height: 50px;
+    width: 95%;
+    border-radius: 16px;
 }
 
 .menu-link {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: black;
-  margin: 0px 0px 0px 37px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    margin: 0px 0px 0px 37px;
 }
 
 .menu-image {
-  width: 20px;
-  height: 20px;
-  margin-left: 10px;
-  margin-right: 20px;
+    width: 24px;
+    margin-left: 10px;
+    margin-right: 40px;
 }
 
 .menu-text {
-  font-size: 16px;
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 4px;
 }
 
 .space {
-  height: 20px;
+    height: 20px;
 }
 
 .PublicSideMenu.active {
-  background-color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(100px);
-  box-shadow: inset 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(100px);
+    box-shadow: inset 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
 
 .logout-space {
-  height: 100px;
+    height: 100px;
 }

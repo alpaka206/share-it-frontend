@@ -1,55 +1,55 @@
 .RecentdateElement {
-  width: calc(100% - 32px);
-  background-color: #f4f4f4;
-  display: flex;
-  align-items: center;
-  padding: 12px 16px;
-  border-radius: 24px;
-  margin: auto;
+    width: calc(100% - 32px);
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    border-radius: 24px;
+    margin: auto;
 }
 .RecentdateElement-calendar {
-  width: 80px;
-  height: 80px;
-  background-color: transparent;
-  border-radius: 24px;
-  box-shadow: 5px 5px 10px -5px rgba(0, 0, 0, 0.7);
+    width: 80px;
+    height: 80px;
+    background-color: transparent;
+    border-radius: 16px;
+    box-shadow: 5px 5px 10px -5px rgba(0, 0, 0, 0.7);
 }
 .RecentdateElement-month {
-  background-color: #000000;
-  border-radius: 24px 24px 0 0;
-  color: #ffffff;
-  font-size: 16px;
-  font-weight: 600;
-  height: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 6px 0 2px 0;
+    background-color: #000000;
+    border-radius: 16px 16px 0 0;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 0 2px 0;
 }
 .RecentdateElement-date {
-  background-color: #dddddd;
-  border-radius: 0 0 24px 24px;
-  color: #000000;
-  font-size: 48px;
-  font-weight: 900;
-  height: 48px;
-  width: 80px;
-  padding: 8px 0px 0px 0px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    background-color: #dddddd;
+    border-radius: 0 0 16px 16px;
+    color: #000000;
+    font-size: 48px;
+    font-weight: 900;
+    height: 48px;
+    width: 80px;
+    padding: 8px 0px 0px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .RecentdateElement-info {
-  margin-left: 48px;
+    margin-left: 48px;
 }
 .RecentdateElement-dayinfo {
-  text-align: left;
-  font-size: 24px;
-  font-weight: 900;
+    text-align: left;
+    font-size: 24px;
+    font-weight: 900;
 }
 .RecentdateElement-iteminfo {
-  text-align: left;
-  font-size: 20px;
-  font-weight: bold;
-  color: #909090;
+    text-align: left;
+    font-size: 20px;
+    font-weight: bold;
+    color: #909090;
 }

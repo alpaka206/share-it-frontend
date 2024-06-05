@@ -18,6 +18,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    backdrop-filter: blur(100px);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
 }
 .user-info-username {
     font-size: 32px;

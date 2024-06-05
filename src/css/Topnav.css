@@ -1,61 +1,61 @@
 .header {
-  position: fixed;
-  top: 0;
-  left: 12%;
-  width: 76%;
-  background-color: white; /* 원하는 배경색으로 변경 가능 */
-  z-index: 1000;
-  padding-top: 50px;
-  padding-bottom: 20px;
+    position: fixed;
+    top: 0;
+    left: 12%;
+    width: 76%;
+    background-color: white; /* 원하는 배경색으로 변경 가능 */
+    z-index: 1000;
+    padding-top: 50px;
+    padding-bottom: 20px;
 }
 
 .nav_top {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .left-header {
-  margin-left: 33px;
-  display: flex;
-  justify-content: space-between;
-  align-items: left;
+    margin-left: 33px;
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
 }
 .menu-icon {
-  cursor: pointer;
-  min-width: 23px;
+    cursor: pointer;
+    min-width: 23px;
 }
 .logo-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .logo-container img {
-  min-width: 116px;
+    min-width: 116px;
 }
 
 .left-header > *:not(:last-child) {
-  margin-right: 16px;
+    margin-right: 16px;
 }
 
 .right-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-right: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 18px;
 }
 
 .right-header > *:not(:last-child) {
-  margin-right: 15px;
+    margin-right: 15px;
 }
 .nav_bottom {
-  margin-top: 25px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  margin-left: 22px;
+    margin-top: 25px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-left: 22px;
 }
 
 .nav_bottom > *:not(:last-child) {
-  margin-right: 16px;
+    margin-right: 16px;
 }
