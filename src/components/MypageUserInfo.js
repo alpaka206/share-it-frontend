@@ -26,7 +26,7 @@ const MypageUserInfo = ({
         </div>
         <div className="mainpuage-login-userinfo-right">
           <div className="mainpuage-login-usertext-top">
-            <div className="mainpuage-login-username">shareit</div>
+            <div className="mainpuage-login-username">alpaka206</div>
             <div className="mainpuage-login-userdot">•</div>
             <div className="mainpuage-login-star">
               <Rating

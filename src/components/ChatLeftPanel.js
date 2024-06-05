@@ -121,14 +121,14 @@ const ChatLeftPanel = ({ chatHistory, setChatHistory }) => {
         {
           roomId: 1,
           sender: "winterizcoming",
-          message: "5월 22일부터 5월 23일까지 빌릴수 있을까요?",
+          message: "6월 7일부터 6월 8일까지 빌릴수 있을까요?",
           sendTime: "2024-05-07T01:05:23.36076",
           discriminateType: "MESSAGE",
         },
         {
           roomId: 1,
           sender: "alpaka206",
-          message: "네 가능할거같아요",
+          message: "네 가능해요",
           sendTime: "2024-05-07T01:10:23.36076",
           discriminateType: "MESSAGE",
         },
@@ -156,22 +156,8 @@ const ChatLeftPanel = ({ chatHistory, setChatHistory }) => {
         {
           roomId: 1,
           sender: "alpaka206",
-          message: "2일이면 10000원이십니다.",
+          message: "1일에 3000원입니다.",
           sendTime: "2024-05-07T01:30:23.36076",
-          discriminateType: "MESSAGE",
-        },
-        {
-          roomId: 1,
-          sender: "winterizcoming",
-          message: "혹시 네고 가능할까요?",
-          sendTime: "2024-05-07T01:35:23.36076",
-          discriminateType: "MESSAGE",
-        },
-        {
-          roomId: 1,
-          sender: "alpaka206",
-          message: "아니요 네고는 힘들것 같습니다",
-          sendTime: "2024-05-07T01:40:23.36076",
           discriminateType: "MESSAGE",
         },
         {
@@ -186,6 +172,13 @@ const ChatLeftPanel = ({ chatHistory, setChatHistory }) => {
           sender: "alpaka206",
           message: "거래 장소는 어디서할까요?",
           sendTime: "2024-05-07T01:50:23.36076",
+          discriminateType: "MESSAGE",
+        },
+        {
+          roomId: 1,
+          sender: "winterizcoming",
+          message: "6월 7일 가톨릭대학교 정문에서 12시 괜찮으신가요?",
+          sendTime: "2024-05-07T01:45:23.36076",
           discriminateType: "MESSAGE",
         },
         // {
