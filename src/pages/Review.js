@@ -43,10 +43,18 @@ function Review() {
   const review = [
     {
       status: 0,
+      productName: "카메라",
+      price: "3,000원",
+      rentaldays: 1,
+      daysAgo: 0,
+      star: 0,
+    },
+    {
+      status: 0,
       productName: "손전등",
       price: "3,000원",
       rentaldays: 2,
-      daysAgo: 0,
+      daysAgo: 1,
       star: 0,
     },
     {
@@ -58,20 +66,20 @@ function Review() {
       star: 0,
     },
     {
+      status: 1,
+      productName: "멀티탭",
+      price: "1,000원",
+      rentaldays: 5,
+      daysAgo: 7,
+      star: 0,
+    },
+    {
       status: 2,
       productName: "가스버너",
       price: "2,000원",
       rentaldays: 1,
       daysAgo: 5,
       star: 0,
-    },
-    {
-      status: 2,
-      productName: "멀티탭",
-      price: "1,000원",
-      rentaldays: 5,
-      daysAgo: 7,
-      star: 4.5,
     },
   ];
   return (

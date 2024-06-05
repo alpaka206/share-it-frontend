@@ -54,10 +54,10 @@ const PurpleBox = () => {
             <div className="circle">{itemNumber}</div>
             <div className="purple-text">
               {index === 0
-                ? "길이 체크 a b c d e f g h i j k l m n o p q r s t u v w x y z"
+                ? "돗자리 있으신분 있나요?"
                 : index === 1
-                ? "길이 체크 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17"
-                : "아이폰 케이블 필요해요 급해요 ㅜㅜ"}
+                ? "공학용 계산기 가지고 계신분 있나요?"
+                : "충전기가 필요해요"}
             </div>
           </div>
         ))}

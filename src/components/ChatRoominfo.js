@@ -141,7 +141,7 @@ const ChatRoominfo = ({ stompClient, chatHistory, setChatHistory }) => {
           </div>
           <div className="ChatRoominfo-textinfo">
             <div className="ChatRoominfo-username">winterizcoming</div>
-            <div className="ChatRoominfo-itemname">매직 마우스</div>
+            <div className="ChatRoominfo-itemname">카메라</div>
           </div>
         </div>
         <div className="ChatRoominfo-button-Container">

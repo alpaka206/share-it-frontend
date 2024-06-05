@@ -8,9 +8,9 @@ const Recentdate = () => {
 
   // 데이터 배열
   const recentItems = [
-    { Month: "MAY", date: 4, dayinfo: "반납일", itemname: "에어팟 맥스" },
-    { Month: "MAY", date: 22, dayinfo: "대여일", itemname: "로지텍 K380" },
-    { Month: "JUNE", date: 17, dayinfo: "반납일", itemname: "로지텍 K380" },
+    { Month: "JUNE", date: 8, dayinfo: "대여일", itemname: "손전등" },
+    { Month: "JUNE", date: 10, dayinfo: "반납일", itemname: "후라이팬" },
+    { Month: "JUNE", date: 12, dayinfo: "반납일", itemname: "멀티탭" },
   ];
 
   const handleButtonClick = () => {
