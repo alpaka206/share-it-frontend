@@ -66,15 +66,15 @@ function Mainpage() {
     <div className="container">
       <Topnav isLoggedIn={true} />
       <div className="semi_container">
-        <MypageUserInfo
+        {/* <MypageUserInfo
           className="yellow_box"
           tradingItems={0}
           reviewCount={0}
           nextReservation="D-?"
           isLoggedIn={isLoggedIn}
         />
-        <Intro />
-        {/*
+        <Intro /> */}
+
         <MypageUserInfo
           className="yellow_box"
           tradingItems={2}
@@ -82,7 +82,7 @@ function Mainpage() {
           nextReservation="D-3"
           isLoggedIn={isLoggedIn}
         />
-         <Recentdate /> */}
+        <Recentdate />
       </div>
       <div className="semi_container">
         <RecentTrade className="RecentTrade" />
