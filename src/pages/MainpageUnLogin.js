@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import "./Mainpage.css";
+import "../css/Mainpage.css";
 import Topnav from "../components/Topnav";
 import YellowBox from "../components/MainPage/YellowBox";
 import GreenBox from "../components/MainPage/GreenBox";
