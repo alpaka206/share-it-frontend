@@ -9,6 +9,7 @@ import Footer from "../components/Footer";
 import ItemRow from "../components/MainPage/ItemRow";
 import Intro from "../components/MainPage/Intro";
 import axios from "axios";
+import MoreButton from "../components/MoreButton";
 
 function Mainpage() {
   const navigate = useNavigate();
@@ -68,7 +69,13 @@ function Mainpage() {
         <div className="text-wrapper">주변엔 이런 물건을 빌릴 수 있어요</div>
         <ItemRow lendData={homeData} />
         <div className="lend-more">
-          <button
+          <MoreButton
+            handleMoreClick={handleMoreClick}
+            handleMouseEnter={handleMouseEnter}
+            handleMouseLeave={handleMouseLeave}
+            isHovered={isHovered}
+          />
+          {/* <button
             className="main-more-button"
             onClick={handleMoreClick}
             onMouseEnter={handleMouseEnter}
@@ -86,7 +93,7 @@ function Mainpage() {
                 width={24}
               />
             </div>
-          </button>
+          </button> */}
         </div>
       </div>
 
