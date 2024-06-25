@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/MainpageLogin.css";
 import Topnav from "../components/Topnav";
-import YellowBox from "../components/MainPage/YellowBox";
 import DotCalendar from "../components/MainPage/DotCalendar";
-import GreenBox from "../components/MainPage/GreenBox";
 import PurpleBox from "../components/MainPage/PurpleBox";
 import Footer from "../components/Footer";
 import ItemRow from "../components/MainPage/ItemRow";
@@ -15,7 +13,6 @@ import { useRecoilValue } from "recoil";
 import { NeedDataState } from "../Atoms";
 import ListPreview from "../components/ListPreview";
 import axios from "axios";
-import Intro from "../components/MainPage/Intro";
 import MoreButton from "../components/MoreButton";
 
 function Mainpage() {
@@ -67,15 +64,6 @@ function Mainpage() {
     <div className="container">
       <Topnav isLoggedIn={true} />
       <div className="semi_container">
-        {/* <MypageUserInfo
-          className="yellow_box"
-          tradingItems={0}
-          reviewCount={0}
-          nextReservation="D-?"
-          isLoggedIn={isLoggedIn}
-        />
-        <Intro /> */}
-
         <MypageUserInfo
           className="yellow_box"
           tradingItems={2}
@@ -99,25 +87,6 @@ function Mainpage() {
             handleMouseLeave={handleMouseLeave}
             isHovered={isHovered}
           />
-          {/* <button
-            className="main-more-button"
-            onClick={handleMoreClick}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <div style={{ marginRight: "7px" }}>더보기</div>
-              <img
-                src={
-                  isHovered
-                    ? "/assets/arrow_circle_hover.svg"
-                    : "/assets/arrow_circle.svg"
-                }
-                alt="Lend More"
-                width={24}
-              />
-            </div>
-          </button> */}
         </div>
       </div>
 

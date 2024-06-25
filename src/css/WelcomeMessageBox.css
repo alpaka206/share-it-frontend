@@ -1,0 +1,14 @@
+.WelcomeMessageBox {
+    background-color: #f0f424;
+    width: calc(67% - 48px);
+    height: 270px;
+    border-radius: 25px;
+    padding: 0px;
+    margin: 0px;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: left;
+    padding: 65px 0px 0px 35px;
+    line-height: 52px;  /* 52px - 36px(높이) = 16px => 글자 높이 간격*/
+}
+

@@ -1,9 +1,9 @@
 import React from 'react';
-import '../../css/Intro.css';
+import '../../css/ShareItIntro.css';
 
-const Intro = () => {
+const ShareItIntro = () => {
     return (
-        <div className="Intro">
+        <div className="ShareItIntro">
             <div className="Intro-title">쉐어릿</div>
             <div className="Intro-subtitle">Share_it</div>
             <div className="Intro-description">교내 물품 대여 사이트</div>
@@ -18,4 +18,4 @@ const Intro = () => {
     );
 };
 
-export default Intro;
+export default ShareItIntro;
