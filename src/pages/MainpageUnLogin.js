@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "../css/Mainpage.css";
 import Topnav from "../components/Topnav";
-import YellowBox from "../components/MainPage/YellowBox";
-import GreenBox from "../components/MainPage/GreenBox";
+import WelcomeMessageBox from "../components/MainPage/WelcomeMessageBox";
+import RequestItemBox from "../components/MainPage/RequestItemBox";
 import PurpleBox from "../components/MainPage/PurpleBox";
 import Footer from "../components/Footer";
 import ItemRow from "../components/MainPage/ItemRow";
-import Intro from "../components/MainPage/Intro";
+import ShareItIntro from "../components/MainPage/ShareItIntro";
 import axios from "axios";
 import MoreButton from "../components/MoreButton";
 
@@ -57,12 +57,12 @@ function Mainpage() {
     <div className="container">
       <Topnav isLoggedIn={false} />
       <div className="semi_container">
-        <YellowBox className="yellow_box" />
-        <Intro />
+        <WelcomeMessageBox />
+        <ShareItIntro />
       </div>
       <div className="semi_container">
-        <GreenBox className="green_box" />
-        <PurpleBox className="purple_box" />
+        <RequestItemBox  />
+        <PurpleBox />
       </div>
 
       <div>
@@ -75,25 +75,6 @@ function Mainpage() {
             handleMouseLeave={handleMouseLeave}
             isHovered={isHovered}
           />
-          {/* <button
-            className="main-more-button"
-            onClick={handleMoreClick}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <div style={{ marginRight: "7px" }}>더보기</div>
-              <img
-                src={
-                  isHovered
-                    ? "/assets/arrow_circle_hover.svg"
-                    : "/assets/arrow_circle.svg"
-                }
-                alt="Lend More"
-                width={24}
-              />
-            </div>
-          </button> */}
         </div>
       </div>
 

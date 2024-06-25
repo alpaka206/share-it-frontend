@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { redirect, useNavigate } from 'react-router-dom';
 import '../css/LoginRegisterPrev.css';
 import Login from './Login';
-import { kakaoConfig } from '../data/kakaoConfig.js';
 
 function LoginRegisterPrev() {
     const [isLogin, setIsLogin] = useState(false);

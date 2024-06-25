@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../../css/GreenBox.css';
+import '../../css/RequestItemBox.css';
 
-const GreenBox = () => {
+const RequestItemBox = () => {
     const navigate = useNavigate();
     const [isHovered, setIsHovered] = useState(false);
 
@@ -43,4 +43,4 @@ const GreenBox = () => {
     );
 };
 
-export default GreenBox;
+export default RequestItemBox;
