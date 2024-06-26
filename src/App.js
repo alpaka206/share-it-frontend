@@ -19,6 +19,7 @@ import LoginPage from "./pages/LoginPage";
 import Redirection from "./pages/RedirectionPage";
 
 import "./css/Appcss.css";
+import "./axiosConfig";
 
 const App = () => {
   return (
@@ -59,11 +60,7 @@ const App = () => {
             path="/lend_detail"
             element={
               <TransitionGroup>
-                <CSSTransition
-                  key="lend_detail"
-                  classNames="page"
-                  timeout={500}
-                >
+                <CSSTransition key="lend_detail" classNames="page" timeout={500}>
                   <LendDetail />
                 </CSSTransition>
               </TransitionGroup>
@@ -93,11 +90,7 @@ const App = () => {
             path="/need_detail"
             element={
               <TransitionGroup>
-                <CSSTransition
-                  key="need_detail"
-                  classNames="page"
-                  timeout={500}
-                >
+                <CSSTransition key="need_detail" classNames="page" timeout={500}>
                   <NeedDetail />
                 </CSSTransition>
               </TransitionGroup>
@@ -117,11 +110,7 @@ const App = () => {
             path="/social-register"
             element={
               <TransitionGroup>
-                <CSSTransition
-                  key="socialRegister"
-                  classNames="page"
-                  timeout={500}
-                >
+                <CSSTransition key="socialRegister" classNames="page" timeout={500}>
                   <SocialRegister />
                 </CSSTransition>
               </TransitionGroup>

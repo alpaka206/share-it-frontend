@@ -3,34 +3,27 @@ import base64 from "base-64";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { userState } from "../Atoms";
+import DecodeJWT from "../components/DecodeJWT";
 
 function Redirection() {
   const navigate = useNavigate();
-  const [userToken, setUserToken] = useRecoilState(userState);
-  const tokenRef = useRef(null);
 
   useEffect(() => {
-    // Extract token from URL once
-    if (!tokenRef.current) {
-      const token = new URL(window.location.href).searchParams.get("token");
-      tokenRef.current = token;
-      console.log("Extracted token from URL:", token);
-    }
+    const token = new URL(window.location.href).searchParams.get("token");
 
     const processToken = async () => {
-      const token = tokenRef.current;
-
       if (token) {
-        const decoded = decodeJWT(token);
-        console.log("Decoded token:", decoded);
+        const decoded = DecodeJWT(token);
 
         if (decoded) {
           if (decoded.role === "ROLE_SOCIAL") {
             console.log("회원가입 유저");
-            setUserToken((prevUser) => ({ ...prevUser, token: token }));
+            localStorage.removeItem("token");
+            localStorage.setItem("token", token);
             navigate("/social-register");
           } else if (decoded.role === "ROLE_USER") {
             console.log("로그인 유저");
+            localStorage.removeItem("token");
             localStorage.setItem("token", token);
             navigate("/");
           } else {
@@ -48,18 +41,7 @@ function Redirection() {
     };
 
     processToken();
-  }, [navigate, setUserToken]);
-
-  const decodeJWT = (token) => {
-    try {
-      const payload = token.split(".")[1];
-      const decodedPayload = base64.decode(payload);
-      return JSON.parse(decodedPayload);
-    } catch (error) {
-      console.error("Invalid token", error);
-      return null;
-    }
-  };
+  }, [navigate]);
 
   return <div></div>;
 }
