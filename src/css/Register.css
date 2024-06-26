@@ -1,449 +1,435 @@
 .register-container {
-    width: 75%;
-    margin: 0 auto;
-    display: flex;
-    margin-bottom: 360px;
-    flex-direction: column;
+  width: 75%;
+  margin: 0 auto;
+  display: flex;
+  margin-bottom: 360px;
+  flex-direction: column;
 }
 .zeroDivRef {
-    width: 100%;
-    height: 360px;
+  width: 100%;
+  height: 360px;
 }
 
 .first-button {
-    margin-top: 37px;
-    margin-left: 5%;
-    width: 125px;
-    height: 50px;
-    background-color: #ffffff;
-    border: none;
-    border-radius: 35px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
+  margin-top: 37px;
+  margin-left: 5%;
+  width: 125px;
+  height: 50px;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 35px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-.firstDivRef {
-    width: 100%;
-    height: auto;
-    padding-top: 84px;
+.privary_policy {
+  width: 100%;
+  height: auto;
+  padding-top: 84px;
 }
 
-.firstDivRef-first-text {
-    margin-left: 5%;
-    font-size: 48px;
-    font-weight: bold;
-    text-align: left;
+.privary_policy_stepTitle {
+  margin-left: 5%;
+  font-size: 48px;
+  font-weight: bold;
+  text-align: left;
 }
 
-.firstDivRef-second-text {
-    margin-top: 36px;
-    margin-left: 5%;
-    font-size: 24px;
-    color: #606060;
+.privary_policy_stepSubtitle {
+  margin-top: 36px;
+  margin-left: 5%;
+  font-size: 24px;
+  color: #606060;
 }
 .checkbox-container-first {
-    margin-top: 8px;
-    margin-left: 5%;
-    display: flex;
-    justify-content: space-between;
+  margin-top: 8px;
+  margin-left: 5%;
+  display: flex;
+  justify-content: space-between;
 }
 .checkbox-container {
-    margin-bottom: 52px;
-    width: auto;
+  margin-bottom: 52px;
+  width: auto;
 }
-.firstDivRef-agree-text {
-    margin-left: 8px;
-    font-size: 24px;
-    color: #606060;
-    text-decoration: underline;
+.agree-text {
+  margin-left: 8px;
+  font-size: 24px;
+  color: #606060;
+  text-decoration: underline;
 }
-.second-button-container {
-    margin-right: 5%;
+.privary_policy_nextButton {
+  margin-right: 5%;
 }
 
-.second-button {
-    width: 160px;
-    height: 49px;
-    color: #ffffff;
-    background-color: #181818;
-    border-radius: 15px;
-    font-size: 20px;
-    align-self: flex-end;
-    cursor: pointer;
+.privary_policy_Button {
+  width: 160px;
+  height: 49px;
+  color: #ffffff;
+  background-color: #181818;
+  border-radius: 15px;
+  font-size: 20px;
+  align-self: flex-end;
+  cursor: pointer;
 }
 
 /*secondDivRef*/
 .secondDivRef,
 .thirdDivRef,
-.fourthDivRef,
-.fifthDivRef,
+.register_email,
+.register_email_code,
 .sixDivRef {
-    width: 100%;
-    height: auto;
-    padding-top: 64px;
-    display: flex;
-    flex-direction: column;
+  width: 100%;
+  height: auto;
+  padding-top: 64px;
+  display: flex;
+  flex-direction: column;
 }
-
 .secondDivRef-firsttext {
-    margin-left: 5%;
-    font-size: 40px;
-    font-weight: bold;
+  margin-left: 5%;
+  font-size: 40px;
+  font-weight: bold;
 }
 .secondDivRef-input {
-    margin-top: 32px;
-    display: flex;
-    align-items: center;
-    margin-bottom: 32px;
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
 }
 
 .secondDivRef-input-id {
-    margin-left: 5%;
-    margin-right: 5%;
-    width: 30%;
-    height: 56px;
-    border: 1px solid rgba(210, 210, 210, 0.8);
-    border-radius: 13px;
-    padding: 1%;
-    box-sizing: border-box;
-    font-size: 20px;
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 30%;
+  height: 56px;
+  border: 1px solid rgba(210, 210, 210, 0.8);
+  border-radius: 13px;
+  padding: 1%;
+  box-sizing: border-box;
+  font-size: 20px;
 }
 .secondDivRef-input-id::placeholder {
-    color: #888888;
+  color: #888888;
 }
 .secondDivRef-input-id:focus,
 .secondDivRef-input-id:active {
-    outline: none;
+  outline: none;
 }
 
 .secondDivRef img {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .secondDivRef-secondtext {
-    margin-left: 5%;
-    font-size: 24px;
-    color: #606060;
-    width: auto;
+  margin-left: 5%;
+  font-size: 24px;
+  color: #606060;
+  width: auto;
 }
 .third-button {
-    align-self: flex-end;
-    margin-right: 5%;
+  align-self: flex-end;
+  margin-right: 5%;
 }
 
 .secondDivRef button {
-    margin-right: 5%;
-    margin-bottom: 51.59px;
-    width: 160px;
-    height: 49px;
-    color: #ffffff;
-    background-color: #181818;
-    border-radius: 15px;
-    font-size: 20px;
-    align-self: flex-end;
-    cursor: pointer;
+  margin-right: 5%;
+  margin-bottom: 51.59px;
+  width: 160px;
+  height: 49px;
+  color: #ffffff;
+  background-color: #181818;
+  border-radius: 15px;
+  font-size: 20px;
+  align-self: flex-end;
+  cursor: pointer;
 }
 
 /*thirdDivRef*/
 .thirdDivRef-firsttext {
-    margin-left: 5%;
-    margin-bottom: 32px;
-    font-size: 40px;
-    font-weight: bold;
+  margin-left: 5%;
+  margin-bottom: 32px;
+  font-size: 40px;
+  font-weight: bold;
 }
 .thirdDivRef-input {
-    margin-top: 32px;
-    display: flex;
-    align-items: center;
-    margin-bottom: 32px;
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
 }
 .thirdDivRef-first-input-container {
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
 }
 
 .thirdDivRef-second-input-container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 .thirdDivRef-first-input-2,
 .thirdDivRef-second-input-2 {
-    margin-left: 5%;
-    margin-right: 5%;
-    width: 30%;
-    height: 56px;
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 30%;
+  height: 56px;
 }
 .thirdDivRef-first-input,
 .thirdDivRef-second-input {
-    width: 100%;
-    height: 56px;
-    border: 1px solid rgba(210, 210, 210, 0.8);
-    border-radius: 13px;
-    box-sizing: border-box;
-    padding: 4%;
-    font-size: 20px;
+  width: 100%;
+  height: 56px;
+  border: 1px solid rgba(210, 210, 210, 0.8);
+  border-radius: 13px;
+  box-sizing: border-box;
+  padding: 4%;
+  font-size: 20px;
 }
 .thirdDivRef-first-input:focus,
 .thirdDivRef-first-input:active,
 .thirdDivRef-second-input:focus,
 .thirdDivRef-second-input:active {
-    outline: none;
+  outline: none;
 }
 
 .thirdDivRef-first-input::placeholder,
 .thirdDivRef-second-input::placeholder {
-    color: #888888;
+  color: #888888;
 }
 .thirdDivRef img {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .showPasswordIcon,
 .showConfirmPasswordIcon {
-    transform: translateY(-160%);
-    margin-left: 85%;
-    cursor: pointer;
-    width: 30px;
+  transform: translateY(-160%);
+  margin-left: 85%;
+  cursor: pointer;
+  width: 30px;
 }
 .thirdDivRef-second {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 .thirdDivRef-secondtext {
-    margin-top: 32px;
-    margin-left: 5%;
-    font-size: 24px;
-    color: #606060;
-    width: auto;
+  margin-top: 32px;
+  margin-left: 5%;
+  font-size: 24px;
+  color: #606060;
+  width: auto;
 }
 .fourth-button-container {
-    align-self: flex-end;
-    margin-right: 5%;
+  align-self: flex-end;
+  margin-right: 5%;
 }
 .fourth-button {
-    width: 160px;
-    height: 49px;
-    margin-top: 12px;
-    margin-bottom: 51.59px;
-    color: #ffffff;
-    background-color: #181818;
-    border-radius: 15px;
-    font-size: 20px;
-    align-self: flex-end;
-    cursor: pointer;
+  width: 160px;
+  height: 49px;
+  margin-top: 12px;
+  margin-bottom: 51.59px;
+  color: #ffffff;
+  background-color: #181818;
+  border-radius: 15px;
+  font-size: 20px;
+  align-self: flex-end;
+  cursor: pointer;
 }
 
 /*fourthDivRef*/
-.fourthDivRef-firsttext {
-    margin-left: 5%;
-    font-size: 40px;
-    font-weight: bold;
+.register_email_stepTitle {
+  margin-left: 5%;
+  font-size: 40px;
+  font-weight: bold;
 }
-.fourthDivRef-input {
-    margin-top: 32px;
-    display: flex;
-    align-items: center;
+.register_email_inputContainer {
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
 }
-.fourthDivRef-input-email {
-    margin-left: 5%;
-    margin-right: 5%;
-    width: 30%;
-    height: 56px;
-    border: 1px solid rgba(210, 210, 210, 0.8);
-    border-radius: 13px;
-    padding: 1%;
-    box-sizing: border-box;
-    font-size: 20px;
-}
-.fourthDivRef-input-email::placeholder {
-    color: #888888;
-}
-.fourthDivRef-input-email:focus,
-.fourthDivRef-input-email:active {
-    outline: none;
+.register_email_input {
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 30%;
+  height: 56px;
+  border: 1px solid rgba(210, 210, 210, 0.8);
+  border-radius: 13px;
+  padding: 1%;
+  box-sizing: border-box;
+  font-size: 20px;
 }
 
-.fourthDivRef img {
-    cursor: pointer;
+.register_email_input:focus,
+.register_email_input:active {
+  outline: none;
 }
 
-.fourthDivRef-second {
-    display: flex;
-    justify-content: space-between;
+.register_email_nextButton {
+  display: flex;
+  justify-content: space-between;
 }
-.fourthDivRef-secondtext {
-    margin-top: 32px;
-    margin-left: 5%;
-    font-size: 24px;
-    color: #606060;
-    width: auto;
+.register_email_extra-text {
+  margin-top: 32px;
+  margin-left: 5%;
+  font-size: 24px;
+  color: #606060;
+  width: auto;
 }
-.fifth-button {
-    align-self: flex-end;
-    margin-right: 5%;
+.register_email_Button {
+  align-self: flex-end;
+  margin-right: 5%;
 }
-.fourthDivRef button {
-    width: 160px;
-    height: 49px;
-    margin-top: 12px;
-    margin-bottom: 51.59px;
-    color: #ffffff;
-    background-color: #181818;
-    border-radius: 15px;
-    font-size: 20px;
-    align-self: flex-end;
-    cursor: pointer;
+.register_email button {
+  width: 160px;
+  height: 49px;
+  margin-top: 12px;
+  margin-bottom: 51.59px;
+  color: #ffffff;
+  background-color: #181818;
+  border-radius: 15px;
+  font-size: 20px;
+  align-self: flex-end;
+  cursor: pointer;
 }
 
 /*fifthDivRef*/
-.fifthDivRef-firsttext {
-    margin-left: 5%;
-    font-size: 40px;
-    font-weight: bold;
+.register_email_code_stepTitle {
+  margin-left: 5%;
+  font-size: 40px;
+  font-weight: bold;
 }
-.fifthDivRef-input {
-    margin-top: 32px;
-    display: flex;
-    align-items: center;
-    margin-bottom: 3px;
+.register_email_code_inputContainer {
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 3px;
 }
-.fifthDivRef-input-email {
-    margin-left: 5%;
-    margin-right: 5%;
-    width: 30%;
-    height: 56px;
-    border: 1px solid rgba(210, 210, 210, 0.8);
-    border-radius: 13px;
-    padding: 1%;
-    box-sizing: border-box;
-    font-size: 20px;
+.register_email_code_input {
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 30%;
+  height: 56px;
+  border: 1px solid rgba(210, 210, 210, 0.8);
+  border-radius: 13px;
+  padding: 1%;
+  box-sizing: border-box;
+  font-size: 20px;
 }
-.fifthDivRef-input-email::placeholder {
-    color: #888888;
-}
-.fifthDivRef-input-email:focus,
-.fifthDivRef-input-email:active {
-    outline: none;
+.register_email_code_input:focus,
+.register_email_code_input:active {
+  outline: none;
 }
 
-.fifthDivRef img {
-    cursor: pointer;
+.register_email_code_emailCodeText {
+  margin-top: 36px;
+  margin-left: 5%;
+  font-size: 24px;
+  color: #606060;
+  width: auto;
 }
-
-.fifthDivRef-secondtext {
-    margin-top: 36px;
-    margin-left: 5%;
-    font-size: 24px;
-    color: #606060;
-    width: auto;
+.register_email_code_nextButton {
+  margin-left: 5%;
+  display: flex;
+  width: auto;
+  justify-content: space-between;
 }
-.fifthDivRef-second {
-    margin-left: 5%;
-    display: flex;
-    width: auto;
-    justify-content: space-between;
+.register_email_code_extra-text {
+  border: none;
+  background: none;
+  text-decoration: underline;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  color: #606060;
+  font-size: 24px;
+  padding: 0;
+  width: auto;
 }
-.fifthDivRef-thirdtext {
-    border: none;
-    background: none;
-    text-decoration: underline;
-    text-align: left;
-    cursor: pointer;
-    outline: none;
-    color: #606060;
-    font-size: 24px;
-    padding: 0;
-    width: auto;
+.register_email_code_Button {
+  align-self: flex-end;
+  margin-right: 5%;
 }
-.six-button-container {
-    align-self: flex-end;
-    margin-right: 5%;
-}
-.fifthDivRef-secondbutton {
-    margin-right: 5%;
-    margin-bottom: 51.59px;
-    width: 160px;
-    height: 49px;
-    color: #ffffff;
-    background-color: #181818;
-    border-radius: 15px;
-    font-size: 20px;
-    align-self: flex-end;
-    cursor: pointer;
+.register_email_code button {
+  margin-right: 5%;
+  margin-bottom: 51.59px;
+  width: 160px;
+  height: 49px;
+  color: #ffffff;
+  background-color: #181818;
+  border-radius: 15px;
+  font-size: 20px;
+  align-self: flex-end;
+  cursor: pointer;
 }
 
 /*sixDivRef*/
 .sixDivRef-firsttext {
-    margin-left: 5%;
-    font-size: 40px;
-    font-weight: bold;
-    margin-bottom: 16px;
+  margin-left: 5%;
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 16px;
 }
 
 .sixDivRef-secondtext {
-    font-size: 40px;
-    font-weight: bold;
-    margin-left: 25px;
-    margin-right: 25px;
-    align-self: flex-end;
+  font-size: 40px;
+  font-weight: bold;
+  margin-left: 25px;
+  margin-right: 25px;
+  align-self: flex-end;
 }
 
 .sixDivRef-thirdtext {
-    margin-left: 5%;
-    font-size: 40px;
-    font-weight: bold;
+  margin-left: 5%;
+  font-size: 40px;
+  font-weight: bold;
 }
 
 .sixDivRef-input-nick {
-    margin-left: 5%;
-    border: none;
-    border-bottom: 3px solid black;
-    background-color: transparent;
-    font-size: 40px;
-    width: 240px;
-    outline: none;
-    font-weight: bold;
+  margin-left: 5%;
+  border: none;
+  border-bottom: 3px solid black;
+  background-color: transparent;
+  font-size: 40px;
+  width: 240px;
+  outline: none;
+  font-weight: bold;
 }
 
 .sixDivRef-input-nick::placeholder {
-    color: black;
+  color: black;
 }
 
 .sixDivRef-input {
-    display: flex;
-    align-items: baseline;
-    margin-bottom: 16px;
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 16px;
 }
 .last-button-container {
-    align-self: flex-end;
-    margin-right: 5%;
+  align-self: flex-end;
+  margin-right: 5%;
 }
 .sixDivRef img {
-    cursor: pointer;
-    align-self: center;
+  cursor: pointer;
+  align-self: center;
 }
 .last-button {
-    background-color: #d2d2d2;
-    border: none;
-    border-radius: 48px;
-    width: 360px;
-    height: 72px;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
-    font-size: 32px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-bottom: 26px;
-    margin-top: 6px;
+  background-color: #d2d2d2;
+  border: none;
+  border-radius: 48px;
+  width: 360px;
+  height: 72px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  font-size: 32px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 26px;
+  margin-top: 6px;
 }
 
 .sixDivRef-second {
-    display: flex;
-    align-items: flex-start;
+  display: flex;
+  align-items: flex-start;
 }
 
 .sixDivRef-alert {
-    margin-left: 5%;
+  margin-left: 5%;
 }
